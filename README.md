@@ -7,8 +7,9 @@
 6. [Dependencies](#dependencies)
 7. [API](#api)
 8. [Flow](#flow)
+9. [Accessibility](#accessibility)
 
-# Project Brief
+# Project Brief & Requirements
 Entain project that fetches list of next 5 races and displays to the user.
 
 # Description
@@ -38,7 +39,7 @@ You should see the app running on the simulator/device of your choice and render
 * "View": This folder has the SwiftUI files that are responsible for the UI the user gets to see. There are multiple SwiftUI files which are components of the single screen split for readability and reusability.
 * "ViewModel": This folder has the file NextRaceViewModel which is responsible for all the work behind the hood that makes an API call and then transforms/sorts data before feeding it to the views in the "View" folder.
 * "Model": This folder has the Codable models which help us decode the json response from the server into meaningful model objects.
-* "Constants": This folder hosts all the static strings, asset names and other constants.
+* "Constants": This folder hosts all the static strings, endpoint, asset names and other constants.
 * "Assets": This folder has the assets catalog file which hosts all icons, images and color catalogs. It also has a mock.json file which is used in tests.
 * "Modules": The source code files for a specific module. Files within a module folder are organized into subfolders, such as "Views" or "Models".
 * "Resources": Non-code files that are used by the project. These can include images, audio files, video files, and other types of assets. 
@@ -63,5 +64,10 @@ If you come across any issues while using this project/app, please report them b
   ```
 
 # Flow
-
+1. App 
   
+
+# Accessibility
+1. App 
+  
+
