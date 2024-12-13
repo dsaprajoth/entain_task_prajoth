@@ -15,17 +15,15 @@
 Entain project that fetches list of next 5 races and displays to the user.
 
 # Description
-<p>This project uses https://api.neds.com.au/rest/v1/racing/?method=nextraces&count=10 endpoint to fetch the list of data<br>
-The project uses SwiftUI, Combine with MVVM architecture.<br> 
+<p>
+The project uses SwiftUI, Combine, XCTests and follows MVVM. Development was done on Xcode 15.4 with minimum deployment version set to 16.0.
 </p>
 
 # Getting started
 <p>
 1. Make sure you have the Xcode version 14.0 or above installed on your computer.<br>
-2. Download the Hello World project files from the repository.<br>
-3. Install CocoaPods.<br>
-4. Run pod install so you can install the dependencies in your project.<br>
-5. Open the project files in Xcode.<br>
+2. Download/clone the project from the repository.<br>
+5. Open the project file ```EntainTask.xcodeproj``` in Xcode.<br>
 6. Review the code and make sure you understand what it does.<br>
 7. Run the active scheme.<br>
 You should see the text "Hello, World!" printed to the screen.<br>
