@@ -21,7 +21,8 @@ class NextRaceViewModelTests: XCTestCase {
 
         // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            if let data = viewModel.raceListFromAPI {
+            let data = viewModel.raceListFromAPI
+            if !data.isEmpty {
                 XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(data.count, 5)
                 expectation.fulfill()
@@ -44,7 +45,7 @@ class NextRaceViewModelTests: XCTestCase {
 
         // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            guard let _ = viewModel.raceListFromAPI else {
+            if viewModel.raceListFromAPI.isEmpty {
                 XCTFail("Failed to fetch data")
                 return 
             }
@@ -69,7 +70,7 @@ class NextRaceViewModelTests: XCTestCase {
 
         // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            guard let _ = viewModel.raceListFromAPI else {
+            if viewModel.raceListFromAPI.isEmpty {
                 XCTFail("Failed to fetch data")
                 return
             }
@@ -94,7 +95,7 @@ class NextRaceViewModelTests: XCTestCase {
 
         // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            guard let _ = viewModel.raceListFromAPI else {
+            if viewModel.raceListFromAPI.isEmpty {
                 XCTFail("Failed to fetch data")
                 return
             }
@@ -119,7 +120,7 @@ class NextRaceViewModelTests: XCTestCase {
 
         // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            guard let _ = viewModel.raceListFromAPI else {
+            if viewModel.raceListFromAPI.isEmpty {
                 XCTFail("Failed to fetch data")
                 return
             }
@@ -146,7 +147,8 @@ class NextRaceViewModelTests: XCTestCase {
 
         // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            if let data = viewModel.raceListFromAPI {
+            let data = viewModel.raceListFromAPI
+            if !data.isEmpty {
                 if let firstRaceObj = data.first(where: { $0.raceID == "1b27039b-e4d4-479d-beba-72cffd1186fb" }) {
                     XCTAssertNotNil(firstRaceObj, "Data should not be nil")
                     XCTAssertEqual(firstRaceObj.advertisedStartValue, 20)
