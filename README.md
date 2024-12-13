@@ -1,8 +1,7 @@
 # Table of Contents
 1. [Description](#description)
 2. [Getting started](#getting-started)
-3. [Usage](#usage)
-4. [Arhitecture](#arhitecture)
+3. [Architecture](#architecture)
 5. [Structure](#structure)
 6. [Running the tests](#running-the-tests)
 7. [Deployment](#deployment)
@@ -23,60 +22,33 @@ The project uses SwiftUI, Combine, XCTests and follows MVVM. Development was don
 <p>
 1. Make sure you have the Xcode version 14.0 or above installed on your computer.<br>
 2. Download/clone the project from the repository.<br>
-5. Open the project file ```EntainTask.xcodeproj``` in Xcode.<br>
-6. Review the code and make sure you understand what it does.<br>
+3. Open the project file **EntainTask.xcodeproj** in Xcode.<br>
+4. Wait for the package dependencies to complete fetching<br>
 7. Run the active scheme.<br>
-You should see the text "Hello, World!" printed to the screen.<br>
-
-Once you're comfortable with the basic concept, you can start modifying the script and experimenting with different variations.<br>
-If you have any issues or need help, refer to the documentation or contact the developers for assistance.<br>
-You're now ready to start your journey into the world of programming.</p>
-
-# Usage
-In order to send a message to the whole world, you must log in with the appropriate account.
-* Username: LordVoldemort
-* Password: AvadaKedavra123
-
-Important: DEV and PROD enviroment are <strong>NOT WORKING</strong> on Friday from 00:00 - 01:00 GMT due to the server maintenance.
+You should see the app running on the simulator/device of your choice and rendering the next 5 races post the API call<br>
+</p>
 
 # Architecture
-* Hello World project is implemented using the <strong>Model-View-Controller (MVC)</strong> architecture pattern.
-* Model has any necessary data or business logic needed to generate the "Hello, World!" message.
-* View is responsible for displaying the message to the user, such as printing it to the console.
-* Controller handles any user input or interactions and update the Model and View as needed.
-* Project doesn't have a database, user interface or any other complex elements.<br><br>
-How to create a new screen?<br>
-The router serves for navigation. In order to present ViewControllerA, RouterA present method must be called.<br>
-Below is a code snippet with an example.<br>
-
-```
-RouterA().present(on: self, context: contextA(title: "HelloWorld"))
-
-final class RouterA {
-  private func viewController(presentingViewController: UIViewController, context: ContextA) -> ViewControllerA {
-        let viewModel = ViewModelA(context: context)
-        let viewController = ViewControllerA(viewModel: viewModel)
-        viewController.modalPresentationStyle = .overFullScreen
-
-        return viewController
-    }
-
-    func present(on presentingViewController: UIViewController, context: ContextA) {
-        presentingViewController.present(viewController(presentingViewController: presentingViewController, context: context), animated: true, completion: nil)
-}
-```
-
+* This project is implemented using the <strong>Model-View-ViewModel (MVVM)</strong> architecture pattern.
+* Model has data models required to map the API response into custom objects.
+* View is responsible for displaying the fetched data on screen with additional functionalities like filter.
+* ViewModel does the heavylifting of making the API call and transforming response data to suit the display.
+* As this app involves a single screen, there are no navigations but can definitely be added with less effort.
+  
 # Structure 
-* "Common": Files or resources that are shared across multiple parts of the project. Such as utility classes, global constants, or reusable UI elements.
+* "Protocols": Contains the ```DataFetcher``` protocol which helps in injecting the API service as a dependency which further helps mocking and testing
+* "View": This folder has the SwiftUI files that are responsible for the UI the user gets to see. There are multiple SwiftUI files which are components of the single screen split for readability and reusability.
+* "ViewModel": This folder has the file NextRaceViewModel which is responsible for all the work behind the hood that makes an API call and then transforms/sorts data before feeding it to the views in the "View" folder.
+* "Model": This folder has the Codable models which help us decode the json response from the server into meaningful model objects.
+* "Constants": This folder hosts all the static strings, asset names and other constants.
+* "Assets": This folder has the assets catalog file which hosts all icons, images and color catalogs. It also has a mock.json file which is used in tests.
 * "Modules": The source code files for a specific module. Files within a module folder are organized into subfolders, such as "Views" or "Models".
 * "Resources": Non-code files that are used by the project. These can include images, audio files, video files, and other types of assets. 
-* "API": Files or classes related to communicating with an external API. This could include code for making HTTP requests to a web server, parsing responses, and handling any errors that may occur.
 
 # Running the tests
-<p>The Hello World project can be tested using the built-in framework XCTest.<br>
-To start testing the project, you will need to create a new test target in your Xcode project, 
-and then add test files to that target.<br>These test files should be placed in the "test" folder, following the project structure.
-Once you have created your test files, you can write test functions using the XCTest</p>
+<p>This project can be tested using the built-in framework XCTest.<br>
+To start testing the project, use Command+U which runs all the tests in the project. 
+  For the functionality specific testing, please open the file EntainTaskTests and run the tests in that file</p>
 
 # Deployment
 Keep in mind that deploying an iOS app to the App Store requires having an Apple Developer account.
