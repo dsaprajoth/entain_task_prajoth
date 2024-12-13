@@ -59,5 +59,8 @@ List of dependencies:
 If you come across any issues while using this project/app, please report them by creating a new issue on the GitHub repository or contacting me directly @ dsaprajoth@gmail.com.
 
 # API 
-* The app uses a single REST API **"https://api.neds.com.au/rest/v1/racing/?method=nextraces&count=5"**
+* The app uses a single REST API
+  ```
+  https://api.neds.com.au/rest/v1/racing/?method=nextraces&count=5
+  ```
   
