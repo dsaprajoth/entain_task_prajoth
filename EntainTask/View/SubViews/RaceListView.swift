@@ -17,7 +17,7 @@ struct RaceListView: View {
                     .frame(width: 2)
                     .background(.pink)
                 VStack(alignment: .leading) {
-                    Image(viewModel.getRaceIcon(from: race.categoryID ?? ""))
+                    Image(race.icon)
                         .renderingMode(.template)
                         .resizable()
                         .frame(width: 25, height: 25)

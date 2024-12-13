@@ -11,14 +11,17 @@ struct ChipFilterView: View {
     @StateObject var viewModel: NextRaceViewModel
     var body: some View {
         HStack(spacing: 20) {
-            buttonView(raceType: .horseRacing)
-            buttonView(raceType: .harnessRacing)
-            buttonView(raceType: .greyHoundRacing)
+            chipButtonView(raceType: .horseRacing)
+            chipButtonView(raceType: .harnessRacing)
+            chipButtonView(raceType: .greyHoundRacing)
         }
         .frame(height: 40)
     }
+}
+
+extension ChipFilterView {
     @ViewBuilder
-    func buttonView(raceType: RaceType) -> some View {
+    func chipButtonView(raceType: RaceType) -> some View {
         Button {
             viewModel.filter(by: raceType)
         } label: {
