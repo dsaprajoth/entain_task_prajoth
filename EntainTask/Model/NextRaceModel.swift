@@ -86,6 +86,17 @@ extension RaceSummary {
     var raceTitleAccessibility: String {
         "Meeting \(self.meetingName ?? "") Race \(self.raceNumber ?? 0) Starting in 10 mins"
     }
+    var icon: String {
+        switch self.categoryID {
+        case RaceType.horseRacing.categoryId:
+            return "horse"
+        case RaceType.harnessRacing.categoryId:
+            return "harness"
+        case RaceType.greyHoundRacing.categoryId:
+            return "greyhound"
+        default: return ""
+        }
+    }
 }
 
 struct AdvertisedStart: Codable {
