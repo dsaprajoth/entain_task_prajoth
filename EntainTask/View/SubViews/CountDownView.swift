@@ -26,11 +26,24 @@ struct CountdownTimerView: View {
             }
     }
     private func timeFormatted() -> String {
-        let minutes = timeRemaining / 60
-        let seconds = timeRemaining % 60
-        if minutes == 0 {
-            return String(format: "%02ds", seconds)
-        }
-        return String(format: "%02dm %02ds", minutes, seconds)
+        let days = timeRemaining / (24 * 3600)
+        let remainingAfterDays = timeRemaining % (24 * 3600)
+        let hours = remainingAfterDays / 3600
+        let remainingAfterHours = remainingAfterDays % 3600
+        let minutes = remainingAfterHours / 60
+        let remainingSeconds = remainingAfterHours % 60
+        let daysString = days > 0 ? "\(days) d" : ""
+        let hrsString = hours > 0 ? "\(days) h" : ""
+        let minString = minutes > 0 ? "\(days) m" : ""
+        let secString = remainingSeconds > 0 ? "\(days) s" : ""
+
+        return("\(daysString) \(hrsString) \(minString) \(secString)")
+
+//        let minutes = timeRemaining / 60
+//        let seconds = timeRemaining % 60
+//        if minutes == 0 {
+//            return String(format: "%02ds", seconds)
+//        }
+//        return String(format: "%02dm %02ds", minutes, seconds)
     }
 }
