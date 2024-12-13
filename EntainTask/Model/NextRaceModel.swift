@@ -5,25 +5,28 @@
 //  Created by Prajoth Dsa on 13/12/2024.
 //
 
+//   let raceData = try? JSONDecoder().decode(RaceData.self, from: jsonData)
 import Foundation
 
 enum RaceType: String {
-    case horseRacing
-    case harnessRacing
-    case greyHoundRacing
+    case horseRacing = "horseRacing"
+    case harnessRacing = "harnessRacing"
+    case greyHoundRacing = "greyHoundRacing"
+    
 }
 extension RaceType {
-    var categoryId: String {
+    func getRaceTypeId() -> String {
         switch self {
         case .horseRacing:
-            return CategoryIds.horseRacing
+            return "4a2788f8-e825-4d36-9894-efd4baf1cfae"
         case .harnessRacing:
-            return CategoryIds.harnessRacing
+            return "161d9be2-e909-4326-8c2c-35ed71fb460b"
         case .greyHoundRacing:
-            return CategoryIds.greyHoundRacing
+            return "9daef0d7-bf3c-4f50-921d-8e818c60fe61"
         }
     }
-    var icon: String {
+    
+    func getRaceTypeIcon() -> String {
         switch self {
         case .horseRacing:
             return "horse"
@@ -35,6 +38,28 @@ extension RaceType {
     }
 }
 
+//enum RaceFilter: String, CaseIterable {
+//    case all = "All"
+//    case horseRacing = "Horse Racing"
+//    case harnessRacing = "Harness Racing"
+//    case greyHoundRacing = "GreyHound Racing"
+//}
+//
+//extension RaceFilter {
+//    func getRaceFilterIcon() -> String {
+//        switch self {
+//        case .all:
+//            return ""
+//        case .horseRacing:
+//            return "horse"
+//        case .harnessRacing:
+//            return "harness"
+//        case .greyHoundRacing:
+//            return "greyhound"
+//        }
+//    }
+//}
+
 struct NextRacesResponse: Codable {
     let status: Int?
     let data: RaceData?
@@ -44,6 +69,7 @@ struct NextRacesResponse: Codable {
 struct RaceData: Codable {
     let nextToGoIDs: [String]?
     let raceSummaries: [String: RaceSummary]?
+    
     enum CodingKeys: String, CodingKey {
         case nextToGoIDs = "next_to_go_ids"
         case raceSummaries = "race_summaries"
@@ -63,6 +89,7 @@ struct RaceSummary: Codable {
     let venueName: String?
     let venueState: String?
     let venueCountry: String?
+    
     enum CodingKeys: String, CodingKey {
         case raceID = "race_id"
         case raceName = "race_name"
@@ -79,37 +106,25 @@ struct RaceSummary: Codable {
     }
 }
 
-extension RaceSummary {
-    var advertisedStartValue: Int {
-        self.advertisedStart?.seconds ?? 0
-    }
-    var advertisedStartForDisplay: String {
-        AppUtils.convertEpochToDate(epochTime: TimeInterval(self.advertisedStartValue))
-    }
-    var raceTitleAccessibility: String? {
-        if let meetingName = self.meetingName, let raceNumber = self.raceNumber {
-            let meetingStr = "Meeting \(meetingName)"
-            let raceStr = "Race \(raceNumber)"
-            let timeStr = "Starting in \(AppUtils.formatTime(TimeInterval(self.advertisedStartValue)))"
-            return "\(meetingStr) \(raceStr) \(timeStr)"
-        }
-        return ""
-    }
-    var icon: String {
-        switch self.categoryID {
-        case RaceType.horseRacing.categoryId:
-            return AssetConstants.horseRacingIcon
-        case RaceType.harnessRacing.categoryId:
-            return AssetConstants.harnessRacingIcon
-        case RaceType.greyHoundRacing.categoryId:
-            return AssetConstants.greyHoundRacingIcon
-        default: return ""
-        }
-    }
-}
-
 struct AdvertisedStart: Codable {
     let seconds: Int?
+}
+
+extension AdvertisedStart {
+    func secondsToMinutesAndSeconds() -> String {
+        let duration = Duration.seconds(self.seconds!)
+        let format = duration.formatted(
+            .time(
+                pattern: .hourMinuteSecond(
+                    padHourToLength: 2
+                )
+            )
+        )
+        return format
+        //        let minutes = self.seconds! / 60
+        //        let remainingSeconds = self.seconds! % 60
+        //        return "\(minutes) min \(remainingSeconds) sec"
+    }
 }
 
 struct RaceForm: Codable {
@@ -121,6 +136,7 @@ struct RaceForm: Codable {
     let weather: Weather?
     let weatherID: String?
     let raceComment: String?
+    
     enum CodingKeys: String, CodingKey {
         case distance
         case distanceType = "distance_type"
@@ -137,6 +153,7 @@ struct DistanceType: Codable {
     let id: String?
     let name: String?
     let shortName: String?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -148,6 +165,7 @@ struct TrackCondition: Codable {
     let id: String?
     let name: String?
     let shortName: String?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -160,6 +178,7 @@ struct Weather: Codable {
     let name: String?
     let shortName: String?
     let iconURI: String?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name

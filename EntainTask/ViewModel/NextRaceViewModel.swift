@@ -8,109 +8,111 @@
 import Combine
 import Foundation
 
-@MainActor
 class NextRaceViewModel: ObservableObject {
+    var raceListFromAPI: [RaceSummary]?
     @Published var nextRaceList: [RaceSummary] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
-    @Published var raceListItemViewModels: [RaceListItemViewModel]? = []
-
-    private var cancellables = Set<AnyCancellable>()
-    private var countdownCancellables = Set<AnyCancellable>()
-    private let networkService: NetworkService
-
     var selectedFilters: [RaceType] = []
-    var raceListFromAPI: [RaceSummary] = []
+    private let dataFetcher: DataFetcher
 
-    // Allows dependency injection of any NetworkService conforming type (NetworkService or MockNetworkService)
-    init(networkService: NetworkService) {
-        self.networkService = networkService
+    private var cancellable: AnyCancellable?
+    
+    init(dataFetcher: DataFetcher) {
+        self.dataFetcher = dataFetcher
     }
 
-    func fetchData() {
-        guard let url = URL(string: APIConstants.endpoint) else { return }
-
-        isLoading = true
-        networkService.fetch(url: url, responseType: NextRacesResponse.self)
-            .sink(receiveCompletion: { [weak self] completion in
-                if case let .failure(error) = completion {
-                    self?.errorMessage = error.localizedDescription
+    func fetchData(mock: Bool = false) {
+        if mock {
+            self.raceListFromAPI = loadJson() ?? []
+            self.nextRaceList = loadJson() ?? []
+            return
+        }
+        
+        cancellable = dataFetcher.fetchData()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    print("Error fetching data: \(error)")
+                case .finished:
+                    print("Data fetched successfully")
                 }
-            }, receiveValue: { [weak self] data in
-                self?.isLoading = false
-                self?.raceListFromAPI = data.data?.raceSummaries?.values.map { $0 } ?? []
-                // Filter out races beyond a minute from the advertised start time
-                self?.filterData()
-                // Sort the races based on the advertised start time
-                self?.sortData()
-                // Pick the first 5 races from the list
-                self?.raceListFromAPI = Array(self?.raceListFromAPI.prefix(5) ?? [])
-                // Create countdown view models for every race (These are the child view models)
-                self?.raceListItemViewModels = self?.raceListFromAPI.map {
-                    RaceListItemViewModel(race: $0)
-                }
-                // Observe each child view model
-                guard let raceListItemViewModels = self?.raceListItemViewModels else { return }
-                for raceListItemViewModel in raceListItemViewModels {
-                    self?.observeChildViewModel(raceListItemViewModel)
-                }
-                // Clear the main list nextRaceList, copy the filtered and sorted list to the main list
-                self?.nextRaceList.removeAll()
-                self?.nextRaceList.append(contentsOf: self?.raceListFromAPI ?? [])
-            })
-            .store(in: &cancellables)
-    }
-
-    func observeChildViewModel(_ childViewModel: RaceListItemViewModel) {
-        childViewModel.$isTimerFinished
-            .sink { [weak self] isFinished in
-                if isFinished {
-                    debugPrint("Timer has reached zero!")
-                    self?.fetchData()
-                }
+            } receiveValue: { data in
+                self.raceListFromAPI = data
+                self.nextRaceList = data
             }
-            .store(in: &countdownCancellables)
+        
+//        cancellable = URLSession.shared.dataTaskPublisher(for: url)
+//            .map(\.data)
+//            .decode(type: NextRacesResponse.self, decoder: JSONDecoder())
+//            .receive(on: DispatchQueue.main)
+//            .sink {  [weak self] completion in
+//                self?.isLoading = false
+//                switch completion {
+//                case .failure(let error):
+//                    self?.errorMessage = error.localizedDescription
+//                    print("Error fetching data: \(error)")
+//                case .finished:
+//                    print("Data fetched successfully")
+//                }
+//            } receiveValue: { data in
+//                self.data = data
+//                self.nextRaceList = data.data?.raceSummaries?.values.map { $0 } ?? []
+//                self.nextRaceList.sort { $0.advertisedStart?.seconds ?? 0 < $1.advertisedStart?.seconds ?? 0 }
+//            }
     }
-
+    
     func filter(by raceType: RaceType) {
-        countdownCancellables.removeAll()
         if selectedFilters.contains(raceType) {
             selectedFilters.removeAll { $0 == raceType }
         } else {
             selectedFilters.append(raceType)
         }
-
-        var filteredList: [RaceSummary] = []
         if selectedFilters.isEmpty {
-            filteredList.append(contentsOf: raceListFromAPI)
+            self.nextRaceList = raceListFromAPI ?? []
         } else {
-            let raceCategoryIds = selectedFilters.map { $0.categoryId }
-            filteredList = raceListFromAPI.filter { raceCategoryIds.contains($0.categoryID ?? "") }
+            self.nextRaceList = raceListFromAPI?.filter { selectedFilters.map { $0.getRaceTypeId() }.contains($0.categoryID ?? "") } ?? []
         }
-        // Create countdown view models for every race (These are the child view models)
-//        self.countdownViewModels = filteredList.map {
-//            CountdownViewModel(epochTime: TimeInterval($0.advertisedStartValue))
-//        }
-//        // Observe each child view model
-//        guard let countdownViewModels = self.countdownViewModels else { return }
-//        for countdownViewModel in countdownViewModels {
-//            self.observeChildViewModel(countdownViewModel)
-//        }
-
-        self.nextRaceList = filteredList
-        sortData()
-    }
-
-    func filterData() {
-        // Ensure there are no races beyond a minute from the advertised start time
-        let now = Date().timeIntervalSince1970
-        let oneMinuteFromNow = now - 60
-        self.raceListFromAPI = self.raceListFromAPI.filter { TimeInterval($0.advertisedStartValue) > oneMinuteFromNow }
-    }
-
-    func sortData() {
-        // Sort the race list based on the advertised start time ascending
-        self.raceListFromAPI.sort { $0.advertisedStart?.seconds ?? 0 < $1.advertisedStart?.seconds ?? 0 }
     }
     
+    func getRaceType(from categoryId: String) -> String {
+        switch categoryId {
+        case RaceType.horseRacing.getRaceTypeId():
+            return RaceType.horseRacing.rawValue
+        case RaceType.harnessRacing.getRaceTypeId():
+            return RaceType.harnessRacing.rawValue
+        case RaceType.greyHoundRacing.getRaceTypeId():
+            return RaceType.greyHoundRacing.rawValue
+        default:
+            return ""
+        }
+    }
+    
+    func getRaceIcon(from categoryId: String) -> String {
+        switch categoryId {
+        case RaceType.horseRacing.getRaceTypeId():
+            return "horse"
+        case RaceType.harnessRacing.getRaceTypeId():
+            return "harness"
+        case RaceType.greyHoundRacing.getRaceTypeId():
+            return "greyhound"
+        default:
+            return ""
+        }
+    }
+    
+    func loadJson() -> [RaceSummary]? {
+        if let url = Bundle.main.url(forResource: "mock", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(NextRacesResponse.self, from: data)
+                return jsonData.data?.raceSummaries?.values.map { $0 }
+            } catch {
+                print("error:\(error)")
+            }
+        }
+        return nil
+    }
 }

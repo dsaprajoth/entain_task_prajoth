@@ -26,7 +26,6 @@ final class EntainTaskUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-        app.buttons["HorseRacingChip"].tap()
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
