@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 class NextRaceViewModel: ObservableObject {
-    var raceListFromAPI: [RaceSummary]?
+    var raceListFromAPI: [RaceSummary] = []
     @Published var nextRaceList: [RaceSummary] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
@@ -48,8 +48,10 @@ class NextRaceViewModel: ObservableObject {
                     print("Data fetched successfully")
                 }
             } receiveValue: { data in
-                self.raceListFromAPI = data.data?.raceSummaries?.values.map { $0 }
-                self.nextRaceList = data.data?.raceSummaries?.values.map { $0 } ?? []
+                self.raceListFromAPI = data.data?.raceSummaries?.values.map { $0 } ?? []
+                self.nextRaceList.removeAll()
+                self.nextRaceList.append(contentsOf: self.raceListFromAPI)
+                self.sortData()
             }
     }
     func filter(by raceType: RaceType) {
@@ -59,11 +61,15 @@ class NextRaceViewModel: ObservableObject {
             selectedFilters.append(raceType)
         }
         if selectedFilters.isEmpty {
-            self.nextRaceList = raceListFromAPI ?? []
+            self.nextRaceList = raceListFromAPI
         } else {
             let raceCategoryIds = selectedFilters.map { $0.categoryId }
-            self.nextRaceList = raceListFromAPI?.filter { raceCategoryIds.contains($0.categoryID ?? "") } ?? []
+            self.nextRaceList = raceListFromAPI.filter { raceCategoryIds.contains($0.categoryID ?? "") }
+            sortData()
         }
+    }
+    func sortData() {
+        self.nextRaceList.sort { $0.advertisedStart?.seconds ?? 0 < $1.advertisedStart?.seconds ?? 0 }
     }
     func loadJson() -> [RaceSummary]? {
         if let url = Bundle.main.url(forResource: "mock", withExtension: "json") {
