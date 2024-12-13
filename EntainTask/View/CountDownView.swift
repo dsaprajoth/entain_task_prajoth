@@ -20,7 +20,7 @@ struct CountdownTimerView: View {
             .font(.appFontSmall)
             .onReceive(timer) { _ in
                 timeRemaining -= 1
-                if timeRemaining < -9 {
+                if timeRemaining < -3 {
                     timerFinished()
                 }
             }

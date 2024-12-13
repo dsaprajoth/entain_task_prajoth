@@ -25,9 +25,11 @@ class NextRaceViewModel: ObservableObject {
             self.nextRaceList = loadJson() ?? []
             return
         }
+        self.isLoading = true
         cancellable = dataFetcher.fetchRaceData()
             .receive(on: DispatchQueue.main)
             .sink { completion in
+                self.isLoading = false
                 switch completion {
                 case .failure(let error):
                     switch error {
@@ -35,11 +37,11 @@ class NextRaceViewModel: ObservableObject {
                         self.errorMessage = error.localizedDescription
                     case .decodingFailed:
                         self.errorMessage = "Decoding failed"
-                    case .other(let error):
-                        self.errorMessage = error.localizedDescription
+                    case .other:
+                        self.errorMessage = "Error occured while fetching data"
                     case .internalError(let error):
                         self.errorMessage = "Internal Server Error: \(error)"
-                    case .serverError(_):
+                    case .serverError(let error):
                         self.errorMessage = "Server Error: \(error)"
                     }
                 case .finished:
@@ -61,18 +63,6 @@ class NextRaceViewModel: ObservableObject {
         } else {
             let raceCategoryIds = selectedFilters.map { $0.categoryId }
             self.nextRaceList = raceListFromAPI?.filter { raceCategoryIds.contains($0.categoryID ?? "") } ?? []
-        }
-    }
-    func getRaceType(from categoryId: String) -> String {
-        switch categoryId {
-        case RaceType.horseRacing.categoryId:
-            return RaceType.horseRacing.rawValue
-        case RaceType.harnessRacing.categoryId:
-            return RaceType.harnessRacing.rawValue
-        case RaceType.greyHoundRacing.categoryId:
-            return RaceType.greyHoundRacing.rawValue
-        default:
-            return ""
         }
     }
     func getRaceIcon(from categoryId: String) -> String {

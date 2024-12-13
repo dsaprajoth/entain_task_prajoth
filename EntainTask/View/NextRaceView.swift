@@ -43,36 +43,7 @@ struct ContentView: View {
                                     .padding()
                             }
                         } else {
-                            List(viewModel.nextRaceList, id: \.raceID) { race in
-                                HStack {
-                                    Divider()
-                                        .frame(width: 2)
-                                        .background(.pink)
-                                    VStack(alignment: .leading) {
-                                        Image(viewModel.getRaceIcon(from: race.categoryID ?? ""))
-                                            .renderingMode(.template)
-                                            .resizable()
-                                            .frame(width: 25, height: 25)
-                                            .foregroundColor(.raceTileIcon)
-                                        HStack {
-                                            Text("\(race.raceNumber ?? 0)")
-                                                .font(.appFontSmall)
-                                                .foregroundColor(.secondary)
-                                            Text(race.meetingName ?? "")
-                                                .font(.appFontMedium)
-                                        }
-                                    }
-                                    Spacer()
-                                    CountdownTimerView(startingTime: race.advertisedStartValue, timerFinished: {
-                                        viewModel.fetchData(mock: false)
-                                    })
-                                }
-                                .accessibilityElement(children: .ignore)
-                                .accessibilityLabel(Text(race.raceTitleAccessibility))
-                            }
-                            .background(.green)
-                            .listStyle(.inset)
-                            .listRowSeparator(.hidden)
+                           RaceListView(viewModel: viewModel)
                         }
                     }
                 }
@@ -82,7 +53,7 @@ struct ContentView: View {
             .background(ColorConstants.themeLight)
         }
         .task {
-            viewModel.fetchData(mock: false)
+            viewModel.fetchData(mock: true)
         }
     }
 }
