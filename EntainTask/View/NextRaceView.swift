@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = NextRaceViewModel(dataFetcher: RaceDataFetcher())
-    
     var body: some View {
         NavigationStack {
             VStack {
@@ -18,7 +17,7 @@ struct ContentView: View {
                 } else if let errorMessage = viewModel.errorMessage {
                     VStack {
                         Text("Error: \(errorMessage)")
-                            .foregroundColor(.red)
+                            .foregroundColor(Color.white)
                             .multilineTextAlignment(.center)
                             .padding()
                     }
@@ -27,7 +26,6 @@ struct ContentView: View {
                         Image(AssetConstants.logo)
                             .accessibilityRemoveTraits(.isImage)
                             .accessibilityLabel(Text(AccessibilityConstants.logo))
-                        
                         Text(StringConstants.title)
                             .font(.appFontLarge)
                             .foregroundColor(Color.white)
@@ -35,9 +33,7 @@ struct ContentView: View {
                             .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                     }
                     .frame(height: 80)
-                    
                     ChipFilterView(viewModel: viewModel)
-                    
                     VStack {
                         if viewModel.nextRaceList.count == 0 {
                             VStack {
@@ -47,7 +43,6 @@ struct ContentView: View {
                                     .padding()
                             }
                         } else {
-                            
                             List(viewModel.nextRaceList, id: \.raceID) { race in
                                 HStack {
                                     Divider()
@@ -55,8 +50,10 @@ struct ContentView: View {
                                         .background(.pink)
                                     VStack(alignment: .leading) {
                                         Image(viewModel.getRaceIcon(from: race.categoryID ?? ""))
+                                            .renderingMode(.template)
                                             .resizable()
                                             .frame(width: 25, height: 25)
+                                            .foregroundColor(.raceTileIcon)
                                         HStack {
                                             Text("\(race.raceNumber ?? 0)")
                                                 .font(.appFontSmall)
@@ -66,18 +63,18 @@ struct ContentView: View {
                                         }
                                     }
                                     Spacer()
-                                    CountdownTimerView(startingTime: race.advertisedStart?.seconds ?? 0, timerFinished: {
+                                    CountdownTimerView(startingTime: race.advertisedStartValue, timerFinished: {
                                         viewModel.fetchData(mock: false)
                                     })
                                 }
                                 .accessibilityElement(children: .ignore)
-                                .accessibilityLabel(Text("Meeting \(race.meetingName ?? "") Race \(race.raceNumber ?? 0) Starting in 10 mins"))
+                                .accessibilityLabel(Text(race.raceTitleAccessibility))
                             }
                             .background(.green)
                             .listStyle(.inset)
+                            .listRowSeparator(.hidden)
                         }
                     }
-                    
                 }
                 Spacer()
             }
@@ -85,7 +82,7 @@ struct ContentView: View {
             .background(ColorConstants.themeLight)
         }
         .task {
-            viewModel.fetchData(mock: true)
+            viewModel.fetchData(mock: false)
         }
     }
 }

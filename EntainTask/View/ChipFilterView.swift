@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ChipFilterView: View {
     @StateObject var viewModel: NextRaceViewModel
-    
     var body: some View {
         HStack(spacing: 20) {
             buttonView(raceType: .horseRacing)
@@ -18,24 +17,23 @@ struct ChipFilterView: View {
         }
         .frame(height: 40)
     }
-    
     @ViewBuilder
     func buttonView(raceType: RaceType) -> some View {
-        Button(action: {
+        Button {
             viewModel.filter(by: raceType)
-        }) {
-            Image(raceType.getRaceTypeIcon())
+        } label: {
+            Image(raceType.raceIcon)
                 .renderingMode(.template)
                 .resizable()
                 .frame(width: 25, height: 25)
-                .foregroundColor(viewModel.selectedFilters.contains(raceType) 
-                                 ? .white
-                                 : .black)
+                .foregroundColor(viewModel.selectedFilters.contains(raceType)
+                                 ? .chipIconSelected
+                                 : .chipIconUnselected)
         }
         .frame(width: 100, height: 40)
-        .background(viewModel.selectedFilters.contains(raceType) 
-                    ? ColorConstants.chipSelected
-                    : ColorConstants.chipUnselected)
+        .background(viewModel.selectedFilters.contains(raceType)
+                    ? ColorConstants.chipBgSelected
+                    : ColorConstants.chipBgUnselected)
         .cornerRadius(30)
         .contentShape(Rectangle())
         .accessibilityLabel(Text("Filter \(raceType.rawValue)"))

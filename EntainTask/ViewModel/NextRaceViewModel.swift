@@ -15,54 +15,41 @@ class NextRaceViewModel: ObservableObject {
     @Published var errorMessage: String?
     var selectedFilters: [RaceType] = []
     private let dataFetcher: DataFetcher
-
     private var cancellable: AnyCancellable?
-    
     init(dataFetcher: DataFetcher) {
         self.dataFetcher = dataFetcher
     }
-
     func fetchData(mock: Bool = false) {
         if mock {
             self.raceListFromAPI = loadJson() ?? []
             self.nextRaceList = loadJson() ?? []
             return
         }
-        
-        cancellable = dataFetcher.fetchData()
+        cancellable = dataFetcher.fetchRaceData()
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
-                    print("Error fetching data: \(error)")
+                    switch error {
+                    case .sessionFailed(let error):
+                        self.errorMessage = error.localizedDescription
+                    case .decodingFailed:
+                        self.errorMessage = "Decoding failed"
+                    case .other(let error):
+                        self.errorMessage = error.localizedDescription
+                    case .internalError(let error):
+                        self.errorMessage = "Internal Server Error: \(error)"
+                    case .serverError(_):
+                        self.errorMessage = "Server Error: \(error)"
+                    }
                 case .finished:
                     print("Data fetched successfully")
                 }
             } receiveValue: { data in
-                self.raceListFromAPI = data
-                self.nextRaceList = data
+                self.raceListFromAPI = data.data?.raceSummaries?.values.map { $0 }
+                self.nextRaceList = data.data?.raceSummaries?.values.map { $0 } ?? []
             }
-        
-//        cancellable = URLSession.shared.dataTaskPublisher(for: url)
-//            .map(\.data)
-//            .decode(type: NextRacesResponse.self, decoder: JSONDecoder())
-//            .receive(on: DispatchQueue.main)
-//            .sink {  [weak self] completion in
-//                self?.isLoading = false
-//                switch completion {
-//                case .failure(let error):
-//                    self?.errorMessage = error.localizedDescription
-//                    print("Error fetching data: \(error)")
-//                case .finished:
-//                    print("Data fetched successfully")
-//                }
-//            } receiveValue: { data in
-//                self.data = data
-//                self.nextRaceList = data.data?.raceSummaries?.values.map { $0 } ?? []
-//                self.nextRaceList.sort { $0.advertisedStart?.seconds ?? 0 < $1.advertisedStart?.seconds ?? 0 }
-//            }
     }
-    
     func filter(by raceType: RaceType) {
         if selectedFilters.contains(raceType) {
             selectedFilters.removeAll { $0 == raceType }
@@ -72,36 +59,34 @@ class NextRaceViewModel: ObservableObject {
         if selectedFilters.isEmpty {
             self.nextRaceList = raceListFromAPI ?? []
         } else {
-            self.nextRaceList = raceListFromAPI?.filter { selectedFilters.map { $0.getRaceTypeId() }.contains($0.categoryID ?? "") } ?? []
+            let raceCategoryIds = selectedFilters.map { $0.categoryId }
+            self.nextRaceList = raceListFromAPI?.filter { raceCategoryIds.contains($0.categoryID ?? "") } ?? []
         }
     }
-    
     func getRaceType(from categoryId: String) -> String {
         switch categoryId {
-        case RaceType.horseRacing.getRaceTypeId():
+        case RaceType.horseRacing.categoryId:
             return RaceType.horseRacing.rawValue
-        case RaceType.harnessRacing.getRaceTypeId():
+        case RaceType.harnessRacing.categoryId:
             return RaceType.harnessRacing.rawValue
-        case RaceType.greyHoundRacing.getRaceTypeId():
+        case RaceType.greyHoundRacing.categoryId:
             return RaceType.greyHoundRacing.rawValue
         default:
             return ""
         }
     }
-    
     func getRaceIcon(from categoryId: String) -> String {
         switch categoryId {
-        case RaceType.horseRacing.getRaceTypeId():
+        case RaceType.horseRacing.categoryId:
             return "horse"
-        case RaceType.harnessRacing.getRaceTypeId():
+        case RaceType.harnessRacing.categoryId:
             return "harness"
-        case RaceType.greyHoundRacing.getRaceTypeId():
+        case RaceType.greyHoundRacing.categoryId:
             return "greyhound"
         default:
             return ""
         }
     }
-    
     func loadJson() -> [RaceSummary]? {
         if let url = Bundle.main.url(forResource: "mock", withExtension: "json") {
             do {
