@@ -7,54 +7,39 @@
 
 import SwiftUI
 
-struct NextRaceView: View {
-    @StateObject private var viewModel = NextRaceViewModel(networkService: NetworkManager())
-
+struct ContentView: View {
+    @StateObject private var viewModel = NextRaceViewModel(dataFetcher: RaceDataFetcher())
+    
     var body: some View {
         NavigationStack {
             VStack {
-                // Top Header (Logo and Title)
-                VStack {
-                    Image(AssetConstants.logo)
-                        .accessibilityRemoveTraits(.isImage)
-                        .accessibilityLabel(Text(AccessibilityConstants.logo))
-                    Text(StringConstants.title)
-                        .font(.appFontLarge)
-                        .foregroundColor(Color.white)
-                        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
-                }
-                .frame(height: 80)
-
-                // Chip filters to filter races by categories
-                ChipFilterView(viewModel: viewModel)
-
-                // Show loading indicator, error message or list of races
                 if viewModel.isLoading {
                     ProgressView(StringConstants.loading)
                 } else if let errorMessage = viewModel.errorMessage {
                     VStack {
-                        Text("\(errorMessage)")
-                            .foregroundColor(Color.white)
+                        Text("Error: \(errorMessage)")
+                            .foregroundColor(.red)
                             .multilineTextAlignment(.center)
                             .padding()
-                            .accessibilityLabel(Text("An error has occurred. \(errorMessage)"))
-                        Button {
-                            viewModel.fetchData()
-                        } label: {
-                            Text(StringConstants.reload)
-                                .font(.appFontSmall)
-                                .foregroundColor(.themeOrangeLight)
-                                .padding(10)
-                        }
-                        .contentShape(Rectangle())
-                        .background(.white)
-                        .cornerRadius(10)
-                        .accessibilityLabel(Text("Retry"))
                     }
                 } else {
                     VStack {
+                        Image(AssetConstants.logo)
+                            .accessibilityRemoveTraits(.isImage)
+                            .accessibilityLabel(Text(AccessibilityConstants.logo))
+                        
+                        Text(StringConstants.title)
+                            .font(.appFontLarge)
+                            .foregroundColor(Color.white)
+                            .lineLimit(2)
+                            .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+                    }
+                    .frame(height: 80)
+                    
+                    ChipFilterView(viewModel: viewModel)
+                    
+                    VStack {
                         if viewModel.nextRaceList.count == 0 {
-                            // Show a message when no races are available
                             VStack {
                                 Text(StringConstants.noRaceText)
                                     .foregroundColor(.white)
@@ -62,17 +47,37 @@ struct NextRaceView: View {
                                     .padding()
                             }
                         } else {
+                            
                             List(viewModel.nextRaceList, id: \.raceID) { race in
-                                RaceListItemView(race: race)
-                                    .accessibilityElement(children: .ignore)
-                                    .if(let: race.raceTitleAccessibility) { view, accessibility in
-                                        view.accessibilityLabel(Text(accessibility))
+                                HStack {
+                                    Divider()
+                                        .frame(width: 2)
+                                        .background(.pink)
+                                    VStack(alignment: .leading) {
+                                        Image(viewModel.getRaceIcon(from: race.categoryID ?? ""))
+                                            .resizable()
+                                            .frame(width: 25, height: 25)
+                                        HStack {
+                                            Text("\(race.raceNumber ?? 0)")
+                                                .font(.appFontSmall)
+                                                .foregroundColor(.secondary)
+                                            Text(race.meetingName ?? "")
+                                                .font(.appFontMedium)
+                                        }
                                     }
+                                    Spacer()
+                                    CountdownTimerView(startingTime: race.advertisedStart?.seconds ?? 0, timerFinished: {
+                                        viewModel.fetchData(mock: false)
+                                    })
+                                }
+                                .accessibilityElement(children: .ignore)
+                                .accessibilityLabel(Text("Meeting \(race.meetingName ?? "") Race \(race.raceNumber ?? 0) Starting in 10 mins"))
                             }
+                            .background(.green)
                             .listStyle(.inset)
-                            .listRowSeparator(.hidden)
                         }
                     }
+                    
                 }
                 Spacer()
             }
@@ -80,13 +85,13 @@ struct NextRaceView: View {
             .background(ColorConstants.themeLight)
         }
         .task {
-            viewModel.fetchData()
+            viewModel.fetchData(mock: true)
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        NextRaceView()
+        ContentView()
     }
 }

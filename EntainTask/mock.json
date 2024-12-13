@@ -1,0 +1,96 @@
+{
+  "status": 200,
+  "data": {
+    "next_to_go_ids": [
+      "de5422be-b3d4-4e1f-803c-13f6093b48f7",
+      "addf9a0c-7753-4e18-9a30-187880d593c3"
+    ],
+    "race_summaries": {
+      "addf9a0c-7753-4e18-9a30-187880d593c3": {
+        "race_id": "addf9a0c-7753-4e18-9a30-187880d593c3",
+        "race_name": "Cohen Constructions Mdn Plate",
+        "race_number": 6,
+        "meeting_id": "9f5091cf-915c-44fc-9a14-805bdfdd06c9",
+        "meeting_name": "Townsville",
+        "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
+        "advertised_start": {
+          "seconds": 20
+        },
+        "race_form": {
+          "distance": 1000,
+          "distance_type": {
+            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+            "name": "Metres",
+            "short_name": "m"
+          },
+          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+          "track_condition": {
+            "id": "066119d8-3b74-11e8-a5eb-06a5c6d9a756",
+            "name": "Soft5",
+            "short_name": "soft5"
+          },
+          "track_condition_id": "066119d8-3b74-11e8-a5eb-06a5c6d9a756",
+          "weather": {
+            "id": "5ba75165-3cec-11eb-88bb-36fbfdf5d97f",
+            "name": "OCAST",
+            "short_name": "ocast",
+            "icon_uri": "OCAST"
+          },
+          "weather_id": "5ba75165-3cec-11eb-88bb-36fbfdf5d97f",
+          "race_comment": "CHOCMINT (1) fought on bravely to hold third after leading here just over 2 weeks ago and will be suited by the drop back from 1200m to 1000m. The winkers replace the blinkers for the first time and even from a wide gate, he is the one to beat. CATMISS (8) showed ability as a juvenile before being put aside to mature. She looked in good nick when winning a recent Rockhampton trial and despite a tough draw, she can figure in the finish. HEZA ROMEO (3) showed abundant pace in 2 starts as a juvenile. He resumes from a spell and will be a lot stronger this season. A good draw helps and Adrian Layt is keeping the faith. Hard to beat. MYTHBUSTA (5) had a busy juvenile prep and has since moved North to join the Bowen stable of Tom Button. He will have no problem with a wet track and with Ash Butler in the irons, he can make a positive start to this campaign.",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Townsville\",\"state\":\"QLD\",\"country\":\"AUS\",\"number\":6,\"race_name\":\"Cohen Constructions Mdn Plate\",\"time\":\"2024-12-13T04:13:00Z\",\"class\":\"MDN\",\"start_type\":\"\",\"prizemonies\":{\"10th\":440,\"1st\":12800,\"2nd\":4000,\"3rd\":2200,\"4th\":1050,\"5th\":750,\"6th\":440,\"7th\":440,\"8th\":440,\"9th\":440,\"total_value\":23000},\"localised_prizemonies\":{\"AUD\":{\"10th\":440,\"1st\":12800,\"2nd\":4000,\"3rd\":2200,\"4th\":1050,\"5th\":750,\"6th\":440,\"7th\":440,\"8th\":440,\"9th\":440,\"total_value\":23000},\"NZD\":{\"10th\":484,\"1st\":14080,\"2nd\":4400,\"3rd\":2420,\"4th\":1155,\"5th\":825,\"6th\":484,\"7th\":484,\"8th\":484,\"9th\":484,\"total_value\":25300}},\"rail_position\":\"True.\",\"track_direction\":\"Right\",\"track_surface\":\"Turf\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":1680}}",
+          "generated": 1,
+          "silk_base_url": "drr38safykj6s.cloudfront.net",
+          "race_comment_alternative": "CHOCMINT (1) fought on bravely to hold third after leading here just over 2 weeks ago and will be suited by the drop back from 1200m to 1000m. The winkers replace the blinkers for the first time and even from a wide gate, he is the one to beat. CATMISS (8) showed ability as a juvenile before being put aside to mature. She looked in good nick when winning a recent Rockhampton trial and despite a tough draw, she can figure in the finish. HEZA ROMEO (3) showed abundant pace in 2 starts as a juvenile. He resumes from a spell and will be a lot stronger this season. A good draw helps and Adrian Layt is keeping the faith. Hard to beat. MYTHBUSTA (5) had a busy juvenile prep and has since moved North to join the Bowen stable of Tom Button. He will have no problem with a wet track and with Ash Butler in the irons, he can make a positive start to this campaign."
+        },
+        "venue_id": "b63f2703-9e89-4512-92ca-65320e8a3483",
+        "venue_name": "Townsville",
+        "venue_state": "QLD",
+        "venue_country": "AUS"
+      },
+      "de5422be-b3d4-4e1f-803c-13f6093b48f7": {
+        "race_id": "de5422be-b3d4-4e1f-803c-13f6093b48f7",
+        "race_name": "Ladbrokes Hosted Pots",
+        "race_number": 10,
+        "meeting_id": "38bcfa90-4048-4ffa-9af0-f8d11c955bb2",
+        "meeting_name": "Goulburn",
+        "category_id": "9daef0d7-bf3c-4f50-921d-8e818c60fe61",
+        "advertised_start": {
+          "seconds": 5
+        },
+        "race_form": {
+          "distance": 440,
+          "distance_type": {
+            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+            "name": "Metres",
+            "short_name": "m"
+          },
+          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+          "track_condition": {
+            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+            "name": "Good",
+            "short_name": "good"
+          },
+          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+          "weather": {
+            "id": "01994c9e-3b74-11e8-a5eb-06a5c6d9a756",
+            "name": "Fine",
+            "short_name": "fine",
+            "icon_uri": "Fine"
+          },
+          "weather_id": "01994c9e-3b74-11e8-a5eb-06a5c6d9a756",
+          "race_comment": "PAUA OF CINDA (3) looks close to another win after finishing third last time (30.09) at Wentworth Park. The form out of the last run is proven to be strong. Expected to feature in the finish again. CAWBOURNE SPEECH (7) boasts a strong record this journey with five wins and seven minors from 15 tries. Hit the frame latest (24.73) when third at this track in a Grade 4/5. Looks one of the chances. BROTHER ONYX (2) jumped from out wide and was game in defeat last start when a neck second (24.72) behind Dark Asset at this track. Recorded one of the quickest times on the card last start despite being beaten. Leading chance.",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Goulburn\",\"state\":\"NSW\",\"country\":\"AUS\",\"number\":10,\"race_name\":\"Ladbrokes Hosted Pots\",\"time\":\"2024-12-13T04:12:00Z\",\"class\":\"4th/5th Grade\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":3290},\"localised_prizemonies\":{\"AUD\":{\"1st\":2075,\"2nd\":675,\"3rd\":465,\"4th\":75,\"total_value\":3290},\"NZD\":{\"1st\":2282,\"2nd\":743,\"3rd\":512,\"4th\":82,\"total_value\":3619}},\"rail_position\":\"\",\"track_direction\":\"Right\",\"track_surface\":\"All Weather\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "generated": 1,
+          "silk_base_url": "drr38safykj6s.cloudfront.net",
+          "race_comment_alternative": "PAUA OF CINDA (3) looks close to another win after finishing third last time (30.09) at Wentworth Park. The form out of the last run is proven to be strong. Expected to feature in the finish again. CAWBOURNE SPEECH (7) boasts a strong record this journey with five wins and seven minors from 15 tries. Hit the frame latest (24.73) when third at this track in a Grade 4/5. Looks one of the chances. BROTHER ONYX (2) jumped from out wide and was game in defeat last start when a neck second (24.72) behind Dark Asset at this track. Recorded one of the quickest times on the card last start despite being beaten. Leading chance."
+        },
+        "venue_id": "5adab327-6773-445c-ab59-906df7cc43c3",
+        "venue_name": "Goulburn",
+        "venue_state": "NSW",
+        "venue_country": "AUS"
+      }
+    }
+  },
+  "message": "Next 2 races from each category"
+}
