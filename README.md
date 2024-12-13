@@ -2,15 +2,13 @@
 1. [Description](#description)
 2. [Getting started](#getting-started)
 3. [Architecture](#architecture)
-5. [Structure](#structure)
-6. [Running the tests](#running-the-tests)
-7. [Deployment](#deployment)
-8. [Dependencies](#dependencies)
-9. [Task board](#task-board)
-10. [Design](#design)
-11. [API](#api)
+4. [Structure](#structure)
+5. [Running the tests](#running-the-tests)
+6. [Dependencies](#dependencies)
+7. [API](#api)
+8. [Flow](#flow)
 
-# HelloWorld
+# Project Brief
 Entain project that fetches list of next 5 races and displays to the user.
 
 # Description
@@ -59,8 +57,11 @@ List of dependencies:
 If you come across any issues while using this project/app, please report them by creating a new issue on the GitHub repository or contacting me directly @ dsaprajoth@gmail.com.
 
 # API 
-* The app uses a single REST API
+* The app uses the below GET endpoint to fetch the next 5 races
   ```
   https://api.neds.com.au/rest/v1/racing/?method=nextraces&count=5
   ```
+
+# Flow
+
   
