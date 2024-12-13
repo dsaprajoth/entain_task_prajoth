@@ -22,7 +22,7 @@ struct ChipFilterView: View {
         Button {
             viewModel.filter(by: raceType)
         } label: {
-            Image(raceType.raceIcon)
+            Image(raceType.icon)
                 .renderingMode(.template)
                 .resizable()
                 .frame(width: 25, height: 25)
