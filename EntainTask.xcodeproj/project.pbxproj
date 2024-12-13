@@ -114,11 +114,10 @@
 				A4F038622D0BDBEA0015E41C /* View */,
 				A4F038612D0BDBE10015E41C /* ViewModel */,
 				A4F0385E2D0BDB8B0015E41C /* Model */,
+				A4F038742D0C787A0015E41C /* Constants */,
+				A4F038752D0C788C0015E41C /* Assets */,
 				A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */,
-				A4F038342D0BD54D0015E41C /* Assets.xcassets */,
 				A4F038362D0BD54D0015E41C /* Preview Content */,
-				A4F0385C2D0BDB210015E41C /* Constants.swift */,
-				A4F038652D0BEC740015E41C /* mock.json */,
 			);
 			path = EntainTask;
 			sourceTree = "<group>";
@@ -181,6 +180,23 @@
 				A4F0386A2D0C2B6D0015E41C /* DataFetcher.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A4F038742D0C787A0015E41C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A4F0385C2D0BDB210015E41C /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A4F038752D0C788C0015E41C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A4F038342D0BD54D0015E41C /* Assets.xcassets */,
+				A4F038652D0BEC740015E41C /* mock.json */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
