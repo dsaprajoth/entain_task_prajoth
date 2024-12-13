@@ -12,6 +12,17 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                VStack {
+                    Image(AssetConstants.logo)
+                        .accessibilityRemoveTraits(.isImage)
+                        .accessibilityLabel(Text(AccessibilityConstants.logo))
+                    Text(StringConstants.title)
+                        .font(.appFontLarge)
+                        .foregroundColor(Color.white)
+                        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+                }
+                .frame(height: 80)
+                ChipFilterView(viewModel: viewModel)
                 if viewModel.isLoading {
                     ProgressView(StringConstants.loading)
                 } else if let errorMessage = viewModel.errorMessage {
@@ -23,18 +34,6 @@ struct ContentView: View {
                     }
                 } else {
                     VStack {
-                        Image(AssetConstants.logo)
-                            .accessibilityRemoveTraits(.isImage)
-                            .accessibilityLabel(Text(AccessibilityConstants.logo))
-                        Text(StringConstants.title)
-                            .font(.appFontLarge)
-                            .foregroundColor(Color.white)
-                            .lineLimit(2)
-                            .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
-                    }
-                    .frame(height: 80)
-                    ChipFilterView(viewModel: viewModel)
-                    VStack {
                         if viewModel.nextRaceList.count == 0 {
                             VStack {
                                 Text(StringConstants.noRaceText)
@@ -43,7 +42,7 @@ struct ContentView: View {
                                     .padding()
                             }
                         } else {
-                           RaceListView(viewModel: viewModel)
+                            RaceListView(viewModel: viewModel)
                         }
                     }
                 }

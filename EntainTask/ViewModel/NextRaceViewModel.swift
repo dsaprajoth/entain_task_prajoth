@@ -65,18 +65,6 @@ class NextRaceViewModel: ObservableObject {
             self.nextRaceList = raceListFromAPI?.filter { raceCategoryIds.contains($0.categoryID ?? "") } ?? []
         }
     }
-    func getRaceIcon(from categoryId: String) -> String {
-        switch categoryId {
-        case RaceType.horseRacing.categoryId:
-            return "horse"
-        case RaceType.harnessRacing.categoryId:
-            return "harness"
-        case RaceType.greyHoundRacing.categoryId:
-            return "greyhound"
-        default:
-            return ""
-        }
-    }
     func loadJson() -> [RaceSummary]? {
         if let url = Bundle.main.url(forResource: "mock", withExtension: "json") {
             do {
