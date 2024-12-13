@@ -21,7 +21,7 @@ The project uses SwiftUI, Combine, XCTests and follows MVVM. Development was don
 <p>
 1. Make sure you have the Xcode version 14.0 or above installed on your computer.<br>
 2. Download/clone the project from the repository.<br>
-3. Open the project file **EntainTask.xcodeproj** in Xcode.<br>
+3. Open the project file ```EntainTask.xcodeproj``` in Xcode.<br>
 4. Wait for the package dependencies to complete fetching<br>
 7. Run the active scheme.<br>
 You should see the app running on the simulator/device of your choice and rendering the next 5 races post the API call<br>
