@@ -29,13 +29,14 @@ struct ChipFilterView: View {
                 .foregroundColor(viewModel.selectedFilters.contains(raceType)
                                  ? .chipIconSelected
                                  : .chipIconUnselected)
+                .padding(.horizontal, 40)
+                .padding(.vertical, 8)
         }
-        .frame(width: 100, height: 40)
+        .contentShape(Rectangle())
         .background(viewModel.selectedFilters.contains(raceType)
                     ? ColorConstants.chipBgSelected
                     : ColorConstants.chipBgUnselected)
         .cornerRadius(30)
-        .contentShape(Rectangle())
         .accessibilityLabel(Text("Filter \(raceType.rawValue)"))
     }
 }

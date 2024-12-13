@@ -93,7 +93,7 @@ struct AdvertisedStart: Codable {
 }
 
 extension AdvertisedStart {
-    func secondsToMinutesAndSeconds() -> String {
+    var secondsToMinutesAndSeconds: String {
         let duration = Duration.seconds(self.seconds!)
         let format = duration.formatted(
             .time(
