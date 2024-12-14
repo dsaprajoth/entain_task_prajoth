@@ -9,9 +9,9 @@ import SwiftUI
 
 struct RaceListView: View {
     @StateObject var viewModel: NextRaceViewModel
-
     var body: some View {
-        List(viewModel.nextRaceList, id: \.raceID) { race in
+        List(viewModel.nextRaceList.indices, id: \.self) { index in
+            let race: RaceSummary = viewModel.nextRaceList[index]
             HStack {
                 Divider()
                     .frame(width: 2)
@@ -32,12 +32,7 @@ struct RaceListView: View {
                 }
                 Spacer()
                 CountdownTimerView(
-                    viewModel: CountdownViewModel(
-                        startingTime: race.advertisedStartValue,
-                        refreshFetch: {
-                            viewModel.refreshFetch()
-                        }
-                    )
+                    viewModel: viewModel.countdownViewModels[index]
                 )
             }
             .accessibilityElement(children: .ignore)

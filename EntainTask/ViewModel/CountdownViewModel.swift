@@ -10,12 +10,11 @@ import Combine
 
 class CountdownViewModel: ObservableObject {
     @Published var timeRemainingString: String = ""
+    @Published var isTimerFinished: Bool = false
     private var timeRemaining: Int
     private var timer: AnyCancellable?
-    var refreshFetch: (() -> Void)?
-    init(startingTime: Int, refreshFetch: (() -> Void)?) {
-        self.timeRemaining = startingTime
-        self.refreshFetch = refreshFetch
+    init(initialValue: Int) {
+        self.timeRemaining = initialValue
         startTimer()
     }
     deinit {
@@ -27,7 +26,7 @@ class CountdownViewModel: ObservableObject {
             .sink { [weak self] _ in
                 self?.timeRemaining -= 1
                 if let time = self?.timeRemaining, time < -3 {
-                    self?.refreshFetch?()
+                    self?.isTimerFinished = true
                 }
                 self?.timeFormatted()
             }
@@ -36,16 +35,6 @@ class CountdownViewModel: ObservableObject {
         timer?.cancel()
     }
     private func timeFormatted() {
-        let days = timeRemaining / (24 * 3600)
-        let remainingAfterDays = timeRemaining % (24 * 3600)
-        let hours = remainingAfterDays / 3600
-        let remainingAfterHours = remainingAfterDays % 3600
-        let minutes = remainingAfterHours / 60
-        let remainingSeconds = remainingAfterHours % 60
-        let daysString = days > 0 ? "\(days)d" : ""
-        let hrsString = hours > 0 ? "\(hours)h" : ""
-        let minString = minutes > 0 ? "\(minutes)m" : ""
-        let secString = "\(remainingSeconds)s"
-        timeRemainingString = ("\(daysString) \(hrsString) \(minString) \(secString)")
+        timeRemainingString = AppUtils().formatTime(timeRemaining)
     }
 }
