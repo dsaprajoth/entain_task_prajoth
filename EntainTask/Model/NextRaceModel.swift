@@ -83,17 +83,23 @@ extension RaceSummary {
     var advertisedStartValue: Int {
         self.advertisedStart?.seconds ?? 0
     }
-    var raceTitleAccessibility: String {
-        "Meeting \(self.meetingName ?? "") Race \(self.raceNumber ?? 0) Starting in 10 mins"
+    var raceTitleAccessibility: String? {
+        if let meetingName = self.meetingName, let raceNumber = self.raceNumber {
+            let meetingStr = "Meeting \(meetingName)"
+            let raceStr = "Race \(raceNumber)"
+            let timeStr = "Starting in \(AppUtils().formatTime(self.advertisedStartValue))"
+            return "\(meetingStr) \(raceStr) \(timeStr)"
+        }
+        return ""
     }
     var icon: String {
         switch self.categoryID {
         case RaceType.horseRacing.categoryId:
-            return "horse"
+            return AssetConstants.horseRacingIcon
         case RaceType.harnessRacing.categoryId:
-            return "harness"
+            return AssetConstants.harnessRacingIcon
         case RaceType.greyHoundRacing.categoryId:
-            return "greyhound"
+            return AssetConstants.greyHoundRacingIcon
         default: return ""
         }
     }
@@ -101,34 +107,6 @@ extension RaceSummary {
 
 struct AdvertisedStart: Codable {
     let seconds: Int?
-}
-
-extension AdvertisedStart {
-    var secondsToMinutesAndSeconds: String {
-        let duration = Duration.seconds(self.seconds!)
-        let format = duration.formatted(
-            .time(
-                pattern: .hourMinuteSecond(
-                    padHourToLength: 2
-                )
-            )
-        )
-        return format
-    }
-    func secondsToTimeComponents(seconds: Int) -> String {
-        let days = seconds / (24 * 3600)
-        let remainingAfterDays = seconds % (24 * 3600)
-        let hours = remainingAfterDays / 3600
-        let remainingAfterHours = remainingAfterDays % 3600
-        let minutes = remainingAfterHours / 60
-        let remainingSeconds = remainingAfterHours % 60
-        let daysString = days > 0 ? "\(days) d:" : ""
-        let hrsString = hours > 0 ? "\(days) h:" : ""
-        let minString = minutes > 0 ? "\(days) m:" : ""
-        let secString = remainingSeconds > 0 ? "\(days) s:" : ""
-        return("\(daysString), \(hrsString), \(minString), \(secString)")
-    }
-
 }
 
 struct RaceForm: Codable {
