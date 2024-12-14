@@ -53,6 +53,8 @@ Swift Package Manager is used as a dependency manager.
 List of dependencies: 
 * SwiftLint: A tool to enforce Swift style and conventions based on GitHub's Swift Style Guide.
 
+# Branching Strategies
+
 # Workflow
 * Reporting bugs:<br> 
 If you come across any issues while using this project/app, please report them by creating a new issue on the GitHub repository or contacting me directly @ dsaprajoth@gmail.com.
