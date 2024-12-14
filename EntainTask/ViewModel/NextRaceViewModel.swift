@@ -13,15 +13,24 @@ class NextRaceViewModel: ObservableObject {
     @Published var nextRaceList: [RaceSummary] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
+    @Published var countdownViewModels: [CountdownViewModel] = []
     var selectedFilters: [RaceType] = []
     private let dataFetcher: DataFetcher
     private var cancellable: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
     init(dataFetcher: DataFetcher) {
         self.dataFetcher = dataFetcher
     }
     func fetchData(mock: Bool = false) {
         if mock {
             self.raceListFromAPI = loadJson() ?? []
+            self.countdownViewModels = self.raceListFromAPI.map { CountdownViewModel(initialValue: $0.advertisedStartValue) }
+            debugPrint("1")
+            // Observe each child view model
+            for (countdownViewModel) in self.countdownViewModels {
+                self.observeChildViewModel(countdownViewModel)
+                debugPrint("2")
+            }
             self.nextRaceList = loadJson() ?? []
             return
         }
@@ -49,13 +58,27 @@ class NextRaceViewModel: ObservableObject {
                 }
             } receiveValue: { data in
                 self.raceListFromAPI = data.data?.raceSummaries?.values.map { $0 } ?? []
+                self.countdownViewModels = self.raceListFromAPI.map { 
+                    CountdownViewModel(initialValue: $0.advertisedStartValue)
+                }
+                // Observe each child view model
+                for (countdownViewModel) in self.countdownViewModels {
+                    self.observeChildViewModel(countdownViewModel)
+                }
                 self.nextRaceList.removeAll()
                 self.nextRaceList.append(contentsOf: self.raceListFromAPI)
                 self.sortData()
             }
     }
-    func refreshFetch() {
-        self.fetchData()
+    func observeChildViewModel(_ childViewModel: CountdownViewModel) {
+        childViewModel.$isTimerFinished
+            .sink { [weak self] isFinished in
+                if isFinished {
+                    debugPrint("Timer has reached zero!")
+                    self?.fetchData()
+                }
+            }
+            .store(in: &cancellables)
     }
     func filter(by raceType: RaceType) {
         if selectedFilters.contains(raceType) {
