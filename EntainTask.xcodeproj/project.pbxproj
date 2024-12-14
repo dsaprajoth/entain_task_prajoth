@@ -17,6 +17,8 @@
 		A4E9E28E2D0DB44400D898E7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A4E9E28D2D0DB44400D898E7 /* Localizable.xcstrings */; };
 		A4E9E2912D0DC0E900D898E7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2902D0DC0E900D898E7 /* NetworkManager.swift */; };
 		A4E9E2952D0DDA4000D898E7 /* NextRaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */; };
+		A4E9E2972D0DE1BE00D898E7 /* RaceListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2962D0DE1BE00D898E7 /* RaceListItemViewModel.swift */; };
+		A4E9E2992D0DE1C600D898E7 /* RaceListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2982D0DE1C600D898E7 /* RaceListItemView.swift */; };
 		A4F038312D0BD54C0015E41C /* EntainTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */; };
 		A4F038332D0BD54C0015E41C /* NextRaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038322D0BD54C0015E41C /* NextRaceView.swift */; };
 		A4F038352D0BD54D0015E41C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F038342D0BD54D0015E41C /* Assets.xcassets */; };
@@ -27,12 +29,10 @@
 		A4F0385B2D0BDB080015E41C /* NextRaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0385A2D0BDB080015E41C /* NextRaceViewModel.swift */; };
 		A4F0385D2D0BDB210015E41C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0385C2D0BDB210015E41C /* Constants.swift */; };
 		A4F038602D0BDB970015E41C /* NextRaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0385F2D0BDB970015E41C /* NextRaceModel.swift */; };
-		A4F038642D0BE9EE0015E41C /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038632D0BE9EE0015E41C /* CountDownView.swift */; };
 		A4F038662D0BEC740015E41C /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = A4F038652D0BEC740015E41C /* mock.json */; };
 		A4F038682D0C145E0015E41C /* ChipFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038672D0C145E0015E41C /* ChipFilterView.swift */; };
 		A4F0386B2D0C2B6D0015E41C /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0386A2D0C2B6D0015E41C /* DataFetcher.swift */; };
 		A4F038712D0C6EA70015E41C /* RaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038702D0C6EA70015E41C /* RaceListView.swift */; };
-		A4F038782D0D26EB0015E41C /* CountdownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038772D0D26EB0015E41C /* CountdownViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +63,8 @@
 		A4E9E28D2D0DB44400D898E7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A4E9E2902D0DC0E900D898E7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceViewModelTests.swift; sourceTree = "<group>"; };
+		A4E9E2962D0DE1BE00D898E7 /* RaceListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListItemViewModel.swift; sourceTree = "<group>"; };
+		A4E9E2982D0DE1C600D898E7 /* RaceListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListItemView.swift; sourceTree = "<group>"; };
 		A4F0382D2D0BD54C0015E41C /* EntainTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntainTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskApp.swift; sourceTree = "<group>"; };
 		A4F038322D0BD54C0015E41C /* NextRaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceView.swift; sourceTree = "<group>"; };
@@ -76,12 +78,10 @@
 		A4F0385A2D0BDB080015E41C /* NextRaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceViewModel.swift; sourceTree = "<group>"; };
 		A4F0385C2D0BDB210015E41C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A4F0385F2D0BDB970015E41C /* NextRaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceModel.swift; sourceTree = "<group>"; };
-		A4F038632D0BE9EE0015E41C /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		A4F038652D0BEC740015E41C /* mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
 		A4F038672D0C145E0015E41C /* ChipFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipFilterView.swift; sourceTree = "<group>"; };
 		A4F0386A2D0C2B6D0015E41C /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		A4F038702D0C6EA70015E41C /* RaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListView.swift; sourceTree = "<group>"; };
-		A4F038772D0D26EB0015E41C /* CountdownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				A4F0385A2D0BDB080015E41C /* NextRaceViewModel.swift */,
-				A4F038772D0D26EB0015E41C /* CountdownViewModel.swift */,
+				A4E9E2962D0DE1BE00D898E7 /* RaceListItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -249,9 +249,9 @@
 		A4F038762D0C7E870015E41C /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				A4F038632D0BE9EE0015E41C /* CountDownView.swift */,
 				A4F038672D0C145E0015E41C /* ChipFilterView.swift */,
 				A4F038702D0C6EA70015E41C /* RaceListView.swift */,
+				A4E9E2982D0DE1C600D898E7 /* RaceListItemView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -393,7 +393,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4E9E2912D0DC0E900D898E7 /* NetworkManager.swift in Sources */,
-				A4F038782D0D26EB0015E41C /* CountdownViewModel.swift in Sources */,
 				A4E9E2832D0D323900D898E7 /* StringConstants.swift in Sources */,
 				A4E9E2852D0D324B00D898E7 /* AccessibilityConstants.swift in Sources */,
 				A4F038682D0C145E0015E41C /* ChipFilterView.swift in Sources */,
@@ -404,12 +403,13 @@
 				A4E9E2812D0D322A00D898E7 /* AssetConstants.swift in Sources */,
 				A4E9E27F2D0D320400D898E7 /* ColorConstants.swift in Sources */,
 				A4F038712D0C6EA70015E41C /* RaceListView.swift in Sources */,
-				A4F038642D0BE9EE0015E41C /* CountDownView.swift in Sources */,
 				A4E9E2892D0D326E00D898E7 /* AppUtils.swift in Sources */,
 				A4F038332D0BD54C0015E41C /* NextRaceView.swift in Sources */,
 				A4F038312D0BD54C0015E41C /* EntainTaskApp.swift in Sources */,
 				A4F0385D2D0BDB210015E41C /* Constants.swift in Sources */,
 				A4F0386B2D0C2B6D0015E41C /* DataFetcher.swift in Sources */,
+				A4E9E2992D0DE1C600D898E7 /* RaceListItemView.swift in Sources */,
+				A4E9E2972D0DE1BE00D898E7 /* RaceListItemViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,22 +1,24 @@
 //
-//  ChipFilterViewModel.swift
+//  RaceListItemViewModel.swift
 //  EntainTask
 //
-//  Created by Prajoth Dsa on 14/12/2024.
+//  Created by Prajoth Dsa on 15/12/2024.
 //
 
 import SwiftUI
 import Combine
 
-class CountdownViewModel: ObservableObject {
+class RaceListItemViewModel: ObservableObject {
     @Published var timeRemainingString: String = ""
     @Published var isTimerFinished: Bool = false
 
-    private var advertisedDate: Date
+    var race: RaceSummary
     private var timer: AnyCancellable?
+    private var advertisedDate: Date
 
-    init(epochTime: TimeInterval) {
-        self.advertisedDate = Date(timeIntervalSince1970: epochTime)
+    init(race: RaceSummary) {
+        self.race = race
+        self.advertisedDate = Date(timeIntervalSince1970: TimeInterval(race.advertisedStartValue))
         startTimer()
     }
 
@@ -59,5 +61,4 @@ class CountdownViewModel: ObservableObject {
     private func stopTimer() {
         timer?.cancel()
     }
-
 }

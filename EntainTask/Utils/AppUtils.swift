@@ -44,7 +44,7 @@ struct AppUtils {
         // Configure the DateFormatter
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium // You can change this to .short, .medium, .long, or .full
-        dateFormatter.timeStyle = .medium // Similarly, you can adjust the time style
+        dateFormatter.timeStyle = .short // Similarly, you can adjust the time style
         dateFormatter.locale = Locale.current // Ensures the date is formatted based on the user's locale
 
         // Convert the Date to a formatted String
