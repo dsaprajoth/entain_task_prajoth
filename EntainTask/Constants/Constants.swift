@@ -7,7 +7,7 @@
 
 import SwiftUI
 struct APIConstants {
-    static let endpoint = "https://api.neds.com.au/rest/v1/racing/?method=nextraces&count=5"
+    static let endpoint = "https://api.neds.com.au/rest/v1/racing/?method=nextraces&count=10"
 }
 struct CategoryIds {
     static let horseRacing = "4a2788f8-e825-4d36-9894-efd4baf1cfae"

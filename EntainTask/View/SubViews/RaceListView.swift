@@ -18,30 +18,38 @@ struct RaceListView: View {
                     .frame(width: 2)
                     .background(.pink)
                 VStack(alignment: .leading) {
-                    Image(race.icon)
-                        .renderingMode(.template)
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(.raceTileIcon)
                     HStack {
-                        Text("\(race.raceNumber ?? 0)")
+                        Image(race.icon)
+                            .renderingMode(.template)
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(.raceTileIcon)
+                        Text("R\(race.raceNumber ?? 0)")
                             .font(.appFontSmall)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.themeOrangeLight)
                         Text(race.meetingName ?? "")
                             .font(.appFontMedium)
                     }
+                    Text(race.venueCountry ?? "")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+
+                    Text(race.advertisedStartForDisplay)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                 }
                 Spacer()
-                CountdownTimerView(
-                    viewModel: viewModel.countdownViewModels[index]
-                )
+                VStack {
+                    if let countdownViewmodel = viewModel.countdownViewModels?[index] {
+                        CountdownTimerView(viewModel: countdownViewmodel)
+                    }
+                }
             }
             .accessibilityElement(children: .ignore)
             .if(let: race.raceTitleAccessibility) { view, accessibility in
                 view.accessibilityLabel(Text(accessibility))
             }
         }
-        .background(.green)
         .listStyle(.inset)
         .listRowSeparator(.hidden)
     }
