@@ -9,9 +9,11 @@ import SwiftUI
 
 struct NextRaceView: View {
     @StateObject private var viewModel = NextRaceViewModel(dataFetcher: RaceDataFetcher())
+
     var body: some View {
         NavigationStack {
             VStack {
+                // MARK: - Top Header (Logo and Title)
                 VStack {
                     Image(AssetConstants.logo)
                         .accessibilityRemoveTraits(.isImage)
@@ -22,7 +24,10 @@ struct NextRaceView: View {
                         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                 }
                 .frame(height: 80)
+
+                // MARK: - Filter Header
                 ChipFilterView(viewModel: viewModel)
+
                 if viewModel.isLoading {
                     ProgressView(StringConstants.loading)
                 } else if let errorMessage = viewModel.errorMessage {
@@ -35,6 +40,7 @@ struct NextRaceView: View {
                 } else {
                     VStack {
                         if viewModel.nextRaceList.count == 0 {
+                            // Show error message when no races are available
                             VStack {
                                 Text(StringConstants.noRaceText)
                                     .foregroundColor(.white)
@@ -42,8 +48,10 @@ struct NextRaceView: View {
                                     .padding()
                             }
                         } else {
+                            // Show list of races. Extracted to a separate file RaceListView
                             RaceListView(viewModel: viewModel)
                         }
+                        // FIXME: - Remove reload button. Used for testing
                         Button {
                             viewModel.fetchData()
                         } label: {
