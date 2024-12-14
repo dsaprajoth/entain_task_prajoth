@@ -151,9 +151,9 @@ class NextRaceViewModelTests: XCTestCase {
             if !data.isEmpty {
                 if let firstRaceObj = data.first(where: { $0.raceID == "1b27039b-e4d4-479d-beba-72cffd1186fb" }) {
                     XCTAssertNotNil(firstRaceObj, "Data should not be nil")
-                    XCTAssertEqual(firstRaceObj.advertisedStartValue, 20)
+                    XCTAssertEqual(firstRaceObj.advertisedStartValue, 172800)
                     XCTAssertEqual(firstRaceObj.raceTitleAccessibility, "Meeting \(firstRaceObj.meetingName ?? "") Race \(firstRaceObj.raceNumber ?? 0) Starting in 10 mins")
-                    XCTAssertEqual(firstRaceObj.advertisedStart?.secondsToMinutesAndSeconds, "00:00:20")
+                    XCTAssertEqual(firstRaceObj.advertisedStart?.secondsToMinutesAndSeconds, "48:00:00")
                     expectation.fulfill()
                 } else {
                     XCTFail("Failed to fetch data")

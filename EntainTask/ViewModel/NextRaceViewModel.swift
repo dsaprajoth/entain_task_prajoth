@@ -22,14 +22,16 @@ class NextRaceViewModel: ObservableObject {
         self.dataFetcher = dataFetcher
     }
     func fetchData(mock: Bool = false) {
+        // For testing/debug purposes using a mock mock with less start value then refreshing with real data.
+        // This is to test the timer functionality
         if mock {
             self.raceListFromAPI = loadJson() ?? []
-            self.countdownViewModels = self.raceListFromAPI.map { CountdownViewModel(initialValue: $0.advertisedStartValue) }
-            debugPrint("1")
+            self.countdownViewModels = self.raceListFromAPI.map {
+                CountdownViewModel(initialValue: $0.advertisedStartValue)
+            }
             // Observe each child view model
-            for (countdownViewModel) in self.countdownViewModels {
+            for countdownViewModel in self.countdownViewModels {
                 self.observeChildViewModel(countdownViewModel)
-                debugPrint("2")
             }
             self.nextRaceList = loadJson() ?? []
             return
@@ -58,7 +60,8 @@ class NextRaceViewModel: ObservableObject {
                 }
             } receiveValue: { data in
                 self.raceListFromAPI = data.data?.raceSummaries?.values.map { $0 } ?? []
-                self.countdownViewModels = self.raceListFromAPI.map { 
+                self.sortData()
+                self.countdownViewModels = self.raceListFromAPI.map {
                     CountdownViewModel(initialValue: $0.advertisedStartValue)
                 }
                 // Observe each child view model
@@ -67,7 +70,6 @@ class NextRaceViewModel: ObservableObject {
                 }
                 self.nextRaceList.removeAll()
                 self.nextRaceList.append(contentsOf: self.raceListFromAPI)
-                self.sortData()
             }
     }
     func observeChildViewModel(_ childViewModel: CountdownViewModel) {
@@ -95,7 +97,7 @@ class NextRaceViewModel: ObservableObject {
         }
     }
     func sortData() {
-        self.nextRaceList.sort { $0.advertisedStart?.seconds ?? 0 < $1.advertisedStart?.seconds ?? 0 }
+        self.raceListFromAPI.sort { $0.advertisedStart?.seconds ?? 0 < $1.advertisedStart?.seconds ?? 0 }
     }
     func loadJson() -> [RaceSummary]? {
         if let url = Bundle.main.url(forResource: "mock", withExtension: "json") {
