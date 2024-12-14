@@ -9,19 +9,25 @@ import Combine
 import Foundation
 
 class NextRaceViewModel: ObservableObject {
-    var raceListFromAPI: [RaceSummary] = []
     @Published var nextRaceList: [RaceSummary] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     @Published var countdownViewModels: [CountdownViewModel] = []
-    var selectedFilters: [RaceType] = []
+
     private let dataFetcher: DataFetcher
     private var cancellable: AnyCancellable?
     private var cancellables = Set<AnyCancellable>()
+
+    var selectedFilters: [RaceType] = []
+    var raceListFromAPI: [RaceSummary] = []
+
     init(dataFetcher: DataFetcher) {
         self.dataFetcher = dataFetcher
     }
+
     func fetchData(mock: Bool = false) {
+        // TODO: Remove mock and delete the below code to fetch real data
+        // TODO: remove mock param from the function signature
         // For testing/debug purposes using a mock mock with less start value then refreshing with real data.
         // This is to test the timer functionality
         if mock {
@@ -72,6 +78,7 @@ class NextRaceViewModel: ObservableObject {
                 self.nextRaceList.append(contentsOf: self.raceListFromAPI)
             }
     }
+
     func observeChildViewModel(_ childViewModel: CountdownViewModel) {
         childViewModel.$isTimerFinished
             .sink { [weak self] isFinished in
@@ -82,6 +89,7 @@ class NextRaceViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+
     func filter(by raceType: RaceType) {
         if selectedFilters.contains(raceType) {
             selectedFilters.removeAll { $0 == raceType }
@@ -96,9 +104,11 @@ class NextRaceViewModel: ObservableObject {
             sortData()
         }
     }
+
     func sortData() {
         self.raceListFromAPI.sort { $0.advertisedStart?.seconds ?? 0 < $1.advertisedStart?.seconds ?? 0 }
     }
+
     func loadJson() -> [RaceSummary]? {
         if let url = Bundle.main.url(forResource: "mock", withExtension: "json") {
             do {

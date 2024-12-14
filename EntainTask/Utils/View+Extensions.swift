@@ -20,7 +20,8 @@ public extension View {
     ///     }
     /// ```
     @ViewBuilder
-    func `if`<Property, TrueContent: View>(`let` property: Property?, trueContent: (Self, Property) -> TrueContent) -> some View {
+    func `if`<Property, TrueContent: View>(`let` property: Property?,
+                                           trueContent: (Self, Property) -> TrueContent) -> some View {
         if let property {
             trueContent(self, property)
         } else {

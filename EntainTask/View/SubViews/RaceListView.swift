@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RaceListView: View {
     @StateObject var viewModel: NextRaceViewModel
+
     var body: some View {
         List(viewModel.nextRaceList.indices, id: \.self) { index in
             let race: RaceSummary = viewModel.nextRaceList[index]

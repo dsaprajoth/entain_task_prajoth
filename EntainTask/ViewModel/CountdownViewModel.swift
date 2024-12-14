@@ -11,15 +11,19 @@ import Combine
 class CountdownViewModel: ObservableObject {
     @Published var timeRemainingString: String = ""
     @Published var isTimerFinished: Bool = false
+
     private var timeRemaining: Int
     private var timer: AnyCancellable?
+
     init(initialValue: Int) {
         self.timeRemaining = initialValue
         startTimer()
     }
+
     deinit {
         stopTimer()
     }
+
     private func startTimer() {
         timer = Timer.publish(every: 1.0, on: .main, in: .common)
             .autoconnect()
@@ -31,9 +35,11 @@ class CountdownViewModel: ObservableObject {
                 self?.timeFormatted()
             }
     }
+
     private func stopTimer() {
         timer?.cancel()
     }
+
     private func timeFormatted() {
         timeRemainingString = AppUtils().formatTime(timeRemaining)
     }

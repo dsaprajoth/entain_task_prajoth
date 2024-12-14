@@ -7,10 +7,10 @@
 
 import SwiftUI
 struct AccessibilityConstants {
-    static let logo = "Entain Logo"
-    static let harnessRacing = "Harness Racing"
-    static let greyHoundRacing = "Greyhound Racing"
-    static let noRaceText = "No race to display!"
-    static let loading = "Loading..."
-    static let title = "Next to Go Racing"
+    static let logo = String(localized: "Entain Logo")
+    static let harnessRacing = String(localized: "Harness Racing")
+    static let greyHoundRacing = String(localized: "Greyhound Racing")
+    static let noRaceText = String(localized: "No race to display!")
+    static let loading = String(localized: "Loading...")
+    static let title = String(localized: "Next to Go Racing")
 }
