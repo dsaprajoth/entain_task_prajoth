@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NextRaceView: View {
-    @StateObject private var viewModel = NextRaceViewModel(dataFetcher: RaceDataFetcher())
+    @StateObject private var viewModel = NextRaceViewModel(networkService: NetworkManager())
 
     var body: some View {
         NavigationStack {
@@ -67,7 +67,7 @@ struct NextRaceView: View {
             .background(ColorConstants.themeLight)
         }
         .task {
-            viewModel.fetchData(mock: false)
+            viewModel.fetchData()
         }
     }
 }

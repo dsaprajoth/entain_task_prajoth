@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%lld" : {
-
-    },
     "Entain Logo" : {
 
     },
@@ -29,6 +26,9 @@
 
     },
     "No race to display!" : {
+
+    },
+    "R%lld" : {
 
     },
     "Reload" : {
