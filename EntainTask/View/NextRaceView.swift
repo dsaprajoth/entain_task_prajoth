@@ -67,7 +67,7 @@ struct NextRaceView: View {
             .background(ColorConstants.themeLight)
         }
         .task {
-            viewModel.fetchData(mock: false)
+            viewModel.fetchData()
         }
     }
 }
