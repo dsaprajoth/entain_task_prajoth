@@ -13,6 +13,8 @@
 		A4E9E2852D0D324B00D898E7 /* AccessibilityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2842D0D324B00D898E7 /* AccessibilityConstants.swift */; };
 		A4E9E2872D0D325D00D898E7 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2862D0D325D00D898E7 /* FontConstants.swift */; };
 		A4E9E2892D0D326E00D898E7 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2882D0D326E00D898E7 /* AppUtils.swift */; };
+		A4E9E28C2D0D8B5800D898E7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E28B2D0D8B5800D898E7 /* View+Extensions.swift */; };
+		A4E9E28E2D0DB44400D898E7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A4E9E28D2D0DB44400D898E7 /* Localizable.xcstrings */; };
 		A4F038312D0BD54C0015E41C /* EntainTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */; };
 		A4F038332D0BD54C0015E41C /* NextRaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038322D0BD54C0015E41C /* NextRaceView.swift */; };
 		A4F038352D0BD54D0015E41C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F038342D0BD54D0015E41C /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		A4E9E2842D0D324B00D898E7 /* AccessibilityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityConstants.swift; sourceTree = "<group>"; };
 		A4E9E2862D0D325D00D898E7 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
 		A4E9E2882D0D326E00D898E7 /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
+		A4E9E28B2D0D8B5800D898E7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		A4E9E28D2D0DB44400D898E7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A4F0382D2D0BD54C0015E41C /* EntainTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntainTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskApp.swift; sourceTree = "<group>"; };
 		A4F038322D0BD54C0015E41C /* NextRaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceView.swift; sourceTree = "<group>"; };
@@ -101,6 +105,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4E9E28A2D0D8B4800D898E7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E2882D0D326E00D898E7 /* AppUtils.swift */,
+				A4E9E28B2D0D8B5800D898E7 /* View+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		A4F038242D0BD54C0015E41C = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +141,7 @@
 				A4F038622D0BDBEA0015E41C /* View */,
 				A4F038612D0BDBE10015E41C /* ViewModel */,
 				A4F0385E2D0BDB8B0015E41C /* Model */,
+				A4E9E28A2D0D8B4800D898E7 /* Utils */,
 				A4F038742D0C787A0015E41C /* Constants */,
 				A4F038752D0C788C0015E41C /* Assets */,
 				A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */,
@@ -199,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				A4F0385C2D0BDB210015E41C /* Constants.swift */,
-				A4E9E2882D0D326E00D898E7 /* AppUtils.swift */,
 				A4E9E2862D0D325D00D898E7 /* FontConstants.swift */,
 				A4E9E2822D0D323900D898E7 /* StringConstants.swift */,
 				A4E9E2802D0D322A00D898E7 /* AssetConstants.swift */,
@@ -212,6 +225,7 @@
 		A4F038752D0C788C0015E41C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A4E9E28D2D0DB44400D898E7 /* Localizable.xcstrings */,
 				A4F038342D0BD54D0015E41C /* Assets.xcassets */,
 				A4F038652D0BEC740015E41C /* mock.json */,
 			);
@@ -338,6 +352,7 @@
 			files = (
 				A4F038382D0BD54D0015E41C /* Preview Assets.xcassets in Resources */,
 				A4F038352D0BD54D0015E41C /* Assets.xcassets in Resources */,
+				A4E9E28E2D0DB44400D898E7 /* Localizable.xcstrings in Resources */,
 				A4F038662D0BEC740015E41C /* mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +385,7 @@
 				A4F038602D0BDB970015E41C /* NextRaceModel.swift in Sources */,
 				A4F0385B2D0BDB080015E41C /* NextRaceViewModel.swift in Sources */,
 				A4E9E2872D0D325D00D898E7 /* FontConstants.swift in Sources */,
+				A4E9E28C2D0D8B5800D898E7 /* View+Extensions.swift in Sources */,
 				A4E9E2812D0D322A00D898E7 /* AssetConstants.swift in Sources */,
 				A4E9E27F2D0D320400D898E7 /* ColorConstants.swift in Sources */,
 				A4F038712D0C6EA70015E41C /* RaceListView.swift in Sources */,

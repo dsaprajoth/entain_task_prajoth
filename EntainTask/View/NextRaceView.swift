@@ -47,7 +47,7 @@ struct NextRaceView: View {
                         Button {
                             viewModel.fetchData()
                         } label: {
-                            Text("Reload")
+                            Text(StringConstants.reload)
                                 .foregroundColor(.white)
                                 .padding()
                         }
