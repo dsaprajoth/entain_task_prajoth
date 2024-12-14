@@ -7,8 +7,8 @@
 
 import SwiftUI
 struct AssetConstants {
-    static let horseRacing = "horse"
-    static let harnessRacing = "harness"
-    static let greyHoundRacing = "greyhound"
+    static let horseRacingIcon = "horse"
+    static let harnessRacingIcon = "harness"
+    static let greyHoundRacingIcon = "greyhound"
     static let logo = "logo"
 }

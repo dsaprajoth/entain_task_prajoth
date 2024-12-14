@@ -1,0 +1,36 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%lld" : {
+
+    },
+    "Error: %@" : {
+
+    },
+    "Filter %@" : {
+
+    },
+    "Greyhound Racing" : {
+
+    },
+    "Harness Racing" : {
+
+    },
+    "Horse Racing" : {
+
+    },
+    "Loading..." : {
+
+    },
+    "Next to Go Racing" : {
+
+    },
+    "No race to display!" : {
+
+    },
+    "Reload" : {
+
+    }
+  },
+  "version" : "1.0"
+}

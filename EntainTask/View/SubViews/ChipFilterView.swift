@@ -12,8 +12,11 @@ struct ChipFilterView: View {
     var body: some View {
         HStack(spacing: 20) {
             chipButtonView(raceType: .horseRacing)
+                .accessibilityIdentifier("HorseRacingChip")
             chipButtonView(raceType: .harnessRacing)
+                .accessibilityIdentifier("HarnessRacingChip")
             chipButtonView(raceType: .greyHoundRacing)
+                .accessibilityIdentifier("GreyHoundRacingChip")
         }
         .frame(height: 40)
     }

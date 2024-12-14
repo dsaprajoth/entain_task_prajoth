@@ -36,7 +36,9 @@ struct RaceListView: View {
                 )
             }
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel(Text(race.raceTitleAccessibility))
+            .if(let: race.raceTitleAccessibility) { view, accessibility in
+                view.accessibilityLabel(Text(accessibility))
+            }
         }
         .background(.green)
         .listStyle(.inset)

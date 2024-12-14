@@ -153,7 +153,6 @@ class NextRaceViewModelTests: XCTestCase {
                     XCTAssertNotNil(firstRaceObj, "Data should not be nil")
                     XCTAssertEqual(firstRaceObj.advertisedStartValue, 172800)
                     XCTAssertEqual(firstRaceObj.raceTitleAccessibility, "Meeting \(firstRaceObj.meetingName ?? "") Race \(firstRaceObj.raceNumber ?? 0) Starting in 10 mins")
-                    XCTAssertEqual(firstRaceObj.advertisedStart?.secondsToMinutesAndSeconds, "48:00:00")
                     expectation.fulfill()
                 } else {
                     XCTFail("Failed to fetch data")
@@ -165,4 +164,34 @@ class NextRaceViewModelTests: XCTestCase {
 
         waitForExpectations(timeout: 5)
     }
+    
+    func testUtilConversionOfSecondsToReadableFormat() {
+        //Given
+        let mockDataFetcher = MockDataFetcher()
+        let viewModel = NextRaceViewModel(dataFetcher: mockDataFetcher)
+        let expectation = expectation(description: "Verify filter functionality for horse race")
+
+        // When
+        viewModel.fetchData()
+
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            let data = viewModel.raceListFromAPI
+            if !data.isEmpty {
+                if let firstRaceObj = data.first(where: { $0.raceID == "1b27039b-e4d4-479d-beba-72cffd1186fb" }) {
+                    if let seconds = firstRaceObj.advertisedStart?.seconds {
+                        XCTAssertEqual(AppUtils().formatTime(seconds), "2d 0s")
+                        expectation.fulfill()
+                    }
+                } else {
+                    XCTFail("Failed to fetch data")
+                }
+            } else {
+                XCTFail("Failed to fetch data")
+            }
+        }
+
+        waitForExpectations(timeout: 5)
+    }
+
 }
