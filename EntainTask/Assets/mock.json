@@ -17,7 +17,7 @@
         "meeting_name": "Doncaster",
         "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
         "advertised_start": {
-          "seconds": 20
+          "seconds": 172800
         },
         "race_form": {
           "distance": 3902,
