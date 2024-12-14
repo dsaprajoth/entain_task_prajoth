@@ -83,11 +83,14 @@ extension RaceSummary {
     var advertisedStartValue: Int {
         self.advertisedStart?.seconds ?? 0
     }
+    var advertisedStartForDisplay: String {
+        AppUtils.convertEpochToDate(epochTime: TimeInterval(self.advertisedStartValue))
+    }
     var raceTitleAccessibility: String? {
         if let meetingName = self.meetingName, let raceNumber = self.raceNumber {
             let meetingStr = "Meeting \(meetingName)"
             let raceStr = "Race \(raceNumber)"
-            let timeStr = "Starting in \(AppUtils().formatTime(self.advertisedStartValue))"
+            let timeStr = "Starting in \(AppUtils.formatTime(TimeInterval(self.advertisedStartValue)))"
             return "\(meetingStr) \(raceStr) \(timeStr)"
         }
         return ""
