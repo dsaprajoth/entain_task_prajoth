@@ -38,7 +38,8 @@ class RaceListItemViewModel: ObservableObject {
         let now = Date()
         let timeInterval = advertisedDate.timeIntervalSince(now)
 
-        if timeInterval <= -60 {
+        if timeInterval < -60 {
+            // If the time interval is less than -60 seconds, trigger a new fetch as we cannot show races beyond a minute from the advertised start time
             isTimerFinished = true
         } else {
             timeRemainingString = AppUtils.formatTime(timeInterval)
@@ -49,12 +50,13 @@ class RaceListItemViewModel: ObservableObject {
         let now = Date()
         let timeInterval = advertisedDate.timeIntervalSince(now)
 
-        if timeInterval <= 0 {
-            return Color.red
-        } else if timeInterval <= 60 {
-            return Color.orange
-        } else {
-            return Color.green
+        switch timeInterval {
+        case ...0:
+            return .red
+        case ...60:
+            return .orange
+        default:
+            return .green
         }
     }
 
