@@ -22,6 +22,7 @@
 		A4F038682D0C145E0015E41C /* ChipFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038672D0C145E0015E41C /* ChipFilterView.swift */; };
 		A4F0386B2D0C2B6D0015E41C /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0386A2D0C2B6D0015E41C /* DataFetcher.swift */; };
 		A4F038712D0C6EA70015E41C /* RaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038702D0C6EA70015E41C /* RaceListView.swift */; };
+		A4F038782D0D26EB0015E41C /* CountdownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038772D0D26EB0015E41C /* CountdownViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		A4F038672D0C145E0015E41C /* ChipFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipFilterView.swift; sourceTree = "<group>"; };
 		A4F0386A2D0C2B6D0015E41C /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		A4F038702D0C6EA70015E41C /* RaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListView.swift; sourceTree = "<group>"; };
+		A4F038772D0D26EB0015E41C /* CountdownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				A4F0385A2D0BDB080015E41C /* NextRaceViewModel.swift */,
+				A4F038772D0D26EB0015E41C /* CountdownViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F038782D0D26EB0015E41C /* CountdownViewModel.swift in Sources */,
 				A4F038682D0C145E0015E41C /* ChipFilterView.swift in Sources */,
 				A4F038602D0BDB970015E41C /* NextRaceModel.swift in Sources */,
 				A4F0385B2D0BDB080015E41C /* NextRaceViewModel.swift in Sources */,
