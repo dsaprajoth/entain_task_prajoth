@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct NextRaceView: View {
     @StateObject private var viewModel = NextRaceViewModel(dataFetcher: RaceDataFetcher())
     var body: some View {
         NavigationStack {
@@ -44,6 +44,13 @@ struct ContentView: View {
                         } else {
                             RaceListView(viewModel: viewModel)
                         }
+                        Button {
+                            viewModel.fetchData()
+                        } label: {
+                            Text("Reload")
+                                .foregroundColor(.white)
+                                .padding()
+                        }
                     }
                 }
                 Spacer()
@@ -52,13 +59,13 @@ struct ContentView: View {
             .background(ColorConstants.themeLight)
         }
         .task {
-            viewModel.fetchData(mock: true)
+            viewModel.fetchData(mock: false)
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        NextRaceView()
     }
 }

@@ -25,7 +25,7 @@ class CountdownViewModel: ObservableObject {
             .autoconnect()
             .sink { [weak self] _ in
                 self?.timeRemaining -= 1
-                if let time = self?.timeRemaining, time < -3 {
+                if let time = self?.timeRemaining, time == 0 /*< -3*/ {
                     self?.isTimerFinished = true
                 }
                 self?.timeFormatted()

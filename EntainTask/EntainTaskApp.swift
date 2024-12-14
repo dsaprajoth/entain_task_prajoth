@@ -11,7 +11,7 @@ import SwiftUI
 struct EntainTaskApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NextRaceView()
         }
     }
 }
