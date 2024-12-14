@@ -11,6 +11,7 @@ struct CountdownTimerView: View {
     @StateObject var viewModel: CountdownViewModel
     var body: some View {
         Text(viewModel.timeRemainingString)
-            .font(.appFontSmall)
+            .font(.appFontSmallBold)
+            .foregroundColor(viewModel.colorForTimeRemaining)
     }
 }

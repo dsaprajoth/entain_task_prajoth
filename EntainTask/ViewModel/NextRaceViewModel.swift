@@ -12,71 +12,52 @@ class NextRaceViewModel: ObservableObject {
     @Published var nextRaceList: [RaceSummary] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
-    @Published var countdownViewModels: [CountdownViewModel] = []
+    @Published var countdownViewModels: [CountdownViewModel]? = []
 
-    private let dataFetcher: DataFetcher
-    private var cancellable: AnyCancellable?
     private var cancellables = Set<AnyCancellable>()
+    private var countdownCancellables = Set<AnyCancellable>()
+    private let networkService: NetworkService
 
     var selectedFilters: [RaceType] = []
     var raceListFromAPI: [RaceSummary] = []
 
-    init(dataFetcher: DataFetcher) {
-        self.dataFetcher = dataFetcher
+    // Allows dependency injection of any NetworkService conforming type (NetworkService or MockNetworkService)
+    init(networkService: NetworkService) {
+        self.networkService = networkService
     }
 
     func fetchData(mock: Bool = false) {
-        // TODO: Remove mock and delete the below code to fetch real data
-        // TODO: remove mock param from the function signature
-        // For testing/debug purposes using a mock mock with less start value then refreshing with real data.
-        // This is to test the timer functionality
-        if mock {
-            self.raceListFromAPI = loadJson() ?? []
-            self.countdownViewModels = self.raceListFromAPI.map {
-                CountdownViewModel(initialValue: $0.advertisedStartValue)
-            }
-            // Observe each child view model
-            for countdownViewModel in self.countdownViewModels {
-                self.observeChildViewModel(countdownViewModel)
-            }
-            self.nextRaceList = loadJson() ?? []
-            return
-        }
-        self.isLoading = true
-        cancellable = dataFetcher.fetchRaceData()
-            .receive(on: DispatchQueue.main)
-            .sink { completion in
-                self.isLoading = false
-                switch completion {
-                case .failure(let error):
-                    switch error {
-                    case .sessionFailed(let error):
-                        self.errorMessage = error.localizedDescription
-                    case .decodingFailed:
-                        self.errorMessage = "Decoding failed"
-                    case .other:
-                        self.errorMessage = "Error occured while fetching data"
-                    case .internalError(let error):
-                        self.errorMessage = "Internal Server Error: \(error)"
-                    case .serverError(let error):
-                        self.errorMessage = "Server Error: \(error)"
-                    }
-                case .finished:
-                    print("Data fetched successfully")
+        guard let url = URL(string: APIConstants.endpoint) else { return }
+
+        isLoading = true
+        networkService.fetch(url: url, responseType: NextRacesResponse.self)
+            .sink(receiveCompletion: { [weak self] completion in
+                if case let .failure(error) = completion {
+                    self?.errorMessage = error.localizedDescription
                 }
-            } receiveValue: { data in
-                self.raceListFromAPI = data.data?.raceSummaries?.values.map { $0 } ?? []
-                self.sortData()
-                self.countdownViewModels = self.raceListFromAPI.map {
-                    CountdownViewModel(initialValue: $0.advertisedStartValue)
+            }, receiveValue: { [weak self] data in
+                self?.isLoading = false
+                self?.raceListFromAPI = data.data?.raceSummaries?.values.map { $0 } ?? []
+                // Filter out races beyond a minute from the advertised start time
+                self?.filterData()
+                // Sort the races based on the advertised start time
+                self?.sortData()
+                // Pick the first 5 races from the list
+                self?.raceListFromAPI = Array(self?.raceListFromAPI.prefix(5) ?? [])
+                // Create countdown view models for every race (These are the child view models)
+                self?.countdownViewModels = self?.raceListFromAPI.map {
+                    CountdownViewModel(epochTime: TimeInterval($0.advertisedStartValue))
                 }
                 // Observe each child view model
-                for (countdownViewModel) in self.countdownViewModels {
-                    self.observeChildViewModel(countdownViewModel)
+                guard let countdownViewModels = self?.countdownViewModels else { return }
+                for countdownViewModel in countdownViewModels {
+                    self?.observeChildViewModel(countdownViewModel)
                 }
-                self.nextRaceList.removeAll()
-                self.nextRaceList.append(contentsOf: self.raceListFromAPI)
-            }
+                // Clear the main list nextRaceList, copy the filtered and sorted list to the main list
+                self?.nextRaceList.removeAll()
+                self?.nextRaceList.append(contentsOf: self?.raceListFromAPI ?? [])
+            })
+            .store(in: &cancellables)
     }
 
     func observeChildViewModel(_ childViewModel: CountdownViewModel) {
@@ -87,39 +68,48 @@ class NextRaceViewModel: ObservableObject {
                     self?.fetchData()
                 }
             }
-            .store(in: &cancellables)
+            .store(in: &countdownCancellables)
     }
 
     func filter(by raceType: RaceType) {
+        countdownCancellables.removeAll()
         if selectedFilters.contains(raceType) {
             selectedFilters.removeAll { $0 == raceType }
         } else {
             selectedFilters.append(raceType)
         }
+
+        var filteredList: [RaceSummary] = []
         if selectedFilters.isEmpty {
-            self.nextRaceList = raceListFromAPI
+            filteredList.append(contentsOf: raceListFromAPI)
         } else {
             let raceCategoryIds = selectedFilters.map { $0.categoryId }
-            self.nextRaceList = raceListFromAPI.filter { raceCategoryIds.contains($0.categoryID ?? "") }
-            sortData()
+            filteredList = raceListFromAPI.filter { raceCategoryIds.contains($0.categoryID ?? "") }
         }
+        // Create countdown view models for every race (These are the child view models)
+        self.countdownViewModels = filteredList.map {
+            CountdownViewModel(epochTime: TimeInterval($0.advertisedStartValue))
+        }
+        // Observe each child view model
+        guard let countdownViewModels = self.countdownViewModels else { return }
+        for countdownViewModel in countdownViewModels {
+            self.observeChildViewModel(countdownViewModel)
+        }
+
+        self.nextRaceList = filteredList
+        sortData()
+    }
+
+    func filterData() {
+        // Ensure there are no races beyond a minute from the advertised start time
+        let now = Date().timeIntervalSince1970
+        let oneMinuteFromNow = now - 60
+        self.raceListFromAPI = self.raceListFromAPI.filter { TimeInterval($0.advertisedStartValue) > oneMinuteFromNow }
     }
 
     func sortData() {
+        // Sort the race list based on the advertised start time ascending
         self.raceListFromAPI.sort { $0.advertisedStart?.seconds ?? 0 < $1.advertisedStart?.seconds ?? 0 }
     }
-
-    func loadJson() -> [RaceSummary]? {
-        if let url = Bundle.main.url(forResource: "mock", withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(NextRacesResponse.self, from: data)
-                return jsonData.data?.raceSummaries?.values.map { $0 }
-            } catch {
-                print("error:\(error)")
-            }
-        }
-        return nil
-    }
+    
 }

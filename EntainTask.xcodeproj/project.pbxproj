@@ -16,7 +16,7 @@
 		A4E9E28C2D0D8B5800D898E7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E28B2D0D8B5800D898E7 /* View+Extensions.swift */; };
 		A4E9E28E2D0DB44400D898E7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A4E9E28D2D0DB44400D898E7 /* Localizable.xcstrings */; };
 		A4E9E2912D0DC0E900D898E7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2902D0DC0E900D898E7 /* NetworkManager.swift */; };
-		A4E9E2932D0DC11600D898E7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2922D0DC11600D898E7 /* Endpoint.swift */; };
+		A4E9E2952D0DDA4000D898E7 /* NextRaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */; };
 		A4F038312D0BD54C0015E41C /* EntainTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */; };
 		A4F038332D0BD54C0015E41C /* NextRaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038322D0BD54C0015E41C /* NextRaceView.swift */; };
 		A4F038352D0BD54D0015E41C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F038342D0BD54D0015E41C /* Assets.xcassets */; };
@@ -62,7 +62,7 @@
 		A4E9E28B2D0D8B5800D898E7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		A4E9E28D2D0DB44400D898E7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A4E9E2902D0DC0E900D898E7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		A4E9E2922D0DC11600D898E7 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceViewModelTests.swift; sourceTree = "<group>"; };
 		A4F0382D2D0BD54C0015E41C /* EntainTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntainTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskApp.swift; sourceTree = "<group>"; };
 		A4F038322D0BD54C0015E41C /* NextRaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceView.swift; sourceTree = "<group>"; };
@@ -122,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				A4E9E2902D0DC0E900D898E7 /* NetworkManager.swift */,
-				A4E9E2922D0DC11600D898E7 /* Endpoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -176,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				A4F038412D0BD54D0015E41C /* EntainTaskTests.swift */,
+				A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */,
 			);
 			path = EntainTaskTests;
 			sourceTree = "<group>";
@@ -404,7 +404,6 @@
 				A4E9E2812D0D322A00D898E7 /* AssetConstants.swift in Sources */,
 				A4E9E27F2D0D320400D898E7 /* ColorConstants.swift in Sources */,
 				A4F038712D0C6EA70015E41C /* RaceListView.swift in Sources */,
-				A4E9E2932D0DC11600D898E7 /* Endpoint.swift in Sources */,
 				A4F038642D0BE9EE0015E41C /* CountDownView.swift in Sources */,
 				A4E9E2892D0D326E00D898E7 /* AppUtils.swift in Sources */,
 				A4F038332D0BD54C0015E41C /* NextRaceView.swift in Sources */,
@@ -418,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E9E2952D0DDA4000D898E7 /* NextRaceViewModelTests.swift in Sources */,
 				A4F038422D0BD54D0015E41C /* EntainTaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

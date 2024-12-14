@@ -12,11 +12,11 @@ class CountdownViewModel: ObservableObject {
     @Published var timeRemainingString: String = ""
     @Published var isTimerFinished: Bool = false
 
-    private var timeRemaining: Int
+    private var advertisedDate: Date
     private var timer: AnyCancellable?
 
-    init(initialValue: Int) {
-        self.timeRemaining = initialValue
+    init(epochTime: TimeInterval) {
+        self.advertisedDate = Date(timeIntervalSince1970: epochTime)
         startTimer()
     }
 
@@ -28,19 +28,36 @@ class CountdownViewModel: ObservableObject {
         timer = Timer.publish(every: 1.0, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
-                self?.timeRemaining -= 1
-                if let time = self?.timeRemaining, time == 0 /*< -3*/ {
-                    self?.isTimerFinished = true
-                }
-                self?.timeFormatted()
+                self?.updateTimeRemaining()
             }
+    }
+
+    private func updateTimeRemaining() {
+        let now = Date()
+        let timeInterval = advertisedDate.timeIntervalSince(now)
+
+        if timeInterval <= -60 {
+            isTimerFinished = true
+        } else {
+            timeRemainingString = AppUtils.formatTime(timeInterval)
+        }
+    }
+
+    var colorForTimeRemaining: Color {
+        let now = Date()
+        let timeInterval = advertisedDate.timeIntervalSince(now)
+
+        if timeInterval <= 0 {
+            return Color.red
+        } else if timeInterval <= 60 {
+            return Color.orange
+        } else {
+            return Color.green
+        }
     }
 
     private func stopTimer() {
         timer?.cancel()
     }
 
-    private func timeFormatted() {
-        timeRemainingString = AppUtils().formatTime(timeRemaining)
-    }
 }
