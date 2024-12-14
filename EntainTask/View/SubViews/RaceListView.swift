@@ -31,9 +31,14 @@ struct RaceListView: View {
                     }
                 }
                 Spacer()
-                CountdownTimerView(startingTime: race.advertisedStartValue, timerFinished: {
-                    viewModel.fetchData()
-                })
+                CountdownTimerView(
+                    viewModel: CountdownViewModel(
+                        startingTime: race.advertisedStartValue,
+                        refreshFetch: {
+                            viewModel.refreshFetch()
+                        }
+                    )
+                )
             }
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(Text(race.raceTitleAccessibility))
