@@ -54,6 +54,9 @@ class NextRaceViewModel: ObservableObject {
                 self.sortData()
             }
     }
+    func refreshFetch() {
+        self.fetchData()
+    }
     func filter(by raceType: RaceType) {
         if selectedFilters.contains(raceType) {
             selectedFilters.removeAll { $0 == raceType }
