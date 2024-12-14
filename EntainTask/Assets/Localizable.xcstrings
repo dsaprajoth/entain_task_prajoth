@@ -1,0 +1,39 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Entain Logo" : {
+
+    },
+    "Error: %@" : {
+
+    },
+    "Filter %@" : {
+
+    },
+    "Greyhound Racing" : {
+
+    },
+    "Harness Racing" : {
+
+    },
+    "Horse Racing" : {
+
+    },
+    "Loading..." : {
+
+    },
+    "Next to Go Racing" : {
+
+    },
+    "No race to display!" : {
+
+    },
+    "R%lld" : {
+
+    },
+    "Reload" : {
+
+    }
+  },
+  "version" : "1.0"
+}
