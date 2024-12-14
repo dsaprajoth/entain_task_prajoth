@@ -14,7 +14,7 @@ class NextRaceViewModelTests: XCTestCase {
     var mockNetworkManager: MockNetworkManager!
     var viewModel: NextRaceViewModel!
 
-    override func setUp() {
+    @MainActor override func setUp() {
         super.setUp()
         cancellables = []
         mockNetworkManager = MockNetworkManager()
@@ -28,16 +28,38 @@ class NextRaceViewModelTests: XCTestCase {
         super.tearDown()
     }
 
+    @MainActor 
     func testFetchData_Success() {
-        let mockData = AppUtils.loadJsonData()!
-        mockNetworkManager.result = .success(mockData)
+        // Given
+        let mockData = AppUtils.loadJsonData()
+        mockNetworkManager.result = .success(mockData!)
 
+        // Expectation
         let expectation = XCTestExpectation(description: "Fetch data")
 
+        // When
+        viewModel.fetchData()
+
+        // Then
         viewModel.$nextRaceList
-            .dropFirst()
             .sink { data in
-                XCTAssertEqual(data.count, 1)
+                XCTAssertEqual(data.count, 5)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+
+        wait(for: [expectation], timeout: 8.0)
+    }
+
+    @MainActor func testFetchData_Failure() {
+        mockNetworkManager.result = .failure(URLError(.notConnectedToInternet))
+
+        let expectation = XCTestExpectation(description: "Handle error")
+
+        viewModel.$errorMessage
+            .dropFirst()
+            .sink { errorMessage in
+                XCTAssertEqual(errorMessage, URLError(.notConnectedToInternet).localizedDescription)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
@@ -47,8 +69,8 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 
-//    func testFetchData_Failure() {
-//        mockNetworkManager.result = .failure(URLError(.notConnectedToInternet))
+//    @MainActor func testFetchData_Failure() {
+//        mockNetworkManager.result = .failure(.decodingFailed)
 //
 //        let expectation = XCTestExpectation(description: "Handle error")
 //

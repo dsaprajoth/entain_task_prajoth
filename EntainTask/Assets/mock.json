@@ -2,30 +2,30 @@
   "status": 200,
   "data": {
     "next_to_go_ids": [
-      "1d3077ad-6a54-44d6-86e3-25edd10a16f5",
-      "175912e2-3e7e-423a-a7eb-c0e33a941666",
-      "3f3d1314-ae43-4450-878b-8ee11473edfc",
-      "63eca7bb-3106-448e-a69b-3b6311cc46d0",
-      "e8e37844-72fd-4254-a467-d6919c358367",
-      "6eb4c1f5-f9d8-42b8-8644-47e55e4b7da2",
-      "cdb5c9fb-2e4b-406a-8e18-d22fef2f1472",
-      "1de02d18-423c-42ed-a63c-9599b9fc7dfe",
-      "a584af48-1990-404b-93c1-d367d9036465",
-      "a92bf6c7-ada2-41e3-afea-82ce7d5d2576"
+      "6c4d86a2-6ac6-48b1-8236-cbd15828c22e",
+      "ca7bb818-1830-41b1-af87-ad159e394552",
+      "d9341e4e-9bf9-416a-807d-e7a8e048e731",
+      "1422055d-224c-4162-b3d4-0dc649e99db5",
+      "04cc31d6-f8d4-4bb8-b864-e269bfc3e0b5",
+      "66a34d80-8173-4a0d-8831-862c24990d25",
+      "26473830-c669-4419-9543-2223892145f3",
+      "bf53b2fb-f8db-48b5-bbfc-faffbfee8ace",
+      "20d9d704-5251-48a5-8d24-00f8aec6866b",
+      "3c6faa1d-6e38-4849-a6e3-7a329bcb1abd"
     ],
     "race_summaries": {
-      "175912e2-3e7e-423a-a7eb-c0e33a941666": {
-        "race_id": "175912e2-3e7e-423a-a7eb-c0e33a941666",
-        "race_name": "Purebred Arabian Conditions",
-        "race_number": 7,
-        "meeting_id": "10277715-1bd0-4a2e-9d01-3b554c5cc1c7",
-        "meeting_name": "Al Ain",
-        "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
+      "04cc31d6-f8d4-4bb8-b864-e269bfc3e0b5": {
+        "race_id": "04cc31d6-f8d4-4bb8-b864-e269bfc3e0b5",
+        "race_name": "Race 1 - 1609M",
+        "race_number": 1,
+        "meeting_id": "efd7a434-54f7-4eed-bcd9-2c32c5411bc6",
+        "meeting_name": "Flamboro Downs",
+        "category_id": "161d9be2-e909-4326-8c2c-35ed71fb460b",
         "advertised_start": {
-          "seconds": 1734190200
+          "seconds": 1734219300
         },
         "race_form": {
-          "distance": 1000,
+          "distance": 1609,
           "distance_type": {
             "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
             "name": "Metres",
@@ -38,36 +38,29 @@
             "short_name": "good"
           },
           "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
-          "weather": {
-            "id": "08e5f78c-1a36-11eb-9269-cef03e67f1a3",
-            "name": "FINE",
-            "short_name": "fine",
-            "icon_uri": "FINE"
-          },
-          "weather_id": "08e5f78c-1a36-11eb-9269-cef03e67f1a3",
-          "race_comment": "HADDAF AL WATHBA (8) was rewarded with his maiden success last start, scoring by 2.5 lengths over 1400m at this track. Winning rider Saif Al Balushi sticks and now that the penny has dropped, he can take the next step immediately. ALTIBER (1) has been out of the placings in two runs since a break, the latest when seventh over 1400m at Abu Dhabi. Should be peaking third up and is ready to show what he can do. JAWED I (3) resumes from a long break and was last seen racing in Qatar. He won his first 2 starts in France and on his best form, he is good enough to figure in the finish here. Check his condition pre-race. GOLD SILVER (2) was safely held when resuming last start over 1400m at Meydan on the dirt track there just over 3 weeks ago. He has won twice on this course in the past and does usually improve with racing. Include in all combinations.",
-          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Al Ain\",\"state\":\"UAE\",\"country\":\"UAE\",\"number\":7,\"race_name\":\"Purebred Arabian Conditions\",\"time\":\"2024-12-14T15:30:00Z\",\"class\":\"HCP\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":63025},\"localised_prizemonies\":{\"AUD\":{\"1st\":37815,\"2nd\":12605,\"3rd\":6933,\"4th\":3782,\"5th\":1891,\"total_value\":63025},\"NZD\":{\"1st\":41596,\"2nd\":13866,\"3rd\":7626,\"4th\":4160,\"5th\":2080,\"total_value\":69328}},\"rail_position\":\"True\",\"track_direction\":\"Right\",\"track_surface\":\"Dirt\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "race_comment": "LMC LITTLE CHIPS (8) ran second last start at this track over 1609m, beaten 8 metres. Must overcome a very wide draw. Tackles a similar assignment and he can figure in the finish. ENDSWELL STATION (9) turned in a poor effort by her standards last time out when 20 metres away in eighth over 1609m at Western Fair Raceway. Form prior to that had been solid. Interesting to see what unfolds from this wide draw. Taking on a better line-up this time but she is up to the challenge. TYMAL TWISTER (5) disappointed last time when eighth over 1609m at this track. Can make amends. TORSTON (1) disappointed last time when sixth over 1609m at Mohawk Park. Can do a lot better so worth considering.",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Flamboro Downs\",\"state\":\"ON\",\"country\":\"CA\",\"number\":1,\"race_name\":\"Race 1 - 1609M\",\"time\":\"2024-12-14T23:35:00Z\",\"class\":\"\",\"start_type\":\"Mobile\",\"prizemonies\":{\"total_value\":9330},\"localised_prizemonies\":{\"AUD\":{\"total_value\":9330},\"NZD\":{\"total_value\":10263}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"All Weather\",\"group\":\"\",\"gait\":\"T\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
           "generated": 1,
           "silk_base_url": "drr38safykj6s.cloudfront.net",
-          "race_comment_alternative": "HADDAF AL WATHBA (8) was rewarded with his maiden success last start, scoring by 2.5 lengths over 1400m at this track. Winning rider Saif Al Balushi sticks and now that the penny has dropped, he can take the next step immediately. ALTIBER (1) has been out of the placings in two runs since a break, the latest when seventh over 1400m at Abu Dhabi. Should be peaking third up and is ready to show what he can do. JAWED I (3) resumes from a long break and was last seen racing in Qatar. He won his first 2 starts in France and on his best form, he is good enough to figure in the finish here. Check his condition pre-race. GOLD SILVER (2) was safely held when resuming last start over 1400m at Meydan on the dirt track there just over 3 weeks ago. He has won twice on this course in the past and does usually improve with racing. Include in all combinations."
+          "race_comment_alternative": "LMC LITTLE CHIPS (8) ran second last start at this track over 1609m, beaten 8 metres. Must overcome a very wide draw. Tackles a similar assignment and he can figure in the finish. ENDSWELL STATION (9) turned in a poor effort by her standards last time out when 20 metres away in eighth over 1609m at Western Fair Raceway. Form prior to that had been solid. Interesting to see what unfolds from this wide draw. Taking on a better line-up this time but she is up to the challenge. TYMAL TWISTER (5) disappointed last time when eighth over 1609m at this track. Can make amends. TORSTON (1) disappointed last time when sixth over 1609m at Mohawk Park. Can do a lot better so worth considering."
         },
-        "venue_id": "9b363e5e-ca79-461c-8a32-f6dafafdb140",
-        "venue_name": "Al Ain",
-        "venue_state": "UAE",
-        "venue_country": "UAE"
+        "venue_id": "8dd6be42-4608-44a4-87bb-d6c07984be03",
+        "venue_name": "Flamboro Downs",
+        "venue_state": "ON",
+        "venue_country": "CA"
       },
-      "1d3077ad-6a54-44d6-86e3-25edd10a16f5": {
-        "race_id": "1d3077ad-6a54-44d6-86e3-25edd10a16f5",
-        "race_name": "1M Stakes",
-        "race_number": 8,
-        "meeting_id": "39a3dd11-7f2c-4562-aefa-52ce19a193db",
-        "meeting_name": "Riyadh",
-        "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
+      "1422055d-224c-4162-b3d4-0dc649e99db5": {
+        "race_id": "1422055d-224c-4162-b3d4-0dc649e99db5",
+        "race_name": "Road Metals/Keith Woolley Fencing Trot",
+        "race_number": 1,
+        "meeting_id": "b36eaa70-d435-4c59-b7c2-213f3e0bf1cf",
+        "meeting_name": "Rangiora",
+        "category_id": "161d9be2-e909-4326-8c2c-35ed71fb460b",
         "advertised_start": {
-          "seconds": 1734190200
+          "seconds": 1734219120
         },
         "race_form": {
-          "distance": 1600,
+          "distance": 1950,
           "distance_type": {
             "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
             "name": "Metres",
@@ -75,11 +68,11 @@
           },
           "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
           "track_condition": {
-            "id": "045cea71-a641-11e7-ba1d-066a01c9ce6e",
-            "name": "Firm",
-            "short_name": "firm"
+            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+            "name": "Good",
+            "short_name": "good"
           },
-          "track_condition_id": "045cea71-a641-11e7-ba1d-066a01c9ce6e",
+          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
           "weather": {
             "id": "01994c9e-3b74-11e8-a5eb-06a5c6d9a756",
             "name": "Fine",
@@ -87,29 +80,29 @@
             "icon_uri": "Fine"
           },
           "weather_id": "01994c9e-3b74-11e8-a5eb-06a5c6d9a756",
-          "race_comment": "BATTISTA (1) last raced when successful by a head over 1800m at this track ten months ago. One of the genuine hopes in the race. MULLAZEM (9) built on a nice third two starts back at this track with a win over 1600m at this track two weeks ago, getting home by 2.5 lengths. Has the class to take this out. JAWHAR ALRIYADH (5) scored an impressive win by 3.5 lengths when resuming from a spell last time out over 1600m at this track. Will be better for that latest run and must be respected. IZDAJAR (3) has been in the money at his last couple of runs but struggling to break through, the latest effort a third over 1800m at this track. Has a win and two minor placings at this trip from five starts. Likely to run well again.",
-          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Riyadh\",\"state\":\"SAU\",\"country\":\"SAU\",\"number\":8,\"race_name\":\"1M Stakes\",\"time\":\"2024-12-14T15:30:00Z\",\"class\":\"3UP\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":32787},\"localised_prizemonies\":{\"AUD\":{\"1st\":16393,\"2nd\":6557,\"3rd\":4918,\"4th\":3279,\"5th\":1639,\"total_value\":32787},\"NZD\":{\"1st\":18032,\"2nd\":7213,\"3rd\":5410,\"4th\":3607,\"5th\":1803,\"total_value\":36066}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"Dirt\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "race_comment": "ALMIGHTY (9) has been a bit hot and cold and that continued last start when she finished third, beaten 2.5 metres, in a better performance at Wingatui over 2200m. Will need a bit of luck negotiating a very wide starting position. Her recent form is good enough to win a race of this calibre. GOLD NUGGET (4) was far from disgraced at his latest appearance over 2500m at Geraldine, beaten just 3 metres into fourth. Ideally placed and is sure to prove tough to beat. SPOTLIGHT (3) is on the radar after her last-start fifth over 2500m at Geraldine eight days ago. TESSAMAE (5) showed pleasing improvement last time out when runner-up over 2170m at Motukarara. Each-way.",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Rangiora\",\"state\":\"NZ\",\"country\":\"NZ\",\"number\":1,\"race_name\":\"Road Metals/Keith Woolley Fencing Trot\",\"time\":\"2024-12-14T23:32:00Z\",\"class\":\"NON-WINNERS\",\"start_type\":\"Standing\",\"prizemonies\":{\"total_value\":11363},\"localised_prizemonies\":{\"AUD\":{\"total_value\":11363},\"NZD\":{\"total_value\":12500}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"Turf\",\"group\":\"\",\"gait\":\"T\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
           "generated": 1,
           "silk_base_url": "drr38safykj6s.cloudfront.net",
-          "race_comment_alternative": "BATTISTA (1) last raced when successful by a head over 1800m at this track ten months ago. One of the genuine hopes in the race. MULLAZEM (9) built on a nice third two starts back at this track with a win over 1600m at this track two weeks ago, getting home by 2.5 lengths. Has the class to take this out. JAWHAR ALRIYADH (5) scored an impressive win by 3.5 lengths when resuming from a spell last time out over 1600m at this track. Will be better for that latest run and must be respected. IZDAJAR (3) has been in the money at his last couple of runs but struggling to break through, the latest effort a third over 1800m at this track. Has a win and two minor placings at this trip from five starts. Likely to run well again."
+          "race_comment_alternative": "ALMIGHTY (9) has been a bit hot and cold and that continued last start when she finished third, beaten 2.5 metres, in a better performance at Wingatui over 2200m. Will need a bit of luck negotiating a very wide starting position. Her recent form is good enough to win a race of this calibre. GOLD NUGGET (4) was far from disgraced at his latest appearance over 2500m at Geraldine, beaten just 3 metres into fourth. Ideally placed and is sure to prove tough to beat. SPOTLIGHT (3) is on the radar after her last-start fifth over 2500m at Geraldine eight days ago. TESSAMAE (5) showed pleasing improvement last time out when runner-up over 2170m at Motukarara. Each-way."
         },
-        "venue_id": "1eade1be-0a53-445c-ad81-122d358be5b4",
-        "venue_name": "Riyadh",
-        "venue_state": "SAU",
-        "venue_country": "SAU"
+        "venue_id": "0e45fc67-b4fc-4772-9057-a666a056bbe6",
+        "venue_name": "Rangiora",
+        "venue_state": "NZ",
+        "venue_country": "NZ"
       },
-      "1de02d18-423c-42ed-a63c-9599b9fc7dfe": {
-        "race_id": "1de02d18-423c-42ed-a63c-9599b9fc7dfe",
-        "race_name": "Nordic Wellness | Stl Klass Ii",
-        "race_number": 6,
-        "meeting_id": "cb52a80a-654a-4f28-9295-4774d08be3b4",
-        "meeting_name": "Aby",
-        "category_id": "161d9be2-e909-4326-8c2c-35ed71fb460b",
+      "20d9d704-5251-48a5-8d24-00f8aec6866b": {
+        "race_id": "20d9d704-5251-48a5-8d24-00f8aec6866b",
+        "race_name": "6 1/2F Stakes",
+        "race_number": 3,
+        "meeting_id": "ac0483aa-25de-4b64-9299-0b2a0a4220ec",
+        "meeting_name": "Delta Downs",
+        "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
         "advertised_start": {
-          "seconds": 1734190920
+          "seconds": 1734219900
         },
         "race_form": {
-          "distance": 2140,
+          "distance": 1308,
           "distance_type": {
             "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
             "name": "Metres",
@@ -117,38 +110,31 @@
           },
           "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
           "track_condition": {
-            "id": "a1c0fe16-b088-11e7-aabe-061a47531548",
-            "name": "Easy",
-            "short_name": "easy"
+            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+            "name": "Good",
+            "short_name": "good"
           },
-          "track_condition_id": "a1c0fe16-b088-11e7-aabe-061a47531548",
-          "weather": {
-            "id": "5ba75165-3cec-11eb-88bb-36fbfdf5d97f",
-            "name": "OCAST",
-            "short_name": "ocast",
-            "icon_uri": "OCAST"
-          },
-          "weather_id": "5ba75165-3cec-11eb-88bb-36fbfdf5d97f",
-          "race_comment": "JACKPOT MEARAS (4) Finished 8th last run at Orebro but strong performer at this distance. Good career start. Has to be included. FUNNY MONEY (10) Blitzed its rivals when winning last time at Farjestad and suited at this trip historically. Suitably placed in this race. NASH KEEPER (7) Pulled away to win two runs back at Jagersro. Racing consistently this prep. Good prospects. HEAVENLY FLAVOURS (9) Ran 4th last start at this track. Can show a better performance this time. Andre Eklundh takes the reins today. In the placings on multiple occasions this preparation. Worth consideration.",
-          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Aby\",\"state\":\"SWE\",\"country\":\"SWE\",\"number\":6,\"race_name\":\"Nordic Wellness | Stl Klass Ii\",\"time\":\"2024-12-14T15:42:00Z\",\"class\":\"3UP\",\"start_type\":\"Mobile\",\"prizemonies\":{\"1st\":110000,\"2nd\":55000,\"3rd\":32000,\"4th\":19000,\"5th\":12500,\"6th\":10000,\"7th\":6500,\"8th\":5000},\"localised_prizemonies\":null,\"rail_position\":\"\",\"track_direction\":\"\",\"track_surface\":\"\",\"group\":\"\",\"gait\":\"Trot\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+          "race_comment": "SWAMP QUEEN (3) is a two-start maiden who looks close to a win after placing at both runs, the latest when second over 1308m at this track (Dirt). Drawn to enjoy a nice run just off the lead. Expecting a bold showing. GRACEFUL STAR (7) has been in the placings at her last two starts, finishing third last time when she was handy all the way over 1308m at this track (Dirt). Likely improver with strong prospects. LOLA AND ROSE (9) is yet to break through in three runs. Finished eighth at her last appearance over 1207m at Fairgrounds (Dirt) on November 22. Finds the right race and is worth consideration. DREAMCHASER JEWELS (6) was unplaced two runs back when fresh from a spell then again missed the frame last start over 1308m at this track, beaten 7 lengths into fourth. Likely improver with strong top-three prospects.",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Delta Downs\",\"state\":\"LA\",\"country\":\"USA\",\"number\":3,\"race_name\":\"6 1/2F Stakes\",\"time\":\"2024-12-14T23:45:00Z\",\"class\":\"MDN\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":66256},\"localised_prizemonies\":{\"AUD\":{\"total_value\":66256},\"NZD\":{\"total_value\":72882}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"Dirt\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
           "generated": 1,
           "silk_base_url": "drr38safykj6s.cloudfront.net",
-          "race_comment_alternative": "JACKPOT MEARAS (4) Finished 8th last run at Orebro but strong performer at this distance. Good career start. Has to be included. FUNNY MONEY (10) Blitzed its rivals when winning last time at Farjestad and suited at this trip historically. Suitably placed in this race. NASH KEEPER (7) Pulled away to win two runs back at Jagersro. Racing consistently this prep. Good prospects. HEAVENLY FLAVOURS (9) Ran 4th last start at this track. Can show a better performance this time. Andre Eklundh takes the reins today. In the placings on multiple occasions this preparation. Worth consideration."
+          "race_comment_alternative": "SWAMP QUEEN (3) is a two-start maiden who looks close to a win after placing at both runs, the latest when second over 1308m at this track (Dirt). Drawn to enjoy a nice run just off the lead. Expecting a bold showing. GRACEFUL STAR (7) has been in the placings at her last two starts, finishing third last time when she was handy all the way over 1308m at this track (Dirt). Likely improver with strong prospects. LOLA AND ROSE (9) is yet to break through in three runs. Finished eighth at her last appearance over 1207m at Fairgrounds (Dirt) on November 22. Finds the right race and is worth consideration. DREAMCHASER JEWELS (6) was unplaced two runs back when fresh from a spell then again missed the frame last start over 1308m at this track, beaten 7 lengths into fourth. Likely improver with strong top-three prospects."
         },
-        "venue_id": "7fe42e57-61be-4907-90f6-3d9f80c58a3b",
-        "venue_name": "Aby",
-        "venue_state": "SWE",
-        "venue_country": "SWE"
+        "venue_id": "097760c6-119c-478b-811a-aac894fdc993",
+        "venue_name": "Delta Downs",
+        "venue_state": "LA",
+        "venue_country": "USA"
       },
-      "3f3d1314-ae43-4450-878b-8ee11473edfc": {
-        "race_id": "3f3d1314-ae43-4450-878b-8ee11473edfc",
-        "race_name": "Race 2 - Maiden",
-        "race_number": 2,
+      "26473830-c669-4419-9543-2223892145f3": {
+        "race_id": "26473830-c669-4419-9543-2223892145f3",
+        "race_name": "Race 17 - Maiden",
+        "race_number": 17,
         "meeting_id": "7b71e915-fb83-4884-9c27-b33f8da6668a",
         "meeting_name": "San Isidro",
         "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
         "advertised_start": {
-          "seconds": 1734190200
+          "seconds": 1734219480
         },
         "race_form": {
           "distance": 1600,
@@ -164,211 +150,36 @@
             "short_name": "good"
           },
           "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
-          "race_comment": "HUEIHUE (4) wasn't far off maiden success before a break of ten months, finishing the campaign with a minor placing over 1600m at this track. Has ability and sure to prove tough to beat. VINO DEL BUENO (2) progressed nicely last time out to finish just 1.5 lengths from the winner in second over 1600m at this track. Has his share of talent. Hard to beat in this suitable race. MAR MANSO (7) faced the starter for the first time and finished fifth last start at this track over 1600m, beaten 5 lengths. Open to improvement and can feature. TULIO (6) finished third last start over 1600m at this track to make it two minor placings from four runs. Has a solid record here with two top-three finishes to his name. Among the chances.",
-          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"San Isidro\",\"state\":\"ARG\",\"country\":\"ARG\",\"number\":2,\"race_name\":\"Race 2 - Maiden\",\"time\":\"2024-12-14T15:30:00Z\",\"class\":\"MSW\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":8550},\"localised_prizemonies\":{\"AUD\":{\"1st\":5029,\"2nd\":1760,\"3rd\":1006,\"4th\":503,\"5th\":251,\"total_value\":8550},\"NZD\":{\"1st\":5532,\"2nd\":1936,\"3rd\":1107,\"4th\":553,\"5th\":276,\"total_value\":9405}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"Turf\",\"group\":\"\",\"gait\":\"\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "weather": {
+            "id": "01994c9e-3b74-11e8-a5eb-06a5c6d9a756",
+            "name": "Fine",
+            "short_name": "fine",
+            "icon_uri": "Fine"
+          },
+          "weather_id": "01994c9e-3b74-11e8-a5eb-06a5c6d9a756",
+          "race_comment": "MAXIMIANA (7) turned in a decent effort last start to finish second over 1400m at this track. Finds a suitable race and can play a major role. QUARRY GIRL (6) could only manage fifth on debut then improved last start but found one better over 1400m at this track, beaten 1.5 lengths. Looks well placed so expect another big run. SAFE WITH ME (15) returned from a spell five weeks ago when she was beaten 5 lengths into fourth over 1400m at Palermo. Perfectly placed and is sure to be there at the finish. MOON SCENERY (12) ran a better race last start at her second trip to the races, finishing fourth over 1400m at this track. Progressive type who is nearing a win.",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"San Isidro\",\"state\":\"ARG\",\"country\":\"ARG\",\"number\":17,\"race_name\":\"Race 17 - Maiden\",\"time\":\"2024-12-14T23:38:00Z\",\"class\":\"MSW\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":9845},\"localised_prizemonies\":{\"AUD\":{\"1st\":5791,\"2nd\":2027,\"3rd\":1158,\"4th\":579,\"5th\":290,\"total_value\":9845},\"NZD\":{\"1st\":6370,\"2nd\":2230,\"3rd\":1274,\"4th\":637,\"5th\":319,\"total_value\":10830}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"Turf\",\"group\":\"\",\"gait\":\"\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
           "generated": 1,
           "silk_base_url": "drr38safykj6s.cloudfront.net",
-          "race_comment_alternative": "HUEIHUE (4) wasn't far off maiden success before a break of ten months, finishing the campaign with a minor placing over 1600m at this track. Has ability and sure to prove tough to beat. VINO DEL BUENO (2) progressed nicely last time out to finish just 1.5 lengths from the winner in second over 1600m at this track. Has his share of talent. Hard to beat in this suitable race. MAR MANSO (7) faced the starter for the first time and finished fifth last start at this track over 1600m, beaten 5 lengths. Open to improvement and can feature. TULIO (6) finished third last start over 1600m at this track to make it two minor placings from four runs. Has a solid record here with two top-three finishes to his name. Among the chances."
+          "race_comment_alternative": "MAXIMIANA (7) turned in a decent effort last start to finish second over 1400m at this track. Finds a suitable race and can play a major role. QUARRY GIRL (6) could only manage fifth on debut then improved last start but found one better over 1400m at this track, beaten 1.5 lengths. Looks well placed so expect another big run. SAFE WITH ME (15) returned from a spell five weeks ago when she was beaten 5 lengths into fourth over 1400m at Palermo. Perfectly placed and is sure to be there at the finish. MOON SCENERY (12) ran a better race last start at her second trip to the races, finishing fourth over 1400m at this track. Progressive type who is nearing a win."
         },
         "venue_id": "686d91ad-e635-40ef-b2db-bac393e38bed",
         "venue_name": "San Isidro",
         "venue_state": "ARG",
         "venue_country": "ARG"
       },
-      "63eca7bb-3106-448e-a69b-3b6311cc46d0": {
-        "race_id": "63eca7bb-3106-448e-a69b-3b6311cc46d0",
-        "race_name": "Race 4",
-        "race_number": 4,
-        "meeting_id": "094cb2fc-e1ab-41a3-817a-3eedc865a877",
-        "meeting_name": "Swindon Bags",
-        "category_id": "9daef0d7-bf3c-4f50-921d-8e818c60fe61",
-        "advertised_start": {
-          "seconds": 1734190320
-        },
-        "race_form": {
-          "distance": 476,
-          "distance_type": {
-            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
-            "name": "Metres",
-            "short_name": "m"
-          },
-          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
-          "track_condition": {
-            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
-            "name": "Good",
-            "short_name": "good"
-          },
-          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
-          "race_comment": "BALLYCLEARY BELL (3) was narrowly beaten last time, jumping from this same trap when a head second in an A9 over 476m at this track. Can find winning form here. WESSEX BABY BLUE (5) broke a string of placings finishing in the money five on end before a last start fifth (30.54) at this track. Comes out of a solid form race last start. Expected to run well. SAWPIT SEGOVIA (2) has been hard to follow lately, running fourth (29.76) last time but prior to that ran very well when placed at this track. This looks easier and expected to improve sharply. MAGS WIFFLET (4) was safely held last time out, finishing fifth at this track over 476m behind Starson Brandy (29.98) in an A9. Strong form has emerged from his last run. Has ability and is one of the better chances.",
-          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Swindon Bags\",\"state\":\"UK\",\"country\":\"UK\",\"number\":4,\"race_name\":\"Race 4\",\"time\":\"2024-12-14T15:32:00Z\",\"class\":\"A9\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":664},\"localised_prizemonies\":{\"AUD\":{\"1st\":176,\"2nd\":98,\"3rd\":98,\"4th\":98,\"5th\":98,\"6th\":98,\"total_value\":664},\"NZD\":{\"1st\":194,\"2nd\":108,\"3rd\":108,\"4th\":108,\"5th\":108,\"6th\":108,\"total_value\":730}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"All Weather\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
-          "generated": 1,
-          "silk_base_url": "drr38safykj6s.cloudfront.net",
-          "race_comment_alternative": "BALLYCLEARY BELL (3) was narrowly beaten last time, jumping from this same trap when a head second in an A9 over 476m at this track. Can find winning form here. WESSEX BABY BLUE (5) broke a string of placings finishing in the money five on end before a last start fifth (30.54) at this track. Comes out of a solid form race last start. Expected to run well. SAWPIT SEGOVIA (2) has been hard to follow lately, running fourth (29.76) last time but prior to that ran very well when placed at this track. This looks easier and expected to improve sharply. MAGS WIFFLET (4) was safely held last time out, finishing fifth at this track over 476m behind Starson Brandy (29.98) in an A9. Strong form has emerged from his last run. Has ability and is one of the better chances."
-        },
-        "venue_id": "a46b9f0b-45b0-45ec-9e9a-1652c551f0bf",
-        "venue_name": "Swindon Bags",
-        "venue_state": "UK",
-        "venue_country": "UK"
-      },
-      "6eb4c1f5-f9d8-42b8-8644-47e55e4b7da2": {
-        "race_id": "6eb4c1f5-f9d8-42b8-8644-47e55e4b7da2",
-        "race_name": "Race 5",
-        "race_number": 5,
-        "meeting_id": "c0fd2076-0721-4042-b154-d47e200deb9d",
-        "meeting_name": "Crayford Bags",
-        "category_id": "9daef0d7-bf3c-4f50-921d-8e818c60fe61",
-        "advertised_start": {
-          "seconds": 1734190680
-        },
-        "race_form": {
-          "distance": 380,
-          "distance_type": {
-            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
-            "name": "Metres",
-            "short_name": "m"
-          },
-          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
-          "track_condition": {
-            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
-            "name": "Good",
-            "short_name": "good"
-          },
-          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
-          "race_comment": "KNOCKNA SPUD (3) was out of in the placings when sixth last time but prior to that clocked a swift 23.60 win over 380m at this track. Smart win two back and looks a key chance here. KELLSBORO ROLY (4) is going well, filling a minor placing two back then was a 3.5 lengths winner of an A9 at this track over 380m (23.92). Up a notch this time but in form and sure to give a good account. BARKHAMS ENIGMA (1) is racing very well, claiming an A10 two back then scored a 2.75 lengths win of an A9 at this track over 380m (24.11) last time. This tougher but in form and expected to play a big role again. ORINOCO FLOW (2) turned in a solid run last start over 380m at this track finishing 4th and beaten only 4 lengths (24.23). Comes through a solid form race last start. Cannot be taken lightly.",
-          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Crayford Bags\",\"state\":\"UK\",\"country\":\"UK\",\"number\":5,\"race_name\":\"Race 5\",\"time\":\"2024-12-14T15:38:00Z\",\"class\":\"A8\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":635},\"localised_prizemonies\":{\"AUD\":{\"1st\":244,\"2nd\":98,\"3rd\":98,\"4th\":98,\"5th\":98,\"total_value\":635},\"NZD\":{\"1st\":268,\"2nd\":108,\"3rd\":108,\"4th\":108,\"5th\":108,\"total_value\":698}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"All Weather\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
-          "generated": 1,
-          "silk_base_url": "drr38safykj6s.cloudfront.net",
-          "race_comment_alternative": "KNOCKNA SPUD (3) was out of in the placings when sixth last time but prior to that clocked a swift 23.60 win over 380m at this track. Smart win two back and looks a key chance here. KELLSBORO ROLY (4) is going well, filling a minor placing two back then was a 3.5 lengths winner of an A9 at this track over 380m (23.92). Up a notch this time but in form and sure to give a good account. BARKHAMS ENIGMA (1) is racing very well, claiming an A10 two back then scored a 2.75 lengths win of an A9 at this track over 380m (24.11) last time. This tougher but in form and expected to play a big role again. ORINOCO FLOW (2) turned in a solid run last start over 380m at this track finishing 4th and beaten only 4 lengths (24.23). Comes through a solid form race last start. Cannot be taken lightly."
-        },
-        "venue_id": "6d2b3084-6cd5-454b-a8e9-91a4525b880b",
-        "venue_name": "Crayford Bags",
-        "venue_state": "UK",
-        "venue_country": "UK"
-      },
-      "a584af48-1990-404b-93c1-d367d9036465": {
-        "race_id": "a584af48-1990-404b-93c1-d367d9036465",
-        "race_name": "Des Vagues Handicap - Awt",
-        "race_number": 2,
-        "meeting_id": "c79127d5-253d-453a-8d5b-f3f7c152ac4f",
-        "meeting_name": "Deauville",
-        "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
-        "advertised_start": {
-          "seconds": 1734190920
-        },
-        "race_form": {
-          "distance": 2500,
-          "distance_type": {
-            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
-            "name": "Metres",
-            "short_name": "m"
-          },
-          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
-          "track_condition": {
-            "id": "9d03760c-88d2-4c89-9611-ae6eb7cdb76c",
-            "name": "Synthetic",
-            "short_name": "synthetic"
-          },
-          "track_condition_id": "9d03760c-88d2-4c89-9611-ae6eb7cdb76c",
-          "weather": {
-            "id": "187e38d4-ab03-11e7-85e3-0641c90711b8",
-            "name": "Showers",
-            "short_name": "showers",
-            "icon_uri": "Showers"
-          },
-          "weather_id": "187e38d4-ab03-11e7-85e3-0641c90711b8",
-          "race_comment": "APOPHTEGME (12) was 3.5L third over 2500m at Deauville AW. Looks capable of breaking through for his first win. HUCHENANE (9) raced from off the pace prior to finishing 5.25L fifth in a 2400m conditions event. Strong prospects making handicap debut. LOPPORTUNISTE (6) suffered a 2L defeat when fourth at Pau. Shortlist. Handicap debutant PROXIMA CENTAURI (5) can take a step forward having finished 11L fifth tackling 2400m at Limoges.",
-          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Deauville\",\"state\":\"FR\",\"country\":\"FR\",\"number\":2,\"race_name\":\"Des Vagues Handicap - Awt\",\"time\":\"2024-12-14T15:42:00Z\",\"class\":\"HCP\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":33981},\"localised_prizemonies\":{\"AUD\":{\"1st\":16990,\"2nd\":6796,\"3rd\":5097,\"4th\":3398,\"5th\":1699,\"total_value\":33981},\"NZD\":{\"1st\":18689,\"2nd\":7476,\"3rd\":5607,\"4th\":3738,\"5th\":1869,\"total_value\":37379}},\"rail_position\":\"\",\"track_direction\":\"Right\",\"track_surface\":\"Synthetic\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
-          "generated": 1,
-          "silk_base_url": "drr38safykj6s.cloudfront.net",
-          "race_comment_alternative": "APOPHTEGME (12) was 3.5L third over 2500m at Deauville AW. Looks capable of breaking through for his first win. HUCHENANE (9) raced from off the pace prior to finishing 5.25L fifth in a 2400m conditions event. Strong prospects making handicap debut. LOPPORTUNISTE (6) suffered a 2L defeat when fourth at Pau. Shortlist. Handicap debutant PROXIMA CENTAURI (5) can take a step forward having finished 11L fifth tackling 2400m at Limoges."
-        },
-        "venue_id": "e1be00d1-9e56-44cc-aad4-76fee4d6edd7",
-        "venue_name": "Deauville",
-        "venue_state": "FR",
-        "venue_country": "FR"
-      },
-      "a92bf6c7-ada2-41e3-afea-82ce7d5d2576": {
-        "race_id": "a92bf6c7-ada2-41e3-afea-82ce7d5d2576",
-        "race_name": "Kidney Uk Trophy",
-        "race_number": 5,
-        "meeting_id": "a108244a-1ed3-4fe3-a1cf-28aaf24114b2",
-        "meeting_name": "Newcastle Bags",
-        "category_id": "9daef0d7-bf3c-4f50-921d-8e818c60fe61",
-        "advertised_start": {
-          "seconds": 1734191040
-        },
-        "race_form": {
-          "distance": 480,
-          "distance_type": {
-            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
-            "name": "Metres",
-            "short_name": "m"
-          },
-          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
-          "track_condition": {
-            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
-            "name": "Good",
-            "short_name": "good"
-          },
-          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
-          "race_comment": "COOGA ALAN (6) turned in a solid run last start over 480m at this track finishing 4th and beaten only 2.5 lengths (29.64). Solid record here at the distance winning eight races. Comes through a solid form race last start. Can make amends. DOWNSTREET LIL (3) found the frame for the second consecutive time when narrowly beaten into third last time out (29.56) over 480m at this track. Look for sharp improvement here. BRAMBLE EMEE (4) was out of the placings last time when fifth at this track (29.42) but scored four back at this track (29.00). The form from her last run stacks up well. Has ability and can atone. STONE OF LIFE (1) collected a minor prize last start at big odds and must be considered.",
-          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Newcastle Bags\",\"state\":\"UK\",\"country\":\"UK\",\"number\":5,\"race_name\":\"Kidney Uk Trophy\",\"time\":\"2024-12-14T15:44:00Z\",\"class\":\"A4\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":869},\"localised_prizemonies\":{\"AUD\":{\"1st\":283,\"2nd\":117,\"3rd\":117,\"4th\":117,\"5th\":117,\"6th\":117,\"total_value\":869},\"NZD\":{\"1st\":311,\"2nd\":129,\"3rd\":129,\"4th\":129,\"5th\":129,\"6th\":129,\"total_value\":956}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"All Weather\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
-          "generated": 1,
-          "silk_base_url": "drr38safykj6s.cloudfront.net",
-          "race_comment_alternative": "COOGA ALAN (6) turned in a solid run last start over 480m at this track finishing 4th and beaten only 2.5 lengths (29.64). Solid record here at the distance winning eight races. Comes through a solid form race last start. Can make amends. DOWNSTREET LIL (3) found the frame for the second consecutive time when narrowly beaten into third last time out (29.56) over 480m at this track. Look for sharp improvement here. BRAMBLE EMEE (4) was out of the placings last time when fifth at this track (29.42) but scored four back at this track (29.00). The form from her last run stacks up well. Has ability and can atone. STONE OF LIFE (1) collected a minor prize last start at big odds and must be considered."
-        },
-        "venue_id": "0cb71294-1027-4619-a525-7a66dd7435b7",
-        "venue_name": "Newcastle Bags",
-        "venue_state": "UK",
-        "venue_country": "UK"
-      },
-      "cdb5c9fb-2e4b-406a-8e18-d22fef2f1472": {
-        "race_id": "cdb5c9fb-2e4b-406a-8e18-d22fef2f1472",
-        "race_name": "525 Yds (A5)",
-        "race_number": 6,
-        "meeting_id": "9acb86c2-724e-4292-9f18-3e0b14fd1015",
-        "meeting_name": "Youghal",
-        "category_id": "9daef0d7-bf3c-4f50-921d-8e818c60fe61",
-        "advertised_start": {
-          "seconds": 1734190860
-        },
-        "race_form": {
-          "distance": 480,
-          "distance_type": {
-            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
-            "name": "Metres",
-            "short_name": "m"
-          },
-          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
-          "track_condition": {
-            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
-            "name": "Good",
-            "short_name": "good"
-          },
-          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
-          "race_comment": "SLANEYSIDE TALTY (6) is a capable type and proved too classy last time to win by 3.5 lengths at this track in a handy 29.50 beating Drained. Form from her last run is proving strong. Expected to go well again. PHOEBES NELL (2) turned spotting a big start finishing fifth (29.56) last time in an A4 at this track. Goes well out of this box with a win and seven minor placings. Cannot be left out. INNISKEEN WILD (3) turned in a modest effort most recently when fifth at this track over 480m behind Deady Mary (30.64) in an A4. Placed at his previous run. Expected to feature in the finish. DELLSER PRINCESS (1) with some luck can improve on an unplaced run last time here.",
-          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Youghal\",\"state\":\"IRE\",\"country\":\"IRE\",\"number\":6,\"race_name\":\"525 Yds (A5)\",\"time\":\"2024-12-14T15:41:00Z\",\"class\":\"A5\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":162},\"localised_prizemonies\":{\"AUD\":{\"1st\":162,\"total_value\":162},\"NZD\":{\"1st\":178,\"total_value\":178}},\"rail_position\":\"\",\"track_direction\":\"Right\",\"track_surface\":\"All Weather\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
-          "generated": 1,
-          "silk_base_url": "drr38safykj6s.cloudfront.net",
-          "race_comment_alternative": "SLANEYSIDE TALTY (6) is a capable type and proved too classy last time to win by 3.5 lengths at this track in a handy 29.50 beating Drained. Form from her last run is proving strong. Expected to go well again. PHOEBES NELL (2) turned spotting a big start finishing fifth (29.56) last time in an A4 at this track. Goes well out of this box with a win and seven minor placings. Cannot be left out. INNISKEEN WILD (3) turned in a modest effort most recently when fifth at this track over 480m behind Deady Mary (30.64) in an A4. Placed at his previous run. Expected to feature in the finish. DELLSER PRINCESS (1) with some luck can improve on an unplaced run last time here."
-        },
-        "venue_id": "9c8d62cb-4b8c-4415-870d-2f3c929084f7",
-        "venue_name": "Youghal",
-        "venue_state": "IRE",
-        "venue_country": "IRE"
-      },
-      "e8e37844-72fd-4254-a467-d6919c358367": {
-        "race_id": "e8e37844-72fd-4254-a467-d6919c358367",
-        "race_name": "Betmgm Mares' Handicap Hurdle (Gbb Race)",
+      "3c6faa1d-6e38-4849-a6e3-7a329bcb1abd": {
+        "race_id": "3c6faa1d-6e38-4849-a6e3-7a329bcb1abd",
+        "race_name": "The Bunyip Mixed Stake Pr1 Division1",
         "race_number": 7,
-        "meeting_id": "ac6fce2d-2dbb-40a5-b0fd-508e8ebfa0fa",
-        "meeting_name": "Cheltenham",
-        "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
+        "meeting_id": "3b1d296b-a13c-4b46-9f6f-3e81a01c4daf",
+        "meeting_name": "Gawler",
+        "category_id": "9daef0d7-bf3c-4f50-921d-8e818c60fe61",
         "advertised_start": {
-          "seconds": 1734190500
+          "seconds": 1734219960
         },
         "race_form": {
-          "distance": 4074,
+          "distance": 400,
           "distance_type": {
             "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
             "name": "Metres",
@@ -382,22 +193,196 @@
           },
           "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
           "weather": {
-            "id": "5ba75165-3cec-11eb-88bb-36fbfdf5d97f",
-            "name": "OCAST",
-            "short_name": "ocast",
-            "icon_uri": "OCAST"
+            "id": "01994c9e-3b74-11e8-a5eb-06a5c6d9a756",
+            "name": "Fine",
+            "short_name": "fine",
+            "icon_uri": "Fine"
           },
-          "weather_id": "5ba75165-3cec-11eb-88bb-36fbfdf5d97f",
-          "race_comment": "JOYEUSE (10) holds a promising profile having won on UK debut at Taunton before returning last month with a decent third tackling a 3200m introductory hurdle at Ascot. Open to further progress up in trip. Top selection. GEORGI GIRL (4) found success on seasonal reappearance by 2.75L contesting a 4200m mares handicap hurdle at Warwick. Claims. ROYALE MARGAUX (9) has good course form. Posted a smart second attempting 4800m three weeks back at Ascot. Likely player. PRETENDING (7) won over course and distance at the April Meeting. Not dismissed.",
-          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Cheltenham\",\"state\":\"GBR\",\"country\":\"UK\",\"number\":7,\"race_name\":\"Betmgm Mares' Handicap Hurdle (Gbb Race)\",\"time\":\"2024-12-14T15:35:00Z\",\"class\":\"HCP HDLE, C2\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":55350},\"localised_prizemonies\":{\"AUD\":{\"1st\":30486,\"2nd\":14016,\"3rd\":7008,\"4th\":3504,\"5th\":1752,\"6th\":873,\"total_value\":55350},\"NZD\":{\"1st\":33535,\"2nd\":15418,\"3rd\":7709,\"4th\":3854,\"5th\":1927,\"6th\":960,\"total_value\":60885}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"Turf\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "weather_id": "01994c9e-3b74-11e8-a5eb-06a5c6d9a756",
+          "race_comment": "YUMALI (5) is better than last start when sixth (26.15) from Box 5 at Murray Bridge over 455m. Form from her last run is proving very strong. Worth another chance. ZINFANDEL EVIE (7) is a well performed dog and winner of 25 races who is worth forgiving after finishing out of the placings at Angle Park (19.93). Has a good record here at this journey. The form from her last run stacks up well. Can figure in the finish. SPLIT VISION (1) has performed well at his last couple of runs here, most recently when second beaten 1.5 lengths (23.01). Leading player again. PINK CONFETTI (4) won in the best time of the program last time out. Sure to run well again.",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Gawler\",\"state\":\"SA\",\"country\":\"AUS\",\"number\":7,\"race_name\":\"The Bunyip Mixed Stake Pr1 Division1\",\"time\":\"2024-12-14T23:46:00Z\",\"class\":\"3rd/4th Grade\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":2095},\"localised_prizemonies\":{\"AUD\":{\"1st\":1465,\"2nd\":420,\"3rd\":210,\"total_value\":2095},\"NZD\":{\"1st\":1612,\"2nd\":462,\"3rd\":231,\"total_value\":2304}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"All Weather\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
           "generated": 1,
           "silk_base_url": "drr38safykj6s.cloudfront.net",
-          "race_comment_alternative": "JOYEUSE (10) holds a promising profile having won on UK debut at Taunton before returning last month with a decent third tackling a 3200m introductory hurdle at Ascot. Open to further progress up in trip. Top selection. GEORGI GIRL (4) found success on seasonal reappearance by 2.75L contesting a 4200m mares handicap hurdle at Warwick. Claims. ROYALE MARGAUX (9) has good course form. Posted a smart second attempting 4800m three weeks back at Ascot. Likely player. PRETENDING (7) won over course and distance at the April Meeting. Not dismissed."
+          "race_comment_alternative": "YUMALI (5) is better than last start when sixth (26.15) from Box 5 at Murray Bridge over 455m. Form from her last run is proving very strong. Worth another chance. ZINFANDEL EVIE (7) is a well performed dog and winner of 25 races who is worth forgiving after finishing out of the placings at Angle Park (19.93). Has a good record here at this journey. The form from her last run stacks up well. Can figure in the finish. SPLIT VISION (1) has performed well at his last couple of runs here, most recently when second beaten 1.5 lengths (23.01). Leading player again. PINK CONFETTI (4) won in the best time of the program last time out. Sure to run well again."
         },
-        "venue_id": "8ff2976c-99b4-4090-a034-d956dc3b78bb",
-        "venue_name": "Cheltenham",
-        "venue_state": "GBR",
-        "venue_country": "UK"
+        "venue_id": "8e36b563-f688-4187-8a98-07633bdc0769",
+        "venue_name": "Gawler",
+        "venue_state": "SA",
+        "venue_country": "AUS"
+      },
+      "66a34d80-8173-4a0d-8831-862c24990d25": {
+        "race_id": "66a34d80-8173-4a0d-8831-862c24990d25",
+        "race_name": "4F Stakes",
+        "race_number": 1,
+        "meeting_id": "399cdbcb-4008-4e7c-aff5-438398d436bf",
+        "meeting_name": "Evangeline Downs",
+        "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
+        "advertised_start": {
+          "seconds": 1734219300
+        },
+        "race_form": {
+          "distance": 796,
+          "distance_type": {
+            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+            "name": "Metres",
+            "short_name": "m"
+          },
+          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+          "track_condition": {
+            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+            "name": "Good",
+            "short_name": "good"
+          },
+          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+          "race_comment": "ONE SCARED UP HERO (7) was narrowly beaten last start when second in a small field over 796m at this track (Dirt) at the first run of the campaign. Has a decent record at this trip with four minor placings from six tries and should prove tough to beat. ONE EYE ANGEL (2) finished out of the money two starts back then was beaten 3.5 lengths when fourth over 366m at this track five-and-a-half weeks ago. Likely improver with strong prospects. THREECORDSANTHETRUTH (4) is a 15-start maiden who finished fourth at her most recent appearance over 796m at this track (Dirt) after she was well back on straightening. Among the chances in what looks a nice race for her. SPY ON JESS (5) was in the firing line on the corner and finished third last start over 796m at this track (Dirt), beaten 4 lengths. Fitter for that run. Has started two times at this course and distance and is yet to miss the placings. Nicely placed to run well again.",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Evangeline Downs\",\"state\":\"LA\",\"country\":\"USA\",\"number\":1,\"race_name\":\"4F Stakes\",\"time\":\"2024-12-14T23:35:00Z\",\"class\":\"MDN CLM\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":10015},\"localised_prizemonies\":{\"AUD\":{\"total_value\":10015},\"NZD\":{\"total_value\":11016}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"Dirt\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "generated": 1,
+          "silk_base_url": "drr38safykj6s.cloudfront.net",
+          "race_comment_alternative": "ONE SCARED UP HERO (7) was narrowly beaten last start when second in a small field over 796m at this track (Dirt) at the first run of the campaign. Has a decent record at this trip with four minor placings from six tries and should prove tough to beat. ONE EYE ANGEL (2) finished out of the money two starts back then was beaten 3.5 lengths when fourth over 366m at this track five-and-a-half weeks ago. Likely improver with strong prospects. THREECORDSANTHETRUTH (4) is a 15-start maiden who finished fourth at her most recent appearance over 796m at this track (Dirt) after she was well back on straightening. Among the chances in what looks a nice race for her. SPY ON JESS (5) was in the firing line on the corner and finished third last start over 796m at this track (Dirt), beaten 4 lengths. Fitter for that run. Has started two times at this course and distance and is yet to miss the placings. Nicely placed to run well again."
+        },
+        "venue_id": "9eb22211-f026-45cc-8c5e-10273469b247",
+        "venue_name": "Evangeline Downs",
+        "venue_state": "LA",
+        "venue_country": "USA"
+      },
+      "6c4d86a2-6ac6-48b1-8236-cbd15828c22e": {
+        "race_id": "6c4d86a2-6ac6-48b1-8236-cbd15828c22e",
+        "race_name": "Race 1 - 1609M",
+        "race_number": 1,
+        "meeting_id": "c077db59-3e82-45d1-b7e8-9a1fccd75253",
+        "meeting_name": "Meadowlands",
+        "category_id": "161d9be2-e909-4326-8c2c-35ed71fb460b",
+        "advertised_start": {
+          "seconds": 1734218820
+        },
+        "race_form": {
+          "distance": 1609,
+          "distance_type": {
+            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+            "name": "Metres",
+            "short_name": "m"
+          },
+          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+          "track_condition": {
+            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+            "name": "Good",
+            "short_name": "good"
+          },
+          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Meadowlands\",\"state\":\"NJ\",\"country\":\"USA\",\"number\":1,\"race_name\":\"Race 1 - 1609M\",\"time\":\"2024-12-14T23:27:00Z\",\"class\":\"MADC 2\",\"start_type\":\"Mobile\",\"prizemonies\":{\"total_value\":19260},\"localised_prizemonies\":{\"AUD\":{\"total_value\":19260},\"NZD\":{\"total_value\":21186}},\"rail_position\":\"\",\"track_direction\":\"Left\",\"track_surface\":\"All Weather\",\"group\":\"\",\"gait\":\"P\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "generated": 1,
+          "silk_base_url": "drr38safykj6s.cloudfront.net"
+        },
+        "venue_id": "0478fa80-ab31-4709-bbd3-2ad650e6cfcd",
+        "venue_name": "Meadowlands",
+        "venue_state": "NJ",
+        "venue_country": "USA"
+      },
+      "bf53b2fb-f8db-48b5-bbfc-faffbfee8ace": {
+        "race_id": "bf53b2fb-f8db-48b5-bbfc-faffbfee8ace",
+        "race_name": "Grnsw Masters",
+        "race_number": 3,
+        "meeting_id": "2f7278ee-a151-45da-831f-461746c3d8d7",
+        "meeting_name": "Muswellbrook",
+        "category_id": "9daef0d7-bf3c-4f50-921d-8e818c60fe61",
+        "advertised_start": {
+          "seconds": 1734219720
+        },
+        "race_form": {
+          "distance": 336,
+          "distance_type": {
+            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+            "name": "Metres",
+            "short_name": "m"
+          },
+          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+          "track_condition": {
+            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+            "name": "Good",
+            "short_name": "good"
+          },
+          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+          "weather": {
+            "id": "01994c9e-3b74-11e8-a5eb-06a5c6d9a756",
+            "name": "Fine",
+            "short_name": "fine",
+            "icon_uri": "Fine"
+          },
+          "weather_id": "01994c9e-3b74-11e8-a5eb-06a5c6d9a756",
+          "race_comment": "BEAU BUSH (8) ran below his best last time finishing fourth (19.79) over 340m at Gunnedah in a Grade 4/5. Form from his last run is proving very strong. Tough to beat if on-song. PAY ROLL (1) is worth forgiving last start after finishing fifth (23.94) from Box 7 at Casino over 411m. Boasts a strong record from this draw with five wins and four minor placings from 11 starts. Has ability and a bold showing is expected. TURBO CASH (2) finished third (19.81) two back at Gunnedah but out of the placings last time when 6th at this track. Better than last start and can bounce back. RADLEY ERSKIN (7) is always hard to beat when drawn in this box. Something for the Multiples: RUBY ON SCOTCH (6)",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Muswellbrook\",\"state\":\"NSW\",\"country\":\"AUS\",\"number\":3,\"race_name\":\"Grnsw Masters\",\"time\":\"2024-12-14T23:42:00Z\",\"class\":\"M1/M2/M3\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":2310},\"localised_prizemonies\":{\"AUD\":{\"1st\":1475,\"2nd\":435,\"3rd\":325,\"4th\":75,\"total_value\":2310},\"NZD\":{\"1st\":1623,\"2nd\":479,\"3rd\":358,\"4th\":82,\"total_value\":2541}},\"rail_position\":\"\",\"track_direction\":\"Right\",\"track_surface\":\"All Weather\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "generated": 1,
+          "silk_base_url": "drr38safykj6s.cloudfront.net",
+          "race_comment_alternative": "BEAU BUSH (8) ran below his best last time finishing fourth (19.79) over 340m at Gunnedah in a Grade 4/5. Form from his last run is proving very strong. Tough to beat if on-song. PAY ROLL (1) is worth forgiving last start after finishing fifth (23.94) from Box 7 at Casino over 411m. Boasts a strong record from this draw with five wins and four minor placings from 11 starts. Has ability and a bold showing is expected. TURBO CASH (2) finished third (19.81) two back at Gunnedah but out of the placings last time when 6th at this track. Better than last start and can bounce back. RADLEY ERSKIN (7) is always hard to beat when drawn in this box. Something for the Multiples: RUBY ON SCOTCH (6)"
+        },
+        "venue_id": "30696688-873c-48c2-b2bc-1a853acbbd82",
+        "venue_name": "Muswellbrook",
+        "venue_state": "NSW",
+        "venue_country": "AUS"
+      },
+      "ca7bb818-1830-41b1-af87-ad159e394552": {
+        "race_id": "ca7bb818-1830-41b1-af87-ad159e394552",
+        "race_name": "6 1/2F Stakes",
+        "race_number": 6,
+        "meeting_id": "81e571b6-7adc-4409-82d9-395e5204e1b0",
+        "meeting_name": "Las Americas",
+        "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
+        "advertised_start": {
+          "seconds": 1734219000
+        },
+        "race_form": {
+          "distance": 1308,
+          "distance_type": {
+            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+            "name": "Metres",
+            "short_name": "m"
+          },
+          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+          "race_comment": "PAPALOAPAN (12) Came in 5th last start at this track. Giving another chance here. Appears well in this. MARIANKA (6) Racing on a quick back up. Honest race when 2nd last start here and returning to an increased distance. Goes very close. ALROSA (3) Ran 4th last run at the track. Should improve from the last run. A win wouldn't surprise. BELGICA (2) 2yo by Tom's D'etat racing as a debutant for L Ibarra and has a good draw. Keep your eye on the market.",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Las Americas\",\"state\":\"BCN\",\"country\":\"MEX\",\"number\":6,\"race_name\":\"6 1/2F Stakes\",\"time\":\"2024-12-14T23:30:00Z\",\"class\":\"\",\"start_type\":\"\",\"prizemonies\":null,\"localised_prizemonies\":null,\"rail_position\":\"\",\"track_direction\":\"\",\"track_surface\":\"\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "generated": 1,
+          "silk_base_url": "drr38safykj6s.cloudfront.net",
+          "race_comment_alternative": "PAPALOAPAN (12) Came in 5th last start at this track. Giving another chance here. Appears well in this. MARIANKA (6) Racing on a quick back up. Honest race when 2nd last start here and returning to an increased distance. Goes very close. ALROSA (3) Ran 4th last run at the track. Should improve from the last run. A win wouldn't surprise. BELGICA (2) 2yo by Tom's D'etat racing as a debutant for L Ibarra and has a good draw. Keep your eye on the market."
+        },
+        "venue_id": "b770120b-be68-4ae0-bf68-ac784aaa7955",
+        "venue_name": "Las Americas",
+        "venue_state": "BCN",
+        "venue_country": "MEX"
+      },
+      "d9341e4e-9bf9-416a-807d-e7a8e048e731": {
+        "race_id": "d9341e4e-9bf9-416a-807d-e7a8e048e731",
+        "race_name": "6F Hcap",
+        "race_number": 18,
+        "meeting_id": "51ad58fd-56b4-4917-a221-33a7a67ffd41",
+        "meeting_name": "Hipodromo Chile",
+        "category_id": "4a2788f8-e825-4d36-9894-efd4baf1cfae",
+        "advertised_start": {
+          "seconds": 1734219120
+        },
+        "race_form": {
+          "distance": 1200,
+          "distance_type": {
+            "id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+            "name": "Metres",
+            "short_name": "m"
+          },
+          "distance_type_id": "570775ae-09ec-42d5-989d-7c8f06366aa7",
+          "track_condition": {
+            "id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+            "name": "Good",
+            "short_name": "good"
+          },
+          "track_condition_id": "10a14653-a33d-11e7-810d-0a1a4ae29bd2",
+          "race_comment": "SOS DE BOCA (11) was sent out favourite last time and scored by 2 lengths at this track. Yet to miss the frame in two starts over this course and distance. Has the pace to settle in the leading division. Will play a major role. ON THE WAY (8) is on a quick turnaround after a solid second over 1200m at this track seven days ago. Good effort last start and is a definite winning chance. THE KINKA (10) was out of the money two runs back then again missed the frame last start over 1000m at Club Hipico De Santiago, beaten 5 lengths into sixth. Taking on a better field but he is good enough to turn the recent form around. OUR KING (6) finished a fair fifth in a 1900m contest at Club Hipico De Santiago last time out. No surprise to see him in contention.",
+          "additional_data": "{\"revealed_race_info\":{\"track_name\":\"Hipodromo Chile\",\"state\":\"CHI\",\"country\":\"CHI\",\"number\":18,\"race_name\":\"6F Hcap\",\"time\":\"2024-12-14T23:32:00Z\",\"class\":\"HCP\",\"start_type\":\"\",\"prizemonies\":{\"total_value\":5043},\"localised_prizemonies\":{\"AUD\":{\"1st\":3152,\"2nd\":946,\"3rd\":630,\"4th\":315,\"total_value\":5043},\"NZD\":{\"1st\":3467,\"2nd\":1041,\"3rd\":693,\"4th\":346,\"total_value\":5547}},\"rail_position\":\"\",\"track_direction\":\"Right\",\"track_surface\":\"Dirt\",\"group\":\"\",\"gait\":\"Gallop\",\"track_home_straight_metres\":0,\"track_circumference\":0}}",
+          "generated": 1,
+          "silk_base_url": "drr38safykj6s.cloudfront.net",
+          "race_comment_alternative": "SOS DE BOCA (11) was sent out favourite last time and scored by 2 lengths at this track. Yet to miss the frame in two starts over this course and distance. Has the pace to settle in the leading division. Will play a major role. ON THE WAY (8) is on a quick turnaround after a solid second over 1200m at this track seven days ago. Good effort last start and is a definite winning chance. THE KINKA (10) was out of the money two runs back then again missed the frame last start over 1000m at Club Hipico De Santiago, beaten 5 lengths into sixth. Taking on a better field but he is good enough to turn the recent form around. OUR KING (6) finished a fair fifth in a 1900m contest at Club Hipico De Santiago last time out. No surprise to see him in contention."
+        },
+        "venue_id": "4371113a-deaf-42f7-8a0b-934828f08b27",
+        "venue_name": "Hipodromo Chile",
+        "venue_state": "CHI",
+        "venue_country": "CHI"
       }
     }
   },

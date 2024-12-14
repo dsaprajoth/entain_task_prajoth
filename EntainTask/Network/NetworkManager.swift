@@ -30,7 +30,7 @@ class NetworkManager: NetworkService {
     }
 }
 
-// Allows for injecting mock responses in tests. Supports returning successful or failed results based on the result property.
+// Allows injecting mock responses in tests. Supports returning successful or failed results based on the result property.
 class MockNetworkManager: NetworkService {
     var result: Result<Data, Error>?
 
@@ -43,6 +43,16 @@ class MockNetworkManager: NetworkService {
         return result.publisher
             .flatMap { data -> AnyPublisher<T, Error> in
                 Just(data)
+                // tryMap to help debugging decoding errors
+//                    .tryMap { data in
+//                        do {
+//                            return try JSONDecoder().decode(T.self, from: data)
+//                        } catch {
+//                            print("Decoding Error: \(error)")
+//                            print("Data: \(String(data: data, encoding: .utf8) ?? "Invalid Data")")
+//                            throw error
+//                        }
+//                    }
                     .decode(type: T.self, decoder: JSONDecoder())
                     .eraseToAnyPublisher()
             }
