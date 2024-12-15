@@ -40,8 +40,10 @@ class NextRaceViewModel: ObservableObject {
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
+                    debugPrint("Data fetched successfully")
                     break
                 case .failure(let error):
+                    debugPrint("Failed to fetch data: \(error.localizedDescription)")
                     self?.errorMessage = error.localizedDescription
                 }
             }, receiveValue: { [weak self] data in
