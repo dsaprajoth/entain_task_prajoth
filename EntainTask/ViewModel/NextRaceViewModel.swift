@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-@MainActor
+//@MainActor
 class NextRaceViewModel: ObservableObject {
     @Published var nextRaceList: [RaceSummary] = []
     @Published var isLoading: Bool = false
@@ -28,11 +28,6 @@ class NextRaceViewModel: ObservableObject {
     }
 
     func fetchData() {
-        var mock = false
-        if networkService is MockNetworkManager {
-            mock = true
-        }
-
         guard let url = URL(string: APIConstants.endpoint) else { return }
 
         isLoading = true
@@ -50,9 +45,7 @@ class NextRaceViewModel: ObservableObject {
                 self?.isLoading = false
                 self?.raceListFromAPI = data.data?.raceSummaries?.values.map { $0 } ?? []
                 // Filter out races beyond a minute from the advertised start time
-                if !mock {
-                    self?.filterData()
-                }
+                self?.filterData()
                 // Sort the races based on the advertised start time
                 self?.sortData()
                 // Pick the first 5 races from the list

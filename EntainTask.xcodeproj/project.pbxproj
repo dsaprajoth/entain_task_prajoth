@@ -20,6 +20,11 @@
 		A4E9E2972D0DE1BE00D898E7 /* RaceListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2962D0DE1BE00D898E7 /* RaceListItemViewModel.swift */; };
 		A4E9E2992D0DE1C600D898E7 /* RaceListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2982D0DE1C600D898E7 /* RaceListItemView.swift */; };
 		A4E9E29B2D0E5C7F00D898E7 /* AppUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E29A2D0E5C7F00D898E7 /* AppUtilsTests.swift */; };
+		A4E9E29E2D0EE96A00D898E7 /* NetworkingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E29C2D0EE96A00D898E7 /* NetworkingManagerTests.swift */; };
+		A4E9E29F2D0EE96A00D898E7 /* MockURLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E29D2D0EE96A00D898E7 /* MockURLSessionProtocol.swift */; };
+		A4E9E2A12D0EEFAF00D898E7 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2A02D0EEFAF00D898E7 /* MockNetworkManager.swift */; };
+		A4E9E2A32D0F014900D898E7 /* RaceListItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2A22D0F014900D898E7 /* RaceListItemViewModelTests.swift */; };
+		A4E9E2A72D0F0B9E00D898E7 /* RaceMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2A62D0F0B9E00D898E7 /* RaceMockData.swift */; };
 		A4F038312D0BD54C0015E41C /* EntainTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */; };
 		A4F038332D0BD54C0015E41C /* NextRaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038322D0BD54C0015E41C /* NextRaceView.swift */; };
 		A4F038352D0BD54D0015E41C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F038342D0BD54D0015E41C /* Assets.xcassets */; };
@@ -67,6 +72,11 @@
 		A4E9E2962D0DE1BE00D898E7 /* RaceListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListItemViewModel.swift; sourceTree = "<group>"; };
 		A4E9E2982D0DE1C600D898E7 /* RaceListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListItemView.swift; sourceTree = "<group>"; };
 		A4E9E29A2D0E5C7F00D898E7 /* AppUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtilsTests.swift; sourceTree = "<group>"; };
+		A4E9E29C2D0EE96A00D898E7 /* NetworkingManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingManagerTests.swift; sourceTree = "<group>"; };
+		A4E9E29D2D0EE96A00D898E7 /* MockURLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionProtocol.swift; sourceTree = "<group>"; };
+		A4E9E2A02D0EEFAF00D898E7 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		A4E9E2A22D0F014900D898E7 /* RaceListItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListItemViewModelTests.swift; sourceTree = "<group>"; };
+		A4E9E2A62D0F0B9E00D898E7 /* RaceMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceMockData.swift; sourceTree = "<group>"; };
 		A4F0382D2D0BD54C0015E41C /* EntainTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntainTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskApp.swift; sourceTree = "<group>"; };
 		A4F038322D0BD54C0015E41C /* NextRaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceView.swift; sourceTree = "<group>"; };
@@ -128,6 +138,41 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		A4E9E2A42D0F0B7D00D898E7 /* RaceListItemTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E2A22D0F014900D898E7 /* RaceListItemViewModelTests.swift */,
+				A4E9E2A62D0F0B9E00D898E7 /* RaceMockData.swift */,
+			);
+			path = RaceListItemTests;
+			sourceTree = "<group>";
+		};
+		A4E9E2A82D0F0F7200D898E7 /* NextRaceViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */,
+			);
+			path = NextRaceViewModelTests;
+			sourceTree = "<group>";
+		};
+		A4E9E2A92D0F0F8900D898E7 /* AppUtilTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E29A2D0E5C7F00D898E7 /* AppUtilsTests.swift */,
+			);
+			path = AppUtilTests;
+			sourceTree = "<group>";
+		};
+		A4E9E2AA2D0F0FA500D898E7 /* NetworkLayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E29D2D0EE96A00D898E7 /* MockURLSessionProtocol.swift */,
+				A4E9E2A02D0EEFAF00D898E7 /* MockNetworkManager.swift */,
+				A4E9E29C2D0EE96A00D898E7 /* NetworkingManagerTests.swift */,
+			);
+			path = NetworkLayerTests;
+			sourceTree = "<group>";
+		};
 		A4F038242D0BD54C0015E41C = {
 			isa = PBXGroup;
 			children = (
@@ -176,9 +221,11 @@
 		A4F038402D0BD54D0015E41C /* EntainTaskTests */ = {
 			isa = PBXGroup;
 			children = (
+				A4E9E2AA2D0F0FA500D898E7 /* NetworkLayerTests */,
+				A4E9E2A92D0F0F8900D898E7 /* AppUtilTests */,
+				A4E9E2A82D0F0F7200D898E7 /* NextRaceViewModelTests */,
+				A4E9E2A42D0F0B7D00D898E7 /* RaceListItemTests */,
 				A4F038412D0BD54D0015E41C /* EntainTaskTests.swift */,
-				A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */,
-				A4E9E29A2D0E5C7F00D898E7 /* AppUtilsTests.swift */,
 			);
 			path = EntainTaskTests;
 			sourceTree = "<group>";
@@ -419,7 +466,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E9E2A12D0EEFAF00D898E7 /* MockNetworkManager.swift in Sources */,
+				A4E9E2A72D0F0B9E00D898E7 /* RaceMockData.swift in Sources */,
+				A4E9E2A32D0F014900D898E7 /* RaceListItemViewModelTests.swift in Sources */,
 				A4E9E2952D0DDA4000D898E7 /* NextRaceViewModelTests.swift in Sources */,
+				A4E9E29F2D0EE96A00D898E7 /* MockURLSessionProtocol.swift in Sources */,
+				A4E9E29E2D0EE96A00D898E7 /* NetworkingManagerTests.swift in Sources */,
 				A4E9E29B2D0E5C7F00D898E7 /* AppUtilsTests.swift in Sources */,
 				A4F038422D0BD54D0015E41C /* EntainTaskTests.swift in Sources */,
 			);
