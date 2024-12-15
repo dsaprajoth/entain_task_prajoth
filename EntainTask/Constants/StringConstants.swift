@@ -14,5 +14,5 @@ struct StringConstants {
     static let noRaceText = String(localized: "No race to display!")
     static let loading = String(localized: "Loading...")
     static let title = String(localized: "Next to Go Racing")
-    static let reload = String(localized: "Reload")
+    static let reload = String(localized: "Retry")
 }

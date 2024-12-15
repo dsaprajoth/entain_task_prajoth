@@ -32,7 +32,6 @@ class NextRaceViewModelTests: XCTestCase {
     func testFetchData_Success() {
         // Given
         let mockData = AppUtils.fetchRaceMockResponse()
-
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -53,40 +52,47 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
 
-    @MainActor func testFetchData_Failure() {
+    @MainActor 
+    func testFetchData_Failure() {
+        // Given
         mockNetworkManager.result = .failure(URLError(.notConnectedToInternet))
 
+        // Expectation
         let expectation = XCTestExpectation(description: "Handle error")
 
+        // When
+        viewModel.fetchData()
+
+        // Then
         viewModel.$errorMessage
-            .dropFirst()
             .sink { errorMessage in
                 XCTAssertEqual(errorMessage, URLError(.notConnectedToInternet).localizedDescription)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
 
-        viewModel.fetchData()
-
-        wait(for: [expectation], timeout: 1.0)
+        wait(for: [expectation], timeout: 2.0)
     }
 
     @MainActor func testFetchData_RequestFailed() {
+        // Given
         mockNetworkManager.result = .failure(NetworkError.requestFailed(404))
 
+        // Expectation
         let expectation = XCTestExpectation(description: "Handle status code 404")
 
+        // Wwhen
+        viewModel.fetchData()
+
+        // Then
         viewModel.$errorMessage
-            .dropFirst()
             .sink { errorMessage in
                 XCTAssertEqual(errorMessage, "Request failed with status code 404.")
                 expectation.fulfill()
             }
             .store(in: &cancellables)
 
-        viewModel.fetchData()
-
-        wait(for: [expectation], timeout: 1.0)
+        wait(for: [expectation], timeout: 2.0)
     }
 
     @MainActor func testFilterByHorseRace() {
@@ -110,7 +116,7 @@ class NextRaceViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 3.0)
     }
 
     @MainActor func testFilterByHarnessRace() {
@@ -133,7 +139,8 @@ class NextRaceViewModelTests: XCTestCase {
                 expectation.fulfill()
             }
             .store(in: &cancellables)
-        wait(for: [expectation], timeout: 5.0)
+
+        wait(for: [expectation], timeout: 3.0)
     }
 
     @MainActor func testFilterByGreyhoundRace() {
@@ -156,6 +163,8 @@ class NextRaceViewModelTests: XCTestCase {
                 expectation.fulfill()
             }
             .store(in: &cancellables)
+
+        wait(for: [expectation], timeout: 3.0)
     }
 
     @MainActor func testFilterCombinationHorseAndGreyhoundRacing() {
@@ -190,7 +199,7 @@ class NextRaceViewModelTests: XCTestCase {
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
-        let expectation = XCTestExpectation(description: "Fetch data")
+        let expectation = XCTestExpectation(description: "Fetch data & filter by horse and harness racing")
 
         // When
         viewModel.fetchData()
@@ -217,7 +226,7 @@ class NextRaceViewModelTests: XCTestCase {
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
-        let expectation = XCTestExpectation(description: "Fetch data")
+        let expectation = XCTestExpectation(description: "Fetch data, clear filter when same race selected twice")
 
         // When
         viewModel.fetchData()

@@ -25,7 +25,7 @@ class RaceListItemViewModelTests: XCTestCase {
     }
 
     func testTimeRemainingStringUpdatesCorrectly() {
-        // Arrange
+        // Given
         let advertisedStartTime = Date().addingTimeInterval(120).timeIntervalSince1970 // 2 minutes from now
         let mockRace: RaceSummary = .init(raceID: "1",
                                           raceName: "Test Race",
@@ -40,9 +40,11 @@ class RaceListItemViewModelTests: XCTestCase {
                                           venueName: "Test Venue",
                                           venueState: "Test State",
                                           venueCountry: "USA")
+
+        // When
         viewModel = RaceListItemViewModel(race: mockRace)
 
-        // Act & Assert
+        // Then
         let expectation = XCTestExpectation(description: "Time remaining string updates correctly")
         viewModel.$timeRemainingString
             .sink { timeString in
@@ -60,7 +62,7 @@ class RaceListItemViewModelTests: XCTestCase {
     }
 
     func testIsTimerFinishedUpdatesCorrectly() {
-        // Arrange
+        // Given
         let advertisedStartTime = Date().addingTimeInterval(-61).timeIntervalSince1970 // 61 seconds in the past
         let mockRace: RaceSummary = .init(raceID: "1",
                                           raceName: "Test Race",
@@ -75,52 +77,56 @@ class RaceListItemViewModelTests: XCTestCase {
                                           venueName: "Test Venue",
                                           venueState: "Test State",
                                           venueCountry: "USA")
-        viewModel = RaceListItemViewModel(race: mockRace)
 
-        // Act
+        // When
+        viewModel = RaceListItemViewModel(race: mockRace)
         viewModel.updateTimeRemaining()
 
-        // Assert
+        // Then
         XCTAssertTrue(viewModel.isTimerFinished, "The isTimerFinished property should be true when time interval is less than -60 seconds.")
     }
 
     func testColorForTimeRemaining() {
-        // Arrange, Act & Assert
-
+        // Given
         // Test upcoming race (green)
         viewModel = RaceListItemViewModel(race: RaceMockData.upcomingRace)
+        // THen
         XCTAssertEqual(viewModel.colorForTimeRemaining, .green, "Upcoming race should have a green color.")
 
+        // Given
         // Test nearly started race (orange)
         viewModel = RaceListItemViewModel(race: RaceMockData.nearlyStartedRace)
+        // THen
         XCTAssertEqual(viewModel.colorForTimeRemaining, .orange, "Nearly started race should have an orange color.")
 
+        // Given
         // Test past race (red)
         viewModel = RaceListItemViewModel(race: RaceMockData.pastRace)
+        // THen
         XCTAssertEqual(viewModel.colorForTimeRemaining, .red, "Past race should have a red color.")
     }
 
     func testMeetingName() {
-        // Arrange
+        // Given
         viewModel = RaceListItemViewModel(race: RaceMockData.mockRace)
 
-        // Act & Assert
+        // Then
         XCTAssertEqual(viewModel.meetingName, "Test Race Meeting", "Meeting name should match the race's meeting name.")
     }
 
     func testRaceNumberFormatting() {
-        // Arrange
+        // Given
         viewModel = RaceListItemViewModel(race: RaceMockData.mockRace)
 
-        // Act & Assert
+        // Then
         XCTAssertEqual(viewModel.raceNumber, "R2", "Race number should be formatted as 'R{number}'.")
     }
 
     func testVenueCountry() {
-        // Arrange
+        // Given
         viewModel = RaceListItemViewModel(race: RaceMockData.mockRace)
 
-        // Act & Assert
+        // Then
         XCTAssertEqual(viewModel.venue, "USA", "Venue country should match the race's venue country.")
     }
 }

@@ -33,18 +33,22 @@ class NetworkManagerTests: XCTestCase {
 
     func testFetch_Success() {
         // Given
-        let mockURL = URL(string: "https://mockapi.fetchraces/doesnothing")!
+        let mockURL = URL(string: "https://entain.fetchraces/mock/doesnothing")!
         let expectedData = """
         {
             "raceNum": 1,
             "meetingName": "Test Resource"
         }
         """.data(using: .utf8)!
+
+        // When
         MockURLProtocol.responseData = expectedData
         MockURLProtocol.response = HTTPURLResponse(url: mockURL, statusCode: 200, httpVersion: nil, headerFields: nil)
 
-        // When
+        // Expectation
         let expectation = XCTestExpectation(description: "Fetch succeeds")
+
+        // Then
         networkManager.fetch(url: mockURL, responseType: MockRaceModel.self)
             .sink(receiveCompletion: { completion in
                 if case .failure = completion {

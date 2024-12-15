@@ -30,6 +30,7 @@ class NextRaceViewModel: ObservableObject {
     func fetchData() {
         guard let url = URL(string: APIConstants.endpoint) else { return }
 
+        errorMessage = nil
         isLoading = true
         networkService.fetch(url: url, responseType: NextRacesResponse.self)
             .sink(receiveCompletion: { [weak self] completion in

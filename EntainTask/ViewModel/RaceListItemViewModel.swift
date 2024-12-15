@@ -20,6 +20,7 @@ class RaceListItemViewModel: ObservableObject {
         self.race = race
         // Convert epoch time to Date
         self.advertisedDate = Date(timeIntervalSince1970: TimeInterval(race.advertisedStartValue))
+        updateTimeRemaining()
         startTimer()
     }
 

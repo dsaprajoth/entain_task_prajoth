@@ -13,6 +13,7 @@ enum NetworkError: LocalizedError {
     case requestFailed(Int) // HTTP status codes
     case noData
     case decodingFailed(String)
+    case internetUnavailable
     case unknown(Error)
 
     var errorDescription: String? {
@@ -25,8 +26,10 @@ enum NetworkError: LocalizedError {
             return "No data was received from the server."
         case .decodingFailed(let error):
             return "Failed to decode the response: \(error)"
+        case .internetUnavailable:
+            return "The internet connection appears to be offline."
         case .unknown(let error):
-            return "An unknown error occurred: \(error.localizedDescription)"
+            return error.localizedDescription.isEmpty ? "An unknown error occurred" : "\(error.localizedDescription)"
         }
     }
 }
@@ -64,26 +67,47 @@ class NetworkManager: NetworkService {
 
                 return output.data
             }
-            .flatMap { data -> AnyPublisher<T, Error> in
+            .tryMap { data in
                 // Check if the data is empty
-                if data.isEmpty {
-                    // Handle empty data (e.g., return a custom error)
-                    return Fail(error: NetworkError.noData).eraseToAnyPublisher()
+                guard !data.isEmpty else {
+                    throw NetworkError.noData
                 }
-
-                // Decode the data
-                return Just(data)
-                    .decode(type: T.self, decoder: JSONDecoder())
-                    .mapError { error in
-                        NetworkError.decodingFailed(error.localizedDescription)
+                return data
+            }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .mapError { error in
+                // Map the error to a NetworkError
+                if let urlError = error as? URLError {
+                    if urlError.code == .notConnectedToInternet {
+                        return NetworkError.internetUnavailable
                     }
-                    .eraseToAnyPublisher()
+                    return NetworkError.unknown(urlError)
+                } else if let decodingError = error as? DecodingError {
+                    return NetworkError.decodingFailed(decodingError.localizedDescription)
+                }
+                return error
             }
-            .catch { error -> AnyPublisher<T, Error> in
-                // Handle any other errors
-                let networkError = (error as? NetworkError) ?? NetworkError.unknown(error)
-                return Fail(error: networkError).eraseToAnyPublisher()
-            }
+
+//            .flatMap { data -> AnyPublisher<T, Error> in
+//                // Check if the data is empty
+//                if data.isEmpty {
+//                    // Handle empty data (e.g., return a custom error)
+//                    return Fail(error: NetworkError.noData).eraseToAnyPublisher()
+//                }
+//
+//                // Decode the data
+//                return Just(data)
+//                    .decode(type: T.self, decoder: JSONDecoder())
+//                    .mapError { error in
+//                        NetworkError.decodingFailed(error.localizedDescription)
+//                    }
+//                    .eraseToAnyPublisher()
+//            }
+//            .catch { error -> AnyPublisher<T, Error> in
+//                // Handle any other errors
+//                let networkError = (error as? NetworkError) ?? NetworkError.unknown(error)
+//                return Fail(error: networkError).eraseToAnyPublisher()
+//            }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }

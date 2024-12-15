@@ -10,7 +10,8 @@ import Combine
 @testable import EntainTask
 
 /// This is a custom subclass of URLProtocol to intercept and mock
-/// network requests during unit testing
+/// network requests during unit testing.
+/// Used for mocking and testing the correctness of NetworkManager class
 class MockURLProtocol: URLProtocol {
     static var responseData: Data?
     static var responseError: Error?

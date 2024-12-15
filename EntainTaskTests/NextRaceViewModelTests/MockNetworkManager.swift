@@ -9,7 +9,9 @@ import Foundation
 import Combine
 @testable import EntainTask
 
-// This subclass of NetworkService is used to mock responses for testing ViewModels.
+/// This subclass of NetworkService is used to mock responses for testing ViewModels.
+/// It returns the provided result as a publisher. Hence can be used to mock any response type.
+/// For this task we are using it to mock responses for the NextRaceViewModel
 class MockNetworkManager<V>: NetworkService {
     var result: Result<V, Error>?
 
@@ -21,7 +23,8 @@ class MockNetworkManager<V>: NetworkService {
 
         return result.publisher
             .flatMap { data -> Just<T> in
-                Just(data as! T) // return the data as is
+                // return the data as is
+                Just(data as! T)
             }
             .eraseToAnyPublisher()
     }

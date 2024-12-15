@@ -28,42 +28,40 @@ class AppUtilsTests: XCTestCase {
         // Test for 90061 seconds (1 day, 1 hour, 1 minute, 1 second)
         let result4 = AppUtils.formatTime(90061)
         XCTAssertEqual(result4, "1d 1h 1m 1s")
-
     }
 
-    // Test convertEpochToDate function for different epoch times
+    // Test convertEpochToDate function for different constant epoch times
     func testConvertEpochToDate() {
-        // Test for a known epoch time (e.g., 2024-12-15 00:00:00 UTC)
-        let epochTime1: TimeInterval = 1734211200 // Corresponds to "Dec 15, 2024"
+        // Recent date
+        let epochTime1: TimeInterval = 1734211200 // Dec 15, 2024
         let result1 = AppUtils.convertEpochToDate(epochTime: epochTime1)
-        let expectedDate1 = "15 Dec 2024 at 8:20 AM" // Adjust the expected result based on your locale and format
+        let expectedDate1 = "15 Dec 2024 at 8:20 AM"
         XCTAssertEqual(result1, expectedDate1)
 
-        // Test for a leap year date (e.g., 2020-02-29 12:00:00 UTC)
-        let epochTime2: TimeInterval = 1582972800 // Corresponds to "Feb 29, 2020"
+        // Leap year date
+        let epochTime2: TimeInterval = 1582972800 // Feb 29, 2020
         let result2 = AppUtils.convertEpochToDate(epochTime: epochTime2)
-        let expectedDate2 = "29 Feb 2020 at 9:40 PM" // Adjust the expected result based on your locale and format
+        let expectedDate2 = "29 Feb 2020 at 9:40 PM"
         XCTAssertEqual(result2, expectedDate2)
 
-        // Test for future date (e.g., 2025-01-01 00:00:00 UTC)
-        let epochTime3: TimeInterval = 1735708800 // Corresponds to "Jan 1, 2025"
+        // Future date
+        let epochTime3: TimeInterval = 1735708800 // Jan 1, 2025
         let result3 = AppUtils.convertEpochToDate(epochTime: epochTime3)
-        let expectedDate3 = "1 Jan 2025 at 4:20 PM" // Adjust the expected result based on your locale and format
+        let expectedDate3 = "1 Jan 2025 at 4:20 PM"
         XCTAssertEqual(result3, expectedDate3)
-
     }
 
     func testFetchRaceMockResponse_Success() {
-        // Arrange & Assume the mock JSON exists with expected structure.
-
+        // Given
+        // Mock data json exists in the bundle with the name "mock.json"
+        
         // When
         let response = AppUtils.fetchRaceMockResponse()
 
         // Then
-        XCTAssertNotNil(response, "Expected a valid response, but got nil.")
+        XCTAssertNotNil(response, "nil")
         XCTAssertEqual(response?.status, 200)
     }
-
 }
 
 
