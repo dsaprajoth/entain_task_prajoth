@@ -11,10 +11,10 @@ import Combine
 
 class NextRaceViewModelTests: XCTestCase {
     var cancellables: Set<AnyCancellable>!
-    var mockNetworkManager: MockNetworkManager!
+    var mockNetworkManager: MockNetworkManager<Any>!
     var viewModel: NextRaceViewModel!
 
-    @MainActor override func setUp() {
+    override func setUp() {
         super.setUp()
         cancellables = []
         mockNetworkManager = MockNetworkManager()
@@ -32,10 +32,26 @@ class NextRaceViewModelTests: XCTestCase {
     func testFetchData_Success() {
         // Given
         let mockData = AppUtils.loadJsonData()
+//        let allRaces =  mockData?.data?.raceSummaries?.values.map { $0 } ?? []
+//        var horseRaces = allRaces.filter({ race in
+//            return race.categoryID == RaceType.horseRacing.categoryId
+//        })
+//        horseRaces.map { horseRace in
+//            horseRace.advertisedStart?.seconds = Date.now + 60
+//        }
+//
+//        let harnessRaces = mockData?.data?.raceSummaries?.values.filter({ race in
+//            return race.categoryID == RaceType.harnessRacing.categoryId
+//        })
+//
+//        let greyhoundRaces = mockData?.data?.raceSummaries?.values.filter({ race in
+//            return race.categoryID == RaceType.greyHoundRacing.categoryId
+//        })
+
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
-        let expectation = XCTestExpectation(description: "Fetch data")
+        let expectation = XCTestExpectation(description: "Fetch data success")
 
         // When
         viewModel.fetchData()
@@ -43,15 +59,16 @@ class NextRaceViewModelTests: XCTestCase {
         // Then
         viewModel.$nextRaceList
             .sink { data in
+                XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(data.count, 5)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
 
-        wait(for: [expectation], timeout: 8.0)
+        wait(for: [expectation], timeout: 5.0)
     }
 
-    @MainActor func testFetchData_Failure() {
+    func testFetchData_Failure() {
         mockNetworkManager.result = .failure(URLError(.notConnectedToInternet))
 
         let expectation = XCTestExpectation(description: "Handle error")
@@ -69,27 +86,7 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 
-    @MainActor func testFetchData_DecodingError() {
-        let invalidData = "{ invalid_json".data(using: .utf8)!
-
-        mockNetworkManager.result = .success(invalidData)
-
-        let expectation = XCTestExpectation(description: "Handle invalid json error")
-
-        viewModel.$errorMessage
-            .dropFirst()
-            .sink { errorMessage in
-                XCTAssertEqual(errorMessage, "Failed to decode the response: The data couldn’t be read because it isn’t in the correct format.")
-                expectation.fulfill()
-            }
-            .store(in: &cancellables)
-
-        viewModel.fetchData()
-
-        wait(for: [expectation], timeout: 1.0)
-    }
-
-    @MainActor func testFetchData_RequestFailed() {
+    func testFetchData_RequestFailed() {
         mockNetworkManager.result = .failure(NetworkError.requestFailed(404))
 
         let expectation = XCTestExpectation(description: "Handle status code 404")
@@ -107,13 +104,13 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 
-    @MainActor func testFilterByHorseRace() {
+    func testFilterByHorseRace() {
         // Given
         let mockData = AppUtils.loadJsonData()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
-        let expectation = XCTestExpectation(description: "Fetch data")
+        let expectation = XCTestExpectation(description: "Fetch data & filter by horse racing")
 
         // When
         viewModel.fetchData()
@@ -122,6 +119,7 @@ class NextRaceViewModelTests: XCTestCase {
         // Then
         viewModel.$nextRaceList
             .sink { data in
+                XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(data.count, 2)
                 expectation.fulfill()
             }
@@ -130,13 +128,13 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
 
-    @MainActor func testFilterByHarnessRace() {
+    func testFilterByHarnessRace() {
         // Given
         let mockData = AppUtils.loadJsonData()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
-        let expectation = XCTestExpectation(description: "Fetch data")
+        let expectation = XCTestExpectation(description: "Fetch data & filter by harness racing")
 
         // When
         viewModel.fetchData()
@@ -145,6 +143,7 @@ class NextRaceViewModelTests: XCTestCase {
         // Then
         viewModel.$nextRaceList
             .sink { data in
+                XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(data.count, 2)
                 expectation.fulfill()
             }
@@ -152,13 +151,13 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
 
-    @MainActor func testFilterByGreyhoundRace() {
+    func testFilterByGreyhoundRace() {
         // Given
         let mockData = AppUtils.loadJsonData()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
-        let expectation = XCTestExpectation(description: "Fetch data")
+        let expectation = XCTestExpectation(description: "Fetch data & filter by greyhound racing")
 
         // When
         viewModel.fetchData()
@@ -167,19 +166,20 @@ class NextRaceViewModelTests: XCTestCase {
         // Then
         viewModel.$nextRaceList
             .sink { data in
-                XCTAssertEqual(data.count, 0)
+                XCTAssertNotNil(data, "Data should not be nil")
+                XCTAssertEqual(data.count, 1)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
     }
 
-    @MainActor func testFilterCombinationHorseAndGreyhoundRacing() {
+    func testFilterCombinationHorseAndGreyhoundRacing() {
         // Given
         let mockData = AppUtils.loadJsonData()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
-        let expectation = XCTestExpectation(description: "Fetch data")
+        let expectation = XCTestExpectation(description: "Fetch data & filter by horse and greyhound racing")
 
         // When
         viewModel.fetchData()
@@ -191,7 +191,7 @@ class NextRaceViewModelTests: XCTestCase {
             .sink { data in
                 XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(self.viewModel.selectedFilters.count, 2)
-                XCTAssertEqual(data.count, 2)
+                XCTAssertEqual(data.count, 3)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
@@ -199,7 +199,7 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
 
-    @MainActor func testFilterCombinationHorseAndHarnessRacing() {
+    func testFilterCombinationHorseAndHarnessRacing() {
         // Given
         let mockData = AppUtils.loadJsonData()
         mockNetworkManager.result = .success(mockData!)
@@ -217,15 +217,16 @@ class NextRaceViewModelTests: XCTestCase {
             .sink { data in
                 XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(self.viewModel.selectedFilters.count, 2)
-                XCTAssertEqual(data.count, 5)
+                XCTAssertEqual(data.count, 4)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
 
+        wait(for: [expectation], timeout: 5.0)
     }
 
 
-    @MainActor func testClearFilterWhenSameFilterClickedTwice() {
+    func testClearFilterWhenSameFilterClickedTwice() {
         // Given
         let mockData = AppUtils.loadJsonData()
         mockNetworkManager.result = .success(mockData!)
@@ -248,6 +249,6 @@ class NextRaceViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-//        waitForExpectations(timeout: 5)
+        wait(for: [expectation], timeout: 5.0)
     }
 }

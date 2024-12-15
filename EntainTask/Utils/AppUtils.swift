@@ -51,14 +51,14 @@ struct AppUtils {
         return dateFormatter.string(from: date)
     }
 
-    static func loadJsonData() -> Data? {
+    static func loadJsonData() -> NextRacesResponse? {
         if let url = Bundle.main.url(forResource: "mock", withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
-                return data
-//                let decoder = JSONDecoder()
-//                let jsonData = try decoder.decode(NextRacesResponse.self, from: data)
-//                return jsonData
+//                return data
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(NextRacesResponse.self, from: data)
+                return jsonData
             } catch {
                 return nil
             }

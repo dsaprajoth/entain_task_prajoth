@@ -71,36 +71,3 @@ class NetworkManager: NetworkService {
     }
 }
 
-// Allows injecting mock responses in tests. Supports returning successful or failed results based on the result property.
-class MockNetworkManager: NetworkService {
-    var result: Result<Data, Error>?
-
-    func fetch<T: Decodable>(url: URL, responseType: T.Type) -> AnyPublisher<T, Error> {
-        guard let result = result else {
-            return Fail(error: URLError(.badServerResponse))
-                .eraseToAnyPublisher()
-        }
-
-        return result.publisher
-            .flatMap { data -> AnyPublisher<T, Error> in
-                Just(data)
-                // tryMap to help debugging decoding errors
-//                    .tryMap { data in
-//                        do {
-//                            return try JSONDecoder().decode(T.self, from: data)
-//                        } catch {
-//                            print("Decoding Error: \(error)")
-//                            print("Data: \(String(data: data, encoding: .utf8) ?? "Invalid Data")")
-//                            throw error
-//                        }
-//                    }
-                    .decode(type: T.self, decoder: JSONDecoder())
-                    .mapError { error in
-                        print("Decoding error: \(error.localizedDescription)")
-                        return NetworkError.decodingFailed(error)
-                    }
-                    .eraseToAnyPublisher()
-            }
-            .eraseToAnyPublisher()
-    }
-}
