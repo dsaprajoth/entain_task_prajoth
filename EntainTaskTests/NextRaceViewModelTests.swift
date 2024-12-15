@@ -126,6 +126,8 @@ class NextRaceViewModelTests: XCTestCase {
                 expectation.fulfill()
             }
             .store(in: &cancellables)
+
+        wait(for: [expectation], timeout: 5.0)
     }
 
     @MainActor func testFilterByHarnessRace() {
@@ -147,6 +149,7 @@ class NextRaceViewModelTests: XCTestCase {
                 expectation.fulfill()
             }
             .store(in: &cancellables)
+        wait(for: [expectation], timeout: 5.0)
     }
 
     @MainActor func testFilterByGreyhoundRace() {
@@ -193,7 +196,7 @@ class NextRaceViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-//        waitForExpectations(timeout: 5)
+        wait(for: [expectation], timeout: 5.0)
     }
 
     @MainActor func testFilterCombinationHorseAndHarnessRacing() {
