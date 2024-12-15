@@ -53,6 +53,17 @@ class AppUtilsTests: XCTestCase {
 
     }
 
+    func testFetchRaceMockResponse_Success() {
+        // Arrange & Assume the mock JSON exists with expected structure.
+
+        // When
+        let response = AppUtils.fetchRaceMockResponse()
+
+        // Then
+        XCTAssertNotNil(response, "Expected a valid response, but got nil.")
+        XCTAssertEqual(response?.status, 200)
+    }
+
 }
 
 

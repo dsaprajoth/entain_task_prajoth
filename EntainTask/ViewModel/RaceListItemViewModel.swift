@@ -13,11 +13,12 @@ class RaceListItemViewModel: ObservableObject {
     @Published var isTimerFinished: Bool = false
 
     var race: RaceSummary
-    private var timer: AnyCancellable?
     var advertisedDate: Date
+    private var timer: AnyCancellable?
 
     init(race: RaceSummary) {
         self.race = race
+        // Convert epoch time to Date
         self.advertisedDate = Date(timeIntervalSince1970: TimeInterval(race.advertisedStartValue))
         startTimer()
     }
@@ -40,14 +41,17 @@ class RaceListItemViewModel: ObservableObject {
 
         if timeInterval < -60 {
             /// If the time interval is less than -60 seconds,
-            /// trigger a new fetch as we cannot show races beyond a minute 
+            /// trigger a new fetch as we should not show races beyond a minute
             /// from the advertised start time
             isTimerFinished = true
         } else {
+            // Update the time remaining string by formatting it
             timeRemainingString = AppUtils.formatTime(timeInterval)
         }
     }
 
+    /// Returns the color for the time remaining label 
+    /// based on the time interval range
     var colorForTimeRemaining: Color {
         let now = Date()
         let timeInterval = advertisedDate.timeIntervalSince(now)
@@ -66,6 +70,7 @@ class RaceListItemViewModel: ObservableObject {
         timer?.cancel()
     }
 
+    // Computed properties for the view to display
     var meetingName: String {
         race.meetingName ?? ""
     }

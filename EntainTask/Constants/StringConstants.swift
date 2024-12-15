@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 struct StringConstants {
     static let horseRacing = String(localized: "Horse Racing")
     static let harnessRacing = String(localized: "Harness Racing")

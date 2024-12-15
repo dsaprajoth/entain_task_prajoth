@@ -7,33 +7,6 @@
 
 import Foundation
 
-enum RaceType: String {
-    case horseRacing
-    case harnessRacing
-    case greyHoundRacing
-}
-extension RaceType {
-    var categoryId: String {
-        switch self {
-        case .horseRacing:
-            return CategoryIds.horseRacing
-        case .harnessRacing:
-            return CategoryIds.harnessRacing
-        case .greyHoundRacing:
-            return CategoryIds.greyHoundRacing
-        }
-    }
-    var icon: String {
-        switch self {
-        case .horseRacing:
-            return "horse"
-        case .harnessRacing:
-            return "harness"
-        case .greyHoundRacing:
-            return "greyhound"
-        }
-    }
-}
 
 struct NextRacesResponse: Codable, Equatable {
     let status: Int?

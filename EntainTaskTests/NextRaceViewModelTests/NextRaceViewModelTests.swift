@@ -14,7 +14,7 @@ class NextRaceViewModelTests: XCTestCase {
     var mockNetworkManager: MockNetworkManager<Any>!
     var viewModel: NextRaceViewModel!
 
-    override func setUp() {
+    @MainActor override func setUp() {
         super.setUp()
         cancellables = []
         mockNetworkManager = MockNetworkManager()
@@ -31,22 +31,7 @@ class NextRaceViewModelTests: XCTestCase {
     @MainActor 
     func testFetchData_Success() {
         // Given
-        let mockData = AppUtils.loadJsonData()
-//        let allRaces =  mockData?.data?.raceSummaries?.values.map { $0 } ?? []
-//        var horseRaces = allRaces.filter({ race in
-//            return race.categoryID == RaceType.horseRacing.categoryId
-//        })
-//        horseRaces.map { horseRace in
-//            horseRace.advertisedStart?.seconds = Date.now + 60
-//        }
-//
-//        let harnessRaces = mockData?.data?.raceSummaries?.values.filter({ race in
-//            return race.categoryID == RaceType.harnessRacing.categoryId
-//        })
-//
-//        let greyhoundRaces = mockData?.data?.raceSummaries?.values.filter({ race in
-//            return race.categoryID == RaceType.greyHoundRacing.categoryId
-//        })
+        let mockData = AppUtils.fetchRaceMockResponse()
 
         mockNetworkManager.result = .success(mockData!)
 
@@ -68,7 +53,7 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
 
-    func testFetchData_Failure() {
+    @MainActor func testFetchData_Failure() {
         mockNetworkManager.result = .failure(URLError(.notConnectedToInternet))
 
         let expectation = XCTestExpectation(description: "Handle error")
@@ -86,7 +71,7 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 
-    func testFetchData_RequestFailed() {
+    @MainActor func testFetchData_RequestFailed() {
         mockNetworkManager.result = .failure(NetworkError.requestFailed(404))
 
         let expectation = XCTestExpectation(description: "Handle status code 404")
@@ -104,9 +89,9 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 
-    func testFilterByHorseRace() {
+    @MainActor func testFilterByHorseRace() {
         // Given
-        let mockData = AppUtils.loadJsonData()
+        let mockData = AppUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -128,9 +113,9 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
 
-    func testFilterByHarnessRace() {
+    @MainActor func testFilterByHarnessRace() {
         // Given
-        let mockData = AppUtils.loadJsonData()
+        let mockData = AppUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -151,9 +136,9 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
 
-    func testFilterByGreyhoundRace() {
+    @MainActor func testFilterByGreyhoundRace() {
         // Given
-        let mockData = AppUtils.loadJsonData()
+        let mockData = AppUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -173,9 +158,9 @@ class NextRaceViewModelTests: XCTestCase {
             .store(in: &cancellables)
     }
 
-    func testFilterCombinationHorseAndGreyhoundRacing() {
+    @MainActor func testFilterCombinationHorseAndGreyhoundRacing() {
         // Given
-        let mockData = AppUtils.loadJsonData()
+        let mockData = AppUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -199,9 +184,9 @@ class NextRaceViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
 
-    func testFilterCombinationHorseAndHarnessRacing() {
+    @MainActor func testFilterCombinationHorseAndHarnessRacing() {
         // Given
-        let mockData = AppUtils.loadJsonData()
+        let mockData = AppUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -226,9 +211,9 @@ class NextRaceViewModelTests: XCTestCase {
     }
 
 
-    func testClearFilterWhenSameFilterClickedTwice() {
+    @MainActor func testClearFilterWhenSameFilterClickedTwice() {
         // Given
-        let mockData = AppUtils.loadJsonData()
+        let mockData = AppUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation

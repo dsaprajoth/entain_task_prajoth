@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 extension Font {
     static let titleFont = Font.custom("Avenir", fixedSize: 18)
     static let appFontSmall = Font.custom("Avenir", size: 18)

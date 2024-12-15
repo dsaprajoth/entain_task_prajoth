@@ -5,37 +5,38 @@
 //  Created by Prajoth Dsa on 15/12/2024.
 //
 
-#if DEBUG
-import Foundation
+import XCTest
+import Combine
+@testable import EntainTask
 
-class MockURLSessionProtocol: URLProtocol {
-    
-    static var loadingHandler: (() -> (HTTPURLResponse, Data?))?
-    
+/// This is a custom subclass of URLProtocol to intercept and mock
+/// network requests during unit testing
+class MockURLProtocol: URLProtocol {
+    static var responseData: Data?
+    static var responseError: Error?
+    static var response: HTTPURLResponse?
+
     override class func canInit(with request: URLRequest) -> Bool {
         return true
     }
-    
+
     override class func canonicalRequest(for request: URLRequest) -> URLRequest {
         return request
     }
-    
+
     override func startLoading() {
-        
-        guard let handler = MockURLSessionProtocol.loadingHandler else {
-            fatalError("Loading handler is not set.")
+        if let error = MockURLProtocol.responseError {
+            client?.urlProtocol(self, didFailWithError: error)
+        } else {
+            if let response = MockURLProtocol.response {
+                client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+            }
+            if let data = MockURLProtocol.responseData {
+                client?.urlProtocol(self, didLoad: data)
+            }
+            client?.urlProtocolDidFinishLoading(self)
         }
-        
-        let (response, data) = handler()
-        client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
-        if let data = data {
-            client?.urlProtocol(self, didLoad: data)
-        }
-        client?.urlProtocolDidFinishLoading(self)
     }
-    
-    override func stopLoading() {
-        
-    }
+
+    override func stopLoading() {}
 }
-#endif
