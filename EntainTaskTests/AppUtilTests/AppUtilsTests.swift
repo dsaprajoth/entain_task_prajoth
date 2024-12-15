@@ -56,7 +56,7 @@ class AppUtilsTests: XCTestCase {
         // Mock data json exists in the bundle with the name "mock.json"
         
         // When
-        let response = AppUtils.fetchRaceMockResponse()
+        let response = TestUtils.fetchRaceMockResponse()
 
         // Then
         XCTAssertNotNil(response, "nil")

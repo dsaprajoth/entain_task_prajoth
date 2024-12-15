@@ -31,7 +31,7 @@ class NextRaceViewModelTests: XCTestCase {
     @MainActor 
     func testFetchData_Success() {
         // Given
-        let mockData = AppUtils.fetchRaceMockResponse()
+        let mockData = TestUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -97,7 +97,7 @@ class NextRaceViewModelTests: XCTestCase {
 
     @MainActor func testFilterByHorseRace() {
         // Given
-        let mockData = AppUtils.fetchRaceMockResponse()
+        let mockData = TestUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -121,7 +121,7 @@ class NextRaceViewModelTests: XCTestCase {
 
     @MainActor func testFilterByHarnessRace() {
         // Given
-        let mockData = AppUtils.fetchRaceMockResponse()
+        let mockData = TestUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -145,7 +145,7 @@ class NextRaceViewModelTests: XCTestCase {
 
     @MainActor func testFilterByGreyhoundRace() {
         // Given
-        let mockData = AppUtils.fetchRaceMockResponse()
+        let mockData = TestUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -169,7 +169,7 @@ class NextRaceViewModelTests: XCTestCase {
 
     @MainActor func testFilterCombinationHorseAndGreyhoundRacing() {
         // Given
-        let mockData = AppUtils.fetchRaceMockResponse()
+        let mockData = TestUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -195,7 +195,7 @@ class NextRaceViewModelTests: XCTestCase {
 
     @MainActor func testFilterCombinationHorseAndHarnessRacing() {
         // Given
-        let mockData = AppUtils.fetchRaceMockResponse()
+        let mockData = TestUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
@@ -222,7 +222,7 @@ class NextRaceViewModelTests: XCTestCase {
 
     @MainActor func testClearFilterWhenSameFilterClickedTwice() {
         // Given
-        let mockData = AppUtils.fetchRaceMockResponse()
+        let mockData = TestUtils.fetchRaceMockResponse()
         mockNetworkManager.result = .success(mockData!)
 
         // Expectation
