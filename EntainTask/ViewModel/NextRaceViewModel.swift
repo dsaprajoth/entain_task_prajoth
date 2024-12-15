@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-//@MainActor
+@MainActor
 class NextRaceViewModel: ObservableObject {
     @Published var nextRaceList: [RaceSummary] = []
     @Published var isLoading: Bool = false
@@ -33,6 +33,7 @@ class NextRaceViewModel: ObservableObject {
         isLoading = true
         networkService.fetch(url: url, responseType: NextRacesResponse.self)
             .sink(receiveCompletion: { [weak self] completion in
+                self?.isLoading = false
                 switch completion {
                 case .finished:
                     debugPrint("Data fetched successfully")
