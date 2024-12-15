@@ -33,10 +33,23 @@ struct NextRaceView: View {
                     ProgressView(StringConstants.loading)
                 } else if let errorMessage = viewModel.errorMessage {
                     VStack {
-                        Text("Error: \(errorMessage)")
+                        Text("\(errorMessage)")
                             .foregroundColor(Color.white)
                             .multilineTextAlignment(.center)
                             .padding()
+                            .accessibilityLabel(Text("An error has occurred. \(errorMessage)"))
+                        Button {
+                            viewModel.fetchData()
+                        } label: {
+                            Text(StringConstants.reload)
+                                .font(.appFontSmall)
+                                .foregroundColor(.themeOrangeLight)
+                                .padding(10)
+                        }
+                        .contentShape(Rectangle())
+                        .background(.white)
+                        .cornerRadius(10)
+                        .accessibilityLabel(Text("Retry"))
                     }
                 } else {
                     VStack {
@@ -58,14 +71,6 @@ struct NextRaceView: View {
                             }
                             .listStyle(.inset)
                             .listRowSeparator(.hidden)
-                        }
-                        // FIXME: - Remove reload button. Used for testing
-                        Button {
-                            viewModel.fetchData()
-                        } label: {
-                            Text(StringConstants.reload)
-                                .foregroundColor(.white)
-                                .padding()
                         }
                     }
                 }

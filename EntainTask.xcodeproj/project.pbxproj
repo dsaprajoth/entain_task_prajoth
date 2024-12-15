@@ -31,7 +31,6 @@
 		A4F038332D0BD54C0015E41C /* NextRaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038322D0BD54C0015E41C /* NextRaceView.swift */; };
 		A4F038352D0BD54D0015E41C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F038342D0BD54D0015E41C /* Assets.xcassets */; };
 		A4F038382D0BD54D0015E41C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F038372D0BD54D0015E41C /* Preview Assets.xcassets */; };
-		A4F038422D0BD54D0015E41C /* EntainTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038412D0BD54D0015E41C /* EntainTaskTests.swift */; };
 		A4F0384C2D0BD54D0015E41C /* EntainTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0384B2D0BD54D0015E41C /* EntainTaskUITests.swift */; };
 		A4F0384E2D0BD54D0015E41C /* EntainTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0384D2D0BD54D0015E41C /* EntainTaskUITestsLaunchTests.swift */; };
 		A4F0385B2D0BDB080015E41C /* NextRaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0385A2D0BDB080015E41C /* NextRaceViewModel.swift */; };
@@ -86,7 +85,6 @@
 		A4F038342D0BD54D0015E41C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4F038372D0BD54D0015E41C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A4F0383D2D0BD54D0015E41C /* EntainTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntainTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4F038412D0BD54D0015E41C /* EntainTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskTests.swift; sourceTree = "<group>"; };
 		A4F038472D0BD54D0015E41C /* EntainTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntainTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F0384B2D0BD54D0015E41C /* EntainTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskUITests.swift; sourceTree = "<group>"; };
 		A4F0384D2D0BD54D0015E41C /* EntainTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 				A4E9E2A92D0F0F8900D898E7 /* AppUtilTests */,
 				A4E9E2A82D0F0F7200D898E7 /* NextRaceViewModelTests */,
 				A4E9E2A42D0F0B7D00D898E7 /* RaceListItemTests */,
-				A4F038412D0BD54D0015E41C /* EntainTaskTests.swift */,
 			);
 			path = EntainTaskTests;
 			sourceTree = "<group>";
@@ -477,7 +474,6 @@
 				A4E9E2952D0DDA4000D898E7 /* NextRaceViewModelTests.swift in Sources */,
 				A4E9E29F2D0EE96A00D898E7 /* MockURLSessionProtocol.swift in Sources */,
 				A4E9E29B2D0E5C7F00D898E7 /* AppUtilsTests.swift in Sources */,
-				A4F038422D0BD54D0015E41C /* EntainTaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
