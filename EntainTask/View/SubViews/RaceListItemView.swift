@@ -27,17 +27,17 @@ struct RaceListItemView: View {
                         .resizable()
                         .frame(width: 25, height: 25)
                         .foregroundColor(.raceTileIcon)
-                    Text("R\(viewModel.race.raceNumber ?? 0)")
+                    Text(viewModel.raceNumber)
                         .font(.appFontSmallBold)
                         .foregroundColor(.themeOrangeLight)
-                    Text(viewModel.race.meetingName ?? "")
+                    Text(viewModel.meetingName)
                         .font(.appFontMediumMedium)
                 }
-                Text(viewModel.race.venueCountry ?? "")
+                Text(viewModel.venue)
                     .font(.caption)
                     .foregroundColor(.secondary)
 
-                Text(viewModel.race.advertisedStartForDisplay)
+                Text(viewModel.advertisedStartForDisplay)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

@@ -14,7 +14,7 @@ class RaceListItemViewModel: ObservableObject {
 
     var race: RaceSummary
     private var timer: AnyCancellable?
-    private var advertisedDate: Date
+    var advertisedDate: Date
 
     init(race: RaceSummary) {
         self.race = race
@@ -34,12 +34,14 @@ class RaceListItemViewModel: ObservableObject {
             }
     }
 
-    private func updateTimeRemaining() {
+    func updateTimeRemaining() {
         let now = Date()
         let timeInterval = advertisedDate.timeIntervalSince(now)
 
         if timeInterval < -60 {
-            // If the time interval is less than -60 seconds, trigger a new fetch as we cannot show races beyond a minute from the advertised start time
+            /// If the time interval is less than -60 seconds,
+            /// trigger a new fetch as we cannot show races beyond a minute 
+            /// from the advertised start time
             isTimerFinished = true
         } else {
             timeRemainingString = AppUtils.formatTime(timeInterval)
@@ -62,5 +64,24 @@ class RaceListItemViewModel: ObservableObject {
 
     private func stopTimer() {
         timer?.cancel()
+    }
+
+    var meetingName: String {
+        race.meetingName ?? ""
+    }
+
+    var raceNumber: String {
+        guard let raceNumber = race.raceNumber else {
+            return ""
+        }
+        return "R\(raceNumber)"
+    }
+
+    var venue: String {
+        race.venueCountry ?? ""
+    }
+
+    var advertisedStartForDisplay: String {
+        race.advertisedStartForDisplay
     }
 }
