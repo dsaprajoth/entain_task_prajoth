@@ -19,20 +19,26 @@
 		A4E9E2952D0DDA4000D898E7 /* NextRaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */; };
 		A4E9E2972D0DE1BE00D898E7 /* RaceListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2962D0DE1BE00D898E7 /* RaceListItemViewModel.swift */; };
 		A4E9E2992D0DE1C600D898E7 /* RaceListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2982D0DE1C600D898E7 /* RaceListItemView.swift */; };
+		A4E9E29B2D0E5C7F00D898E7 /* AppUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E29A2D0E5C7F00D898E7 /* AppUtilsTests.swift */; };
+		A4E9E29F2D0EE96A00D898E7 /* MockURLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E29D2D0EE96A00D898E7 /* MockURLSessionProtocol.swift */; };
+		A4E9E2A12D0EEFAF00D898E7 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2A02D0EEFAF00D898E7 /* MockNetworkManager.swift */; };
+		A4E9E2A32D0F014900D898E7 /* RaceListItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2A22D0F014900D898E7 /* RaceListItemViewModelTests.swift */; };
+		A4E9E2A72D0F0B9E00D898E7 /* RaceMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2A62D0F0B9E00D898E7 /* RaceMockData.swift */; };
+		A4E9E2AC2D0F11C900D898E7 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2AB2D0F11C900D898E7 /* NetworkManagerTests.swift */; };
+		A4E9E2AE2D0F1C5D00D898E7 /* MockRaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2AD2D0F1C5D00D898E7 /* MockRaceModel.swift */; };
+		A4E9E2B02D0F220000D898E7 /* RaceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2AF2D0F220000D898E7 /* RaceUtils.swift */; };
+		A4E9E2B22D0F342C00D898E7 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2B12D0F342C00D898E7 /* TestUtils.swift */; };
 		A4F038312D0BD54C0015E41C /* EntainTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */; };
 		A4F038332D0BD54C0015E41C /* NextRaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038322D0BD54C0015E41C /* NextRaceView.swift */; };
 		A4F038352D0BD54D0015E41C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F038342D0BD54D0015E41C /* Assets.xcassets */; };
 		A4F038382D0BD54D0015E41C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F038372D0BD54D0015E41C /* Preview Assets.xcassets */; };
-		A4F038422D0BD54D0015E41C /* EntainTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038412D0BD54D0015E41C /* EntainTaskTests.swift */; };
 		A4F0384C2D0BD54D0015E41C /* EntainTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0384B2D0BD54D0015E41C /* EntainTaskUITests.swift */; };
 		A4F0384E2D0BD54D0015E41C /* EntainTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0384D2D0BD54D0015E41C /* EntainTaskUITestsLaunchTests.swift */; };
 		A4F0385B2D0BDB080015E41C /* NextRaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0385A2D0BDB080015E41C /* NextRaceViewModel.swift */; };
-		A4F0385D2D0BDB210015E41C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0385C2D0BDB210015E41C /* Constants.swift */; };
+		A4F0385D2D0BDB210015E41C /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0385C2D0BDB210015E41C /* APIConstants.swift */; };
 		A4F038602D0BDB970015E41C /* NextRaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0385F2D0BDB970015E41C /* NextRaceModel.swift */; };
 		A4F038662D0BEC740015E41C /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = A4F038652D0BEC740015E41C /* mock.json */; };
 		A4F038682D0C145E0015E41C /* ChipFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038672D0C145E0015E41C /* ChipFilterView.swift */; };
-		A4F0386B2D0C2B6D0015E41C /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0386A2D0C2B6D0015E41C /* DataFetcher.swift */; };
-		A4F038712D0C6EA70015E41C /* RaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038702D0C6EA70015E41C /* RaceListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,23 +71,29 @@
 		A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceViewModelTests.swift; sourceTree = "<group>"; };
 		A4E9E2962D0DE1BE00D898E7 /* RaceListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListItemViewModel.swift; sourceTree = "<group>"; };
 		A4E9E2982D0DE1C600D898E7 /* RaceListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListItemView.swift; sourceTree = "<group>"; };
+		A4E9E29A2D0E5C7F00D898E7 /* AppUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtilsTests.swift; sourceTree = "<group>"; };
+		A4E9E29D2D0EE96A00D898E7 /* MockURLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionProtocol.swift; sourceTree = "<group>"; };
+		A4E9E2A02D0EEFAF00D898E7 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		A4E9E2A22D0F014900D898E7 /* RaceListItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListItemViewModelTests.swift; sourceTree = "<group>"; };
+		A4E9E2A62D0F0B9E00D898E7 /* RaceMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceMockData.swift; sourceTree = "<group>"; };
+		A4E9E2AB2D0F11C900D898E7 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		A4E9E2AD2D0F1C5D00D898E7 /* MockRaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRaceModel.swift; sourceTree = "<group>"; };
+		A4E9E2AF2D0F220000D898E7 /* RaceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceUtils.swift; sourceTree = "<group>"; };
+		A4E9E2B12D0F342C00D898E7 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		A4F0382D2D0BD54C0015E41C /* EntainTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntainTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskApp.swift; sourceTree = "<group>"; };
 		A4F038322D0BD54C0015E41C /* NextRaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceView.swift; sourceTree = "<group>"; };
 		A4F038342D0BD54D0015E41C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4F038372D0BD54D0015E41C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A4F0383D2D0BD54D0015E41C /* EntainTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntainTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4F038412D0BD54D0015E41C /* EntainTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskTests.swift; sourceTree = "<group>"; };
 		A4F038472D0BD54D0015E41C /* EntainTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntainTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F0384B2D0BD54D0015E41C /* EntainTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskUITests.swift; sourceTree = "<group>"; };
 		A4F0384D2D0BD54D0015E41C /* EntainTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A4F0385A2D0BDB080015E41C /* NextRaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceViewModel.swift; sourceTree = "<group>"; };
-		A4F0385C2D0BDB210015E41C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A4F0385C2D0BDB210015E41C /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		A4F0385F2D0BDB970015E41C /* NextRaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceModel.swift; sourceTree = "<group>"; };
 		A4F038652D0BEC740015E41C /* mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
 		A4F038672D0C145E0015E41C /* ChipFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipFilterView.swift; sourceTree = "<group>"; };
-		A4F0386A2D0C2B6D0015E41C /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
-		A4F038702D0C6EA70015E41C /* RaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				A4E9E2882D0D326E00D898E7 /* AppUtils.swift */,
+				A4E9E2AF2D0F220000D898E7 /* RaceUtils.swift */,
 				A4E9E28B2D0D8B5800D898E7 /* View+Extensions.swift */,
 			);
 			path = Utils;
@@ -124,6 +137,50 @@
 				A4E9E2902D0DC0E900D898E7 /* NetworkManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		A4E9E2A42D0F0B7D00D898E7 /* RaceListItemTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E2A22D0F014900D898E7 /* RaceListItemViewModelTests.swift */,
+				A4E9E2A62D0F0B9E00D898E7 /* RaceMockData.swift */,
+			);
+			path = RaceListItemTests;
+			sourceTree = "<group>";
+		};
+		A4E9E2A82D0F0F7200D898E7 /* NextRaceViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E2A02D0EEFAF00D898E7 /* MockNetworkManager.swift */,
+				A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */,
+			);
+			path = NextRaceViewModelTests;
+			sourceTree = "<group>";
+		};
+		A4E9E2A92D0F0F8900D898E7 /* AppUtilTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E29A2D0E5C7F00D898E7 /* AppUtilsTests.swift */,
+			);
+			path = AppUtilTests;
+			sourceTree = "<group>";
+		};
+		A4E9E2AA2D0F0FA500D898E7 /* NetworkLayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E29D2D0EE96A00D898E7 /* MockURLSessionProtocol.swift */,
+				A4E9E2AD2D0F1C5D00D898E7 /* MockRaceModel.swift */,
+				A4E9E2AB2D0F11C900D898E7 /* NetworkManagerTests.swift */,
+			);
+			path = NetworkLayerTests;
+			sourceTree = "<group>";
+		};
+		A4E9E2B32D0F343000D898E7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E2B12D0F342C00D898E7 /* TestUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		A4F038242D0BD54C0015E41C = {
@@ -150,7 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				A4E9E28F2D0DC0D600D898E7 /* Network */,
-				A4F038692D0C2B5F0015E41C /* Protocols */,
 				A4F038622D0BDBEA0015E41C /* View */,
 				A4F038612D0BDBE10015E41C /* ViewModel */,
 				A4F0385E2D0BDB8B0015E41C /* Model */,
@@ -174,8 +230,11 @@
 		A4F038402D0BD54D0015E41C /* EntainTaskTests */ = {
 			isa = PBXGroup;
 			children = (
-				A4F038412D0BD54D0015E41C /* EntainTaskTests.swift */,
-				A4E9E2942D0DDA4000D898E7 /* NextRaceViewModelTests.swift */,
+				A4E9E2B32D0F343000D898E7 /* Utils */,
+				A4E9E2AA2D0F0FA500D898E7 /* NetworkLayerTests */,
+				A4E9E2A92D0F0F8900D898E7 /* AppUtilTests */,
+				A4E9E2A82D0F0F7200D898E7 /* NextRaceViewModelTests */,
+				A4E9E2A42D0F0B7D00D898E7 /* RaceListItemTests */,
 			);
 			path = EntainTaskTests;
 			sourceTree = "<group>";
@@ -215,18 +274,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A4F038692D0C2B5F0015E41C /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				A4F0386A2D0C2B6D0015E41C /* DataFetcher.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		A4F038742D0C787A0015E41C /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				A4F0385C2D0BDB210015E41C /* Constants.swift */,
+				A4F0385C2D0BDB210015E41C /* APIConstants.swift */,
 				A4E9E2862D0D325D00D898E7 /* FontConstants.swift */,
 				A4E9E2822D0D323900D898E7 /* StringConstants.swift */,
 				A4E9E2802D0D322A00D898E7 /* AssetConstants.swift */,
@@ -250,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				A4F038672D0C145E0015E41C /* ChipFilterView.swift */,
-				A4F038702D0C6EA70015E41C /* RaceListView.swift */,
 				A4E9E2982D0DE1C600D898E7 /* RaceListItemView.swift */,
 			);
 			path = SubViews;
@@ -270,7 +320,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				A4F038732D0C70290015E41C /* PBXTargetDependency */,
 			);
 			name = EntainTask;
 			productName = EntainTask;
@@ -402,12 +451,11 @@
 				A4E9E28C2D0D8B5800D898E7 /* View+Extensions.swift in Sources */,
 				A4E9E2812D0D322A00D898E7 /* AssetConstants.swift in Sources */,
 				A4E9E27F2D0D320400D898E7 /* ColorConstants.swift in Sources */,
-				A4F038712D0C6EA70015E41C /* RaceListView.swift in Sources */,
 				A4E9E2892D0D326E00D898E7 /* AppUtils.swift in Sources */,
 				A4F038332D0BD54C0015E41C /* NextRaceView.swift in Sources */,
+				A4E9E2B02D0F220000D898E7 /* RaceUtils.swift in Sources */,
 				A4F038312D0BD54C0015E41C /* EntainTaskApp.swift in Sources */,
-				A4F0385D2D0BDB210015E41C /* Constants.swift in Sources */,
-				A4F0386B2D0C2B6D0015E41C /* DataFetcher.swift in Sources */,
+				A4F0385D2D0BDB210015E41C /* APIConstants.swift in Sources */,
 				A4E9E2992D0DE1C600D898E7 /* RaceListItemView.swift in Sources */,
 				A4E9E2972D0DE1BE00D898E7 /* RaceListItemViewModel.swift in Sources */,
 			);
@@ -417,8 +465,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E9E2AC2D0F11C900D898E7 /* NetworkManagerTests.swift in Sources */,
+				A4E9E2A12D0EEFAF00D898E7 /* MockNetworkManager.swift in Sources */,
+				A4E9E2AE2D0F1C5D00D898E7 /* MockRaceModel.swift in Sources */,
+				A4E9E2A72D0F0B9E00D898E7 /* RaceMockData.swift in Sources */,
+				A4E9E2B22D0F342C00D898E7 /* TestUtils.swift in Sources */,
+				A4E9E2A32D0F014900D898E7 /* RaceListItemViewModelTests.swift in Sources */,
 				A4E9E2952D0DDA4000D898E7 /* NextRaceViewModelTests.swift in Sources */,
-				A4F038422D0BD54D0015E41C /* EntainTaskTests.swift in Sources */,
+				A4E9E29F2D0EE96A00D898E7 /* MockURLSessionProtocol.swift in Sources */,
+				A4E9E29B2D0E5C7F00D898E7 /* AppUtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,10 +498,6 @@
 			isa = PBXTargetDependency;
 			target = A4F0382C2D0BD54C0015E41C /* EntainTask */;
 			targetProxy = A4F038482D0BD54D0015E41C /* PBXContainerItemProxy */;
-		};
-		A4F038732D0C70290015E41C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = A4F038722D0C70290015E41C /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -575,6 +626,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EntainTask/Preview Content\"";
@@ -594,6 +646,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pd.entain.EntainTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -605,6 +658,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EntainTask/Preview Content\"";
@@ -624,6 +678,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pd.entain.EntainTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -635,6 +690,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HSGS74RW8K;
@@ -643,6 +699,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pd.entain.EntainTaskTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -655,6 +712,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HSGS74RW8K;
@@ -663,6 +721,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pd.entain.EntainTaskTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -757,14 +816,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A4F038722D0C70290015E41C /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A4F0386C2D0C470C0015E41C /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A4F038252D0BD54C0015E41C /* Project object */;
 }

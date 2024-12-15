@@ -30,10 +30,17 @@ class NextRaceViewModel: ObservableObject {
     func fetchData() {
         guard let url = URL(string: APIConstants.endpoint) else { return }
 
+        errorMessage = nil
         isLoading = true
         networkService.fetch(url: url, responseType: NextRacesResponse.self)
             .sink(receiveCompletion: { [weak self] completion in
-                if case let .failure(error) = completion {
+                self?.isLoading = false
+                switch completion {
+                case .finished:
+                    debugPrint("Data fetched successfully")
+                    break
+                case .failure(let error):
+                    debugPrint("Failed to fetch data: \(error.localizedDescription)")
                     self?.errorMessage = error.localizedDescription
                 }
             }, receiveValue: { [weak self] data in

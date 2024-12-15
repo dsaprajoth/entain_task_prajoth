@@ -7,41 +7,14 @@
 
 import Foundation
 
-enum RaceType: String {
-    case horseRacing
-    case harnessRacing
-    case greyHoundRacing
-}
-extension RaceType {
-    var categoryId: String {
-        switch self {
-        case .horseRacing:
-            return CategoryIds.horseRacing
-        case .harnessRacing:
-            return CategoryIds.harnessRacing
-        case .greyHoundRacing:
-            return CategoryIds.greyHoundRacing
-        }
-    }
-    var icon: String {
-        switch self {
-        case .horseRacing:
-            return "horse"
-        case .harnessRacing:
-            return "harness"
-        case .greyHoundRacing:
-            return "greyhound"
-        }
-    }
-}
 
-struct NextRacesResponse: Codable {
+struct NextRacesResponse: Codable, Equatable {
     let status: Int?
     let data: RaceData?
     let message: String?
 }
 
-struct RaceData: Codable {
+struct RaceData: Codable, Equatable {
     let nextToGoIDs: [String]?
     let raceSummaries: [String: RaceSummary]?
     enum CodingKeys: String, CodingKey {
@@ -50,14 +23,14 @@ struct RaceData: Codable {
     }
 }
 
-struct RaceSummary: Codable {
+struct RaceSummary: Codable, Equatable {
     let raceID: String?
     let raceName: String?
     let raceNumber: Int?
     let meetingID: String?
     let meetingName: String?
     let categoryID: String?
-    let advertisedStart: AdvertisedStart?
+    var advertisedStart: AdvertisedStart?
     let raceForm: RaceForm?
     let venueID: String?
     let venueName: String?
@@ -108,11 +81,11 @@ extension RaceSummary {
     }
 }
 
-struct AdvertisedStart: Codable {
-    let seconds: Int?
+struct AdvertisedStart: Codable, Equatable {
+    var seconds: Int?
 }
 
-struct RaceForm: Codable {
+struct RaceForm: Codable, Equatable {
     let distance: Int?
     let distanceType: DistanceType?
     let distanceTypeID: String?
@@ -133,7 +106,7 @@ struct RaceForm: Codable {
     }
 }
 
-struct DistanceType: Codable {
+struct DistanceType: Codable, Equatable {
     let id: String?
     let name: String?
     let shortName: String?
@@ -144,7 +117,7 @@ struct DistanceType: Codable {
     }
 }
 
-struct TrackCondition: Codable {
+struct TrackCondition: Codable, Equatable {
     let id: String?
     let name: String?
     let shortName: String?
@@ -155,7 +128,7 @@ struct TrackCondition: Codable {
     }
 }
 
-struct Weather: Codable {
+struct Weather: Codable, Equatable {
     let id: String?
     let name: String?
     let shortName: String?

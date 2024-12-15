@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+
+/// Referencing the colors used in the project from the asset catalog
 struct ColorConstants {
     static let themeLight = Color("ThemeOrangeLight")
     static let chipSelected = Color("chipSelected")

@@ -8,12 +8,36 @@
 import Foundation
 import Combine
 
-// Defines the contract for fetching data. This will be implemented by the NetworkManager or MockNetworkManager
-protocol NetworkService {
-    func fetch<T: Decodable>(url: URL, responseType: T.Type) -> AnyPublisher<T, Error>
+enum NetworkError: LocalizedError {
+    case invalidURL
+    case requestFailed(Int) // HTTP status codes
+    case noData
+    case decodingFailed(String)
+    case internetUnavailable
+    case unknown(Error)
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL:
+            return "The URL is invalid."
+        case .requestFailed(let statusCode):
+            return "Request failed with status code \(statusCode)."
+        case .noData:
+            return "No data was received from the server."
+        case .decodingFailed(let error):
+            return "Failed to decode the response: \(error)"
+        case .internetUnavailable:
+            return "The internet connection appears to be offline."
+        case .unknown(let error):
+            return error.localizedDescription.isEmpty ? "An unknown error occurred" : "\(error.localizedDescription)"
+        }
+    }
 }
 
-// Implements the NetworkService protocol using URLSession and Combine to fetch and decode data.
+protocol NetworkService {
+    func fetch<T: Decodable>(url: URL?, responseType: T.Type) -> AnyPublisher<T, Error>
+}
+
 class NetworkManager: NetworkService {
     private let urlSession: URLSession
 
@@ -21,31 +45,136 @@ class NetworkManager: NetworkService {
         self.urlSession = urlSession
     }
 
-    func fetch<T: Decodable>(url: URL, responseType: T.Type) -> AnyPublisher<T, Error> {
-        urlSession.dataTaskPublisher(for: url)
-            .map(\.data)
+    func fetch<T: Decodable>(url: URL?, responseType: T.Type) -> AnyPublisher<T, Error> {
+        // Validate the URL more strictly using URLComponents
+        guard let url = url,
+              let _ = URLComponents(url: url, resolvingAgainstBaseURL: false), // Ensure it's a valid URL component
+              url.absoluteString.range(of: "^[a-zA-Z0-9+.-]+://", options: .regularExpression) != nil else {
+            return Fail(error: NetworkError.invalidURL)
+                .eraseToAnyPublisher()
+        }
+
+        return urlSession.dataTaskPublisher(for: url)
+            .tryMap { output -> Data in
+                // Check HTTP response status
+                guard let httpResponse = output.response as? HTTPURLResponse else {
+                    throw NetworkError.unknown(URLError(.badServerResponse))
+                }
+
+                guard (200...299).contains(httpResponse.statusCode) else {
+                    throw NetworkError.requestFailed(httpResponse.statusCode)
+                }
+
+                return output.data
+            }
+            .tryMap { data in
+                // Check if the data is empty
+                guard !data.isEmpty else {
+                    throw NetworkError.noData
+                }
+                return data
+            }
             .decode(type: T.self, decoder: JSONDecoder())
+            .mapError { error in
+                // Map the error to a NetworkError
+                if let urlError = error as? URLError {
+                    if urlError.code == .notConnectedToInternet {
+                        return NetworkError.internetUnavailable
+                    }
+                    return NetworkError.unknown(urlError)
+                } else if let decodingError = error as? DecodingError {
+                    return NetworkError.decodingFailed(decodingError.localizedDescription)
+                }
+                return error
+            }
+
+//            .flatMap { data -> AnyPublisher<T, Error> in
+//                // Check if the data is empty
+//                if data.isEmpty {
+//                    // Handle empty data (e.g., return a custom error)
+//                    return Fail(error: NetworkError.noData).eraseToAnyPublisher()
+//                }
+//
+//                // Decode the data
+//                return Just(data)
+//                    .decode(type: T.self, decoder: JSONDecoder())
+//                    .mapError { error in
+//                        NetworkError.decodingFailed(error.localizedDescription)
+//                    }
+//                    .eraseToAnyPublisher()
+//            }
+//            .catch { error -> AnyPublisher<T, Error> in
+//                // Handle any other errors
+//                let networkError = (error as? NetworkError) ?? NetworkError.unknown(error)
+//                return Fail(error: networkError).eraseToAnyPublisher()
+//            }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
 }
 
-// Allows for injecting mock responses in tests. Supports returning successful or failed results based on the result property.
-class MockNetworkManager: NetworkService {
-    var result: Result<Data, Error>?
 
-    func fetch<T: Decodable>(url: URL, responseType: T.Type) -> AnyPublisher<T, Error> {
-        guard let result = result else {
-            return Fail(error: URLError(.badServerResponse))
-                .eraseToAnyPublisher()
-        }
-
-        return result.publisher
-            .flatMap { data -> AnyPublisher<T, Error> in
-                Just(data)
-                    .decode(type: T.self, decoder: JSONDecoder())
-                    .eraseToAnyPublisher()
-            }
-            .eraseToAnyPublisher()
-    }
-}
+//
+//enum NetworkError: LocalizedError {
+//    case invalidURL
+//    case requestFailed(Int) // HTTP status codes
+//    case noData
+//    case decodingFailed(Error)
+//    case unknown(Error)
+//
+//    var errorDescription: String? {
+//        switch self {
+//        case .invalidURL:
+//            return "The URL is invalid."
+//        case .requestFailed(let statusCode):
+//            return "Request failed with status code \(statusCode)."
+//        case .noData:
+//            return "No data was received from the server."
+//        case .decodingFailed(let error):
+//            return "Failed to decode the response: \(error.localizedDescription)"
+//        case .unknown(let error):
+//            return "An unknown error occurred: \(error.localizedDescription)"
+//        }
+//    }
+//}
+//
+//// Defines the contract for fetching data. This will be implemented by the NetworkManager or MockNetworkManager
+//protocol NetworkService {
+//    func fetch<T: Decodable>(url: URL, responseType: T.Type) -> AnyPublisher<T, Error>
+//}
+//
+//// Implements the NetworkService protocol using URLSession and Combine to fetch and decode data.
+//class NetworkManager: NetworkService {
+//    private let urlSession: URLSession
+//
+//    init(urlSession: URLSession = .shared) {
+//        self.urlSession = urlSession
+//    }
+//
+//    func fetch<T: Decodable>(url: URL, responseType: T.Type) -> AnyPublisher<T, Error> {
+//        urlSession.dataTaskPublisher(for: url)
+//            .map(\.data)
+//            .tryCatch { error -> AnyPublisher<Data, Error> in
+//                // If there is an error in the network layer, return a custom error
+//                if let urlError = error as? URLError {
+//                    throw NetworkError.unknown(urlError)
+//                }
+//                throw error
+//            }
+//            .flatMap { data in
+//                // Attempt to decode the data
+//                Just(data)
+//                    .decode(type: T.self, decoder: JSONDecoder())
+//                    .mapError { error in
+//                        return NetworkError.decodingFailed(error)
+//                    }
+//            }
+//            .receive(on: DispatchQueue.main)
+//            .eraseToAnyPublisher()
+//
+////            .decode(type: T.self, decoder: JSONDecoder())
+////            .receive(on: DispatchQueue.main)
+////            .eraseToAnyPublisher()
+//    }
+//}
+//

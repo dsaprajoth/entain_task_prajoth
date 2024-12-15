@@ -5,7 +5,7 @@
 //  Created by Prajoth Dsa on 14/12/2024.
 //
 
-import SwiftUI
+/// Accessibility strings used in the project
 struct AccessibilityConstants {
     static let logo = String(localized: "Entain Logo")
     static let harnessRacing = String(localized: "Harness Racing")

@@ -13,7 +13,7 @@ struct NextRaceView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                // MARK: - Top Header (Logo and Title)
+                // Top Header (Logo and Title)
                 VStack {
                     Image(AssetConstants.logo)
                         .accessibilityRemoveTraits(.isImage)
@@ -25,22 +25,36 @@ struct NextRaceView: View {
                 }
                 .frame(height: 80)
 
-                // MARK: - Filter Header
+                // Chip filters to filter races by categories
                 ChipFilterView(viewModel: viewModel)
 
+                // Show loading indicator, error message or list of races
                 if viewModel.isLoading {
                     ProgressView(StringConstants.loading)
                 } else if let errorMessage = viewModel.errorMessage {
                     VStack {
-                        Text("Error: \(errorMessage)")
+                        Text("\(errorMessage)")
                             .foregroundColor(Color.white)
                             .multilineTextAlignment(.center)
                             .padding()
+                            .accessibilityLabel(Text("An error has occurred. \(errorMessage)"))
+                        Button {
+                            viewModel.fetchData()
+                        } label: {
+                            Text(StringConstants.reload)
+                                .font(.appFontSmall)
+                                .foregroundColor(.themeOrangeLight)
+                                .padding(10)
+                        }
+                        .contentShape(Rectangle())
+                        .background(.white)
+                        .cornerRadius(10)
+                        .accessibilityLabel(Text("Retry"))
                     }
                 } else {
                     VStack {
                         if viewModel.nextRaceList.count == 0 {
-                            // Show error message when no races are available
+                            // Show a message when no races are available
                             VStack {
                                 Text(StringConstants.noRaceText)
                                     .foregroundColor(.white)
@@ -48,16 +62,15 @@ struct NextRaceView: View {
                                     .padding()
                             }
                         } else {
-                            // Show list of races. Extracted to a separate file RaceListView
-                            RaceListView(viewModel: viewModel)
-                        }
-                        // FIXME: - Remove reload button. Used for testing
-                        Button {
-                            viewModel.fetchData()
-                        } label: {
-                            Text(StringConstants.reload)
-                                .foregroundColor(.white)
-                                .padding()
+                            List(viewModel.nextRaceList, id: \.raceID) { race in
+                                RaceListItemView(race: race)
+                                    .accessibilityElement(children: .ignore)
+                                    .if(let: race.raceTitleAccessibility) { view, accessibility in
+                                        view.accessibilityLabel(Text(accessibility))
+                                    }
+                            }
+                            .listStyle(.inset)
+                            .listRowSeparator(.hidden)
                         }
                     }
                 }

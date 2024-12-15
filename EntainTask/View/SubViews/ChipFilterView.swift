@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// Uses the parent - NextRaceView's view model 
+/// to filter the data based on the selected chip
 struct ChipFilterView: View {
     @StateObject var viewModel: NextRaceViewModel
     var body: some View {
