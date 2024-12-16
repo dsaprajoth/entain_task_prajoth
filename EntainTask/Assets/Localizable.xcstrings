@@ -1,13 +1,13 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Entain Logo" : {
+    "%@" : {
+
+    },
+    "An error has occurred. %@" : {
 
     },
     "Entain Logo" : {
-
-    },
-    "Error: %@" : {
 
     },
     "Filter %@" : {
@@ -31,7 +31,7 @@
     "No race to display!" : {
 
     },
-    "Reload" : {
+    "Retry" : {
 
     }
   },
