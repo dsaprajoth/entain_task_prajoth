@@ -48,7 +48,7 @@ class NetworkManager: NetworkService {
     func fetch<T: Decodable>(url: URL?, responseType: T.Type) -> AnyPublisher<T, Error> {
         // Validate the URL more strictly using URLComponents
         guard let url = url,
-              let _ = URLComponents(url: url, resolvingAgainstBaseURL: false), // Ensure it's a valid URL component
+            URLComponents(url: url, resolvingAgainstBaseURL: false) != nil, // Ensure it's a valid URL component
               url.absoluteString.range(of: "^[a-zA-Z0-9+.-]+://", options: .regularExpression) != nil else {
             return Fail(error: NetworkError.invalidURL)
                 .eraseToAnyPublisher()
@@ -91,4 +91,3 @@ class NetworkManager: NetworkService {
             .eraseToAnyPublisher()
     }
 }
-

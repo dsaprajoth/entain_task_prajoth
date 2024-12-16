@@ -70,8 +70,7 @@ class NextRaceViewModel: ObservableObject {
                 self?.isLoading = false
                 switch completion {
                 case .finished:
-                    debugPrint("Data fetched successfully")
-                    break
+                    debugPrint("Data fetched successfully. Fallthrough to `receiveValue`")
                 case .failure(let error):
                     debugPrint("Failed to fetch data: \(error.localizedDescription)")
                     self?.errorMessage = error.localizedDescription

@@ -31,7 +31,7 @@ struct NextRaceView: View {
                 // Show loading indicator, error message or list of races
                 if viewModel.isLoading {
                     ProgressView(StringConstants.loading)
-                        .tint(.white)  
+                        .tint(.white)
                 } else if let errorMessage = viewModel.errorMessage {
                     VStack {
                         Text("\(errorMessage)")

@@ -331,6 +331,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A4E9E2BE2D0FE18B00D898E7 /* PBXTargetDependency */,
 			);
 			name = EntainTask;
 			productName = EntainTask;
@@ -501,6 +502,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A4E9E2BE2D0FE18B00D898E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = A4E9E2BD2D0FE18B00D898E7 /* SwiftLintBuildToolPlugin */;
+		};
 		A4F0383F2D0BD54D0015E41C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A4F0382C2D0BD54C0015E41C /* EntainTask */;
@@ -828,6 +833,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A4E9E2BD2D0FE18B00D898E7 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4F0386C2D0C470C0015E41C /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A4F038252D0BD54C0015E41C /* Project object */;
 }
