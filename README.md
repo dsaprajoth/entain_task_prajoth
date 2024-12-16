@@ -11,7 +11,7 @@
 10. [Scalability, Code Coverage & more](#scalability)
 
 # Project Brief & Requirements
-Entain project that displays a list of next 5 races to the user
+Entain project that displays a list of next 5 races to the user always with no race being older than a minute from the advertised start date.
 
 # Description
 <p>
@@ -75,7 +75,10 @@ You should see the app running on the simulator/device of your choice and render
   - `AssetConstants.swift`: Asset name references
   - `AccessibilityConstants.swift`: Accessibility identifiers and labels
   - `ColorConstants.swift`: Color name references from the asset catalog.
-* `Assets/`: This folder consists of string catalog, assets catalog file which hosts all icons, images and colors. It also has a <strong>mock.json</strong> file which is used in tests.
+* `Assets/`:
+  - `Localizable.xcstrings`: File containing localizable strings. Makes it very easy to add new languages.
+  - `Assets.xcassets`: Contains icons, images and color catalogs.
+  - `mock.json`: Mock response for testing purposes
 
 # Tests Folder Structure 
 * "Utils": Contains an utility class for tests for functions like fetching a mock json response for tests.
