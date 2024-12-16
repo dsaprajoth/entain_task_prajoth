@@ -31,6 +31,7 @@ struct NextRaceView: View {
                 // Show loading indicator, error message or list of races
                 if viewModel.isLoading {
                     ProgressView(StringConstants.loading)
+                        .tint(.white)  
                 } else if let errorMessage = viewModel.errorMessage {
                     VStack {
                         Text("\(errorMessage)")
@@ -53,7 +54,7 @@ struct NextRaceView: View {
                     }
                 } else {
                     VStack {
-                        if viewModel.nextRaceList.count == 0 {
+                        if viewModel.races.isEmpty {
                             // Show a message when no races are available
                             VStack {
                                 Text(StringConstants.noRaceText)
@@ -62,13 +63,20 @@ struct NextRaceView: View {
                                     .padding()
                             }
                         } else {
-                            List(viewModel.nextRaceList, id: \.raceID) { race in
-                                RaceListItemView(race: race)
-                                    .accessibilityElement(children: .ignore)
-                                    .if(let: race.raceTitleAccessibility) { view, accessibility in
-                                        view.accessibilityLabel(Text(accessibility))
-                                    }
+                            List(viewModel.races) { raceViewModel in
+                                RaceListItemView(viewModel: raceViewModel)
                             }
+
+//                            List(viewModel.nextRaceList, id: \.raceID) { race in
+//                                RaceListItemView(race: race)
+////                                    .onAppear {
+////                                        viewModel.subscribeToTimerFinished(for: race)
+////                                    }
+//                                    .accessibilityElement(children: .ignore)
+//                                    .if(let: race.raceTitleAccessibility) { view, accessibility in
+//                                        view.accessibilityLabel(Text(accessibility))
+//                                    }
+//                            }
                             .listStyle(.inset)
                             .listRowSeparator(.hidden)
                         }

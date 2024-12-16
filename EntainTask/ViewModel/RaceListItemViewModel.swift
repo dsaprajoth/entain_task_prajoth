@@ -8,70 +8,36 @@
 import SwiftUI
 import Combine
 
-class RaceListItemViewModel: ObservableObject {
+class RaceListItemViewModel: ObservableObject, Identifiable {
     @Published var timeRemainingString: String = ""
     @Published var isTimerFinished: Bool = false
 
     var race: RaceSummary
     var advertisedDate: Date
-    private var timer: AnyCancellable?
 
     init(race: RaceSummary) {
         self.race = race
         // Convert epoch time to Date
         self.advertisedDate = Date(timeIntervalSince1970: TimeInterval(race.advertisedStartValue))
-        updateTimeRemaining()
-        startTimer()
+        updateTimeRemaining(currentTime: Date()) // Initial calculation
     }
 
-    deinit {
-        stopTimer()
-    }
-
-    private func startTimer() {
-        timer = Timer.publish(every: 1.0, on: .main, in: .common)
-            .autoconnect()
-            .sink { [weak self] _ in
-                self?.updateTimeRemaining()
-            }
-    }
-
-    func updateTimeRemaining() {
-        let now = Date()
-        let timeInterval = advertisedDate.timeIntervalSince(now)
+    /// Updates the time remaining based on the global timer
+    func updateTimeRemaining(currentTime: Date) {
+        debugPrint(currentTime)
+        let timeInterval = advertisedDate.timeIntervalSince(currentTime)
 
         if timeInterval < -60 {
-            /// If the time interval is less than -60 seconds,
-            /// trigger a new fetch as we should not show races beyond a minute
-            /// from the advertised start time
             isTimerFinished = true
         } else {
-            // Update the time remaining string by formatting it
             timeRemainingString = AppUtils.formatTime(timeInterval)
+            debugPrint("timeRemainingString --> \(timeRemainingString)")
         }
     }
+}
 
-    /// Returns the color for the time remaining label 
-    /// based on the time interval range
-    var colorForTimeRemaining: Color {
-        let now = Date()
-        let timeInterval = advertisedDate.timeIntervalSince(now)
-
-        switch timeInterval {
-        case ...0:
-            return .red
-        case ...60:
-            return .orange
-        default:
-            return .green
-        }
-    }
-
-    private func stopTimer() {
-        timer?.cancel()
-    }
-
-    // Computed properties for the view to display
+extension RaceListItemViewModel {
+    // Extension that holds computed properties for the view to display
     var meetingName: String {
         race.meetingName ?? ""
     }
@@ -89,5 +55,21 @@ class RaceListItemViewModel: ObservableObject {
 
     var advertisedStartForDisplay: String {
         race.advertisedStartForDisplay
+    }
+
+    /// Returns the color for the time remaining label
+    /// based on the time interval range
+    var colorForTimeRemaining: Color {
+        let now = Date()
+        let timeInterval = advertisedDate.timeIntervalSince(now)
+
+        switch timeInterval {
+        case ...0:
+            return .red
+        case ...60:
+            return .orange
+        default:
+            return .green
+        }
     }
 }

@@ -61,6 +61,40 @@ class RaceListItemViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 2.0)
     }
 
+    func testTimeRemaining() {
+        // Given
+        let advertisedStartTime = Date().addingTimeInterval(60).timeIntervalSince1970 // 2 minutes from now
+        let mockRace: RaceSummary = .init(raceID: "1",
+                                          raceName: "Test Race",
+                                          raceNumber: 2,
+                                          meetingID: "meeting1",
+                                          meetingName: "Test Race Meeting",
+                                          categoryID: RaceType.horseRacing.categoryId,
+                                          advertisedStart: .init(
+                                            seconds: Int(advertisedStartTime)),
+                                          raceForm: nil,
+                                          venueID: "venue1",
+                                          venueName: "Test Venue",
+                                          venueState: "Test State",
+                                          venueCountry: "USA")
+        viewModel = RaceListItemViewModel(race: mockRace)
+        let currentTime = Date()
+
+//        // When
+//        viewModel.updateTimeRemaining(currentTime: currentTime)
+//
+//        // Then
+//        XCTAssertEqual(viewModel.timeRemainingString, "1m 0s", "The time remaining should be 1 minute")
+
+        // When
+        // Simulate 1 minute passing
+        let updatedTime = Date().addingTimeInterval(60)
+        viewModel.updateTimeRemaining(currentTime: updatedTime)
+
+        // Then
+        XCTAssertEqual(viewModel.timeRemainingString, "0s", "The timer should show 0 seconds after 1 minute")
+    }
+
     func testIsTimerFinishedUpdatesCorrectly() {
         // Given
         let advertisedStartTime = Date().addingTimeInterval(-61).timeIntervalSince1970 // 61 seconds in the past
@@ -80,7 +114,7 @@ class RaceListItemViewModelTests: XCTestCase {
 
         // When
         viewModel = RaceListItemViewModel(race: mockRace)
-        viewModel.updateTimeRemaining()
+        viewModel.updateTimeRemaining(currentTime: Date())
 
         // Then
         XCTAssertTrue(viewModel.isTimerFinished, "The isTimerFinished property should be true when time interval is less than -60 seconds.")

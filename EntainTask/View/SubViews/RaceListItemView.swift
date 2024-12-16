@@ -8,14 +8,9 @@
 import SwiftUI
 
 /// Has its own ViewModel and is responsible for displaying the race list item data
-/// along with maintaining the countdown timer for advertised start time
+/// and listens to the global timer running every second to update countdown
 struct RaceListItemView: View {
-    @StateObject var viewModel: RaceListItemViewModel
-
-    // Passing race object to RaceListItemViewModel
-    init(race: RaceSummary) {
-        _viewModel = StateObject(wrappedValue: RaceListItemViewModel(race: race))
-    }
+    @ObservedObject var viewModel: RaceListItemViewModel
 
     var body: some View {
         HStack {

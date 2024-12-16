@@ -41,7 +41,7 @@ class NextRaceViewModelTests: XCTestCase {
         viewModel.fetchData()
 
         // Then
-        viewModel.$nextRaceList
+        viewModel.$races
             .sink { data in
                 XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(data.count, 5)
@@ -108,7 +108,7 @@ class NextRaceViewModelTests: XCTestCase {
         viewModel.filter(by: .horseRacing)
 
         // Then
-        viewModel.$nextRaceList
+        viewModel.$races
             .sink { data in
                 XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(data.count, 2)
@@ -132,7 +132,7 @@ class NextRaceViewModelTests: XCTestCase {
         viewModel.filter(by: .harnessRacing)
 
         // Then
-        viewModel.$nextRaceList
+        viewModel.$races
             .sink { data in
                 XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(data.count, 2)
@@ -156,7 +156,7 @@ class NextRaceViewModelTests: XCTestCase {
         viewModel.filter(by: .greyHoundRacing)
 
         // Then
-        viewModel.$nextRaceList
+        viewModel.$races
             .sink { data in
                 XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(data.count, 1)
@@ -181,7 +181,7 @@ class NextRaceViewModelTests: XCTestCase {
         viewModel.filter(by: .greyHoundRacing)
 
         // Then
-        viewModel.$nextRaceList
+        viewModel.$races
             .sink { data in
                 XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(self.viewModel.selectedFilters.count, 2)
@@ -207,7 +207,7 @@ class NextRaceViewModelTests: XCTestCase {
         viewModel.filter(by: .harnessRacing)
 
         // Then
-        viewModel.$nextRaceList
+        viewModel.$races
             .sink { data in
                 XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(self.viewModel.selectedFilters.count, 2)
@@ -234,7 +234,7 @@ class NextRaceViewModelTests: XCTestCase {
         viewModel.filter(by: .greyHoundRacing)
 
         // Then
-        viewModel.$nextRaceList
+        viewModel.$races
             .sink { data in
                 XCTAssertNotNil(data, "Data should not be nil")
                 XCTAssertEqual(self.viewModel.selectedFilters.count, 0)
