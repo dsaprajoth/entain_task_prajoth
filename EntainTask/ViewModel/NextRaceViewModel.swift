@@ -10,10 +10,11 @@ import Foundation
 
 @MainActor
 class NextRaceViewModel: ObservableObject {
-    @Published var nextRaceList: [RaceSummary] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     @Published var raceListItemViewModels: [RaceListItemViewModel]? = []
+    @Published var races: [RaceListItemViewModel] = []
+    var racesViewModels: [RaceListItemViewModel] = []
 
     private var cancellables = Set<AnyCancellable>()
     private var countdownCancellables = Set<AnyCancellable>()
@@ -22,12 +23,43 @@ class NextRaceViewModel: ObservableObject {
     var selectedFilters: [RaceType] = []
     var raceListFromAPI: [RaceSummary] = []
 
-    // Allows dependency injection of any NetworkService conforming type (NetworkService or MockNetworkService)
+    // Allows dependency injection of any NetworkService conforming type (NetworkManager or MockNetworkManager)
     init(networkService: NetworkService) {
         self.networkService = networkService
+        observeGlobalTimer()
+    }
+
+    deinit {
+        TimerManager.shared.stopTimer()
+    }
+
+    /// Observes the global timer for updates
+    private func observeGlobalTimer() {
+        TimerManager.shared.$currentTime
+            .sink { [weak self] _ in
+                self?.updateRaces()
+            }
+            .store(in: &cancellables)
+    }
+
+    /// Updates each race's time and checks if data needs to be refreshed
+    private func updateRaces() {
+        var shouldFetch = false
+
+        for race in races {
+            race.updateTimeRemaining(currentTime: TimerManager.shared.currentTime)
+            if race.isTimerFinished {
+                shouldFetch = true
+            }
+        }
+
+        if shouldFetch {
+            fetchData()
+        }
     }
 
     func fetchData() {
+        countdownCancellables.removeAll()
         guard let url = URL(string: APIConstants.endpoint) else { return }
 
         errorMessage = nil
@@ -52,31 +84,12 @@ class NextRaceViewModel: ObservableObject {
                 self?.sortData()
                 // Pick the first 5 races from the list
                 self?.raceListFromAPI = Array(self?.raceListFromAPI.prefix(5) ?? [])
-                // Create countdown view models for every race (These are the child view models)
-                self?.raceListItemViewModels = self?.raceListFromAPI.map {
-                    RaceListItemViewModel(race: $0)
-                }
-                // Observe each child view model
-                guard let raceListItemViewModels = self?.raceListItemViewModels else { return }
-                for raceListItemViewModel in raceListItemViewModels {
-                    self?.observeChildViewModel(raceListItemViewModel)
-                }
-                // Clear the main list nextRaceList, copy the filtered and sorted list to the main list
-                self?.nextRaceList.removeAll()
-                self?.nextRaceList.append(contentsOf: self?.raceListFromAPI ?? [])
+
+                self?.races.removeAll()
+                self?.racesViewModels = self?.raceListFromAPI.map { RaceListItemViewModel(race: $0) } ?? []
+                self?.races.append(contentsOf: self?.racesViewModels ?? [])
             })
             .store(in: &cancellables)
-    }
-
-    func observeChildViewModel(_ childViewModel: RaceListItemViewModel) {
-        childViewModel.$isTimerFinished
-            .sink { [weak self] isFinished in
-                if isFinished {
-                    debugPrint("Timer has reached zero!")
-                    self?.fetchData()
-                }
-            }
-            .store(in: &countdownCancellables)
     }
 
     func filter(by raceType: RaceType) {
@@ -87,24 +100,14 @@ class NextRaceViewModel: ObservableObject {
             selectedFilters.append(raceType)
         }
 
-        var filteredList: [RaceSummary] = []
+        var filteredList: [RaceListItemViewModel] = []
         if selectedFilters.isEmpty {
-            filteredList.append(contentsOf: raceListFromAPI)
+            filteredList.append(contentsOf: racesViewModels)
         } else {
             let raceCategoryIds = selectedFilters.map { $0.categoryId }
-            filteredList = raceListFromAPI.filter { raceCategoryIds.contains($0.categoryID ?? "") }
+            filteredList = racesViewModels.filter { raceCategoryIds.contains($0.race.categoryID ?? "") }
         }
-        // Create countdown view models for every race (These are the child view models)
-//        self.countdownViewModels = filteredList.map {
-//            CountdownViewModel(epochTime: TimeInterval($0.advertisedStartValue))
-//        }
-//        // Observe each child view model
-//        guard let countdownViewModels = self.countdownViewModels else { return }
-//        for countdownViewModel in countdownViewModels {
-//            self.observeChildViewModel(countdownViewModel)
-//        }
-
-        self.nextRaceList = filteredList
+        races = filteredList
         sortData()
     }
 
@@ -119,5 +122,5 @@ class NextRaceViewModel: ObservableObject {
         // Sort the race list based on the advertised start time ascending
         self.raceListFromAPI.sort { $0.advertisedStart?.seconds ?? 0 < $1.advertisedStart?.seconds ?? 0 }
     }
-    
+
 }

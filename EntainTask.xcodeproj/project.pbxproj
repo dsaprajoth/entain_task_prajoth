@@ -28,6 +28,8 @@
 		A4E9E2AE2D0F1C5D00D898E7 /* MockRaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2AD2D0F1C5D00D898E7 /* MockRaceModel.swift */; };
 		A4E9E2B02D0F220000D898E7 /* RaceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2AF2D0F220000D898E7 /* RaceUtils.swift */; };
 		A4E9E2B22D0F342C00D898E7 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2B12D0F342C00D898E7 /* TestUtils.swift */; };
+		A4E9E2B52D0F96EB00D898E7 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2B42D0F96EB00D898E7 /* TimerManager.swift */; };
+		A4E9E2B82D0FB16900D898E7 /* TimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E2B72D0FB16900D898E7 /* TimerManagerTests.swift */; };
 		A4F038312D0BD54C0015E41C /* EntainTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */; };
 		A4F038332D0BD54C0015E41C /* NextRaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F038322D0BD54C0015E41C /* NextRaceView.swift */; };
 		A4F038352D0BD54D0015E41C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F038342D0BD54D0015E41C /* Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		A4E9E2AD2D0F1C5D00D898E7 /* MockRaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRaceModel.swift; sourceTree = "<group>"; };
 		A4E9E2AF2D0F220000D898E7 /* RaceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceUtils.swift; sourceTree = "<group>"; };
 		A4E9E2B12D0F342C00D898E7 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		A4E9E2B42D0F96EB00D898E7 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		A4E9E2B72D0FB16900D898E7 /* TimerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManagerTests.swift; sourceTree = "<group>"; };
 		A4F0382D2D0BD54C0015E41C /* EntainTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntainTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F038302D0BD54C0015E41C /* EntainTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntainTaskApp.swift; sourceTree = "<group>"; };
 		A4F038322D0BD54C0015E41C /* NextRaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceView.swift; sourceTree = "<group>"; };
@@ -183,6 +187,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		A4E9E2B62D0FB15E00D898E7 /* TimerManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E2B72D0FB16900D898E7 /* TimerManagerTests.swift */,
+			);
+			path = TimerManagerTests;
+			sourceTree = "<group>";
+		};
 		A4F038242D0BD54C0015E41C = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +242,7 @@
 		A4F038402D0BD54D0015E41C /* EntainTaskTests */ = {
 			isa = PBXGroup;
 			children = (
+				A4E9E2B62D0FB15E00D898E7 /* TimerManagerTests */,
 				A4E9E2B32D0F343000D898E7 /* Utils */,
 				A4E9E2AA2D0F0FA500D898E7 /* NetworkLayerTests */,
 				A4E9E2A92D0F0F8900D898E7 /* AppUtilTests */,
@@ -261,6 +274,7 @@
 			children = (
 				A4F0385A2D0BDB080015E41C /* NextRaceViewModel.swift */,
 				A4E9E2962D0DE1BE00D898E7 /* RaceListItemViewModel.swift */,
+				A4E9E2B42D0F96EB00D898E7 /* TimerManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -456,6 +470,7 @@
 				A4E9E2B02D0F220000D898E7 /* RaceUtils.swift in Sources */,
 				A4F038312D0BD54C0015E41C /* EntainTaskApp.swift in Sources */,
 				A4F0385D2D0BDB210015E41C /* APIConstants.swift in Sources */,
+				A4E9E2B52D0F96EB00D898E7 /* TimerManager.swift in Sources */,
 				A4E9E2992D0DE1C600D898E7 /* RaceListItemView.swift in Sources */,
 				A4E9E2972D0DE1BE00D898E7 /* RaceListItemViewModel.swift in Sources */,
 			);
@@ -468,6 +483,7 @@
 				A4E9E2AC2D0F11C900D898E7 /* NetworkManagerTests.swift in Sources */,
 				A4E9E2A12D0EEFAF00D898E7 /* MockNetworkManager.swift in Sources */,
 				A4E9E2AE2D0F1C5D00D898E7 /* MockRaceModel.swift in Sources */,
+				A4E9E2B82D0FB16900D898E7 /* TimerManagerTests.swift in Sources */,
 				A4E9E2A72D0F0B9E00D898E7 /* RaceMockData.swift in Sources */,
 				A4E9E2B22D0F342C00D898E7 /* TestUtils.swift in Sources */,
 				A4E9E2A32D0F014900D898E7 /* RaceListItemViewModelTests.swift in Sources */,
