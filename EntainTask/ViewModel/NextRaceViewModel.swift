@@ -33,7 +33,7 @@ class NextRaceViewModel: ObservableObject {
         TimerManager.shared.stopTimer()
     }
 
-    /// Observes the global timer for updates
+    /// Observes the global shared timer for countdown updates
     private func observeGlobalTimer() {
         TimerManager.shared.$currentTime
             .sink { [weak self] _ in
@@ -49,6 +49,7 @@ class NextRaceViewModel: ObservableObject {
         for race in races {
             race.updateTimeRemaining(currentTime: TimerManager.shared.currentTime)
             if race.isTimerFinished {
+                // race.isTimerFinished is true when one of the races go beyond a minute
                 shouldFetch = true
             }
         }
@@ -79,25 +80,28 @@ class NextRaceViewModel: ObservableObject {
                 self?.isLoading = false
                 self?.raceListFromAPI = data.data?.raceSummaries?.values.map { $0 } ?? []
                 // Filter out races beyond a minute from the advertised start time
-                self?.filterData()
-                // Sort the races based on the advertised start time
+                self?.dropIrrelevantData()
+                // Sort the races based on the advertised start time ascending
                 self?.sortData()
                 // Pick the first 5 races from the list
                 self?.raceListFromAPI = Array(self?.raceListFromAPI.prefix(5) ?? [])
 
-                self?.races.removeAll()
                 self?.racesViewModels = self?.raceListFromAPI.map { RaceListItemViewModel(race: $0) } ?? []
-                self?.races.append(contentsOf: self?.racesViewModels ?? [])
+                self?.races.removeAll()
+                self?.filter(by: nil) // Apply existing filters, if any
             })
             .store(in: &cancellables)
     }
 
-    func filter(by raceType: RaceType) {
+    func filter(by raceType: RaceType?) {
         countdownCancellables.removeAll()
-        if selectedFilters.contains(raceType) {
-            selectedFilters.removeAll { $0 == raceType }
-        } else {
-            selectedFilters.append(raceType)
+
+        if let raceType {
+            if selectedFilters.contains(raceType) {
+                selectedFilters.removeAll { $0 == raceType }
+            } else {
+                selectedFilters.append(raceType)
+            }
         }
 
         var filteredList: [RaceListItemViewModel] = []
@@ -111,7 +115,10 @@ class NextRaceViewModel: ObservableObject {
         sortData()
     }
 
-    func filterData() {
+}
+
+extension NextRaceViewModel {
+    func dropIrrelevantData() {
         // Ensure there are no races beyond a minute from the advertised start time
         let now = Date().timeIntervalSince1970
         let oneMinuteFromNow = now - 60

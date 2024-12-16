@@ -18,6 +18,21 @@ Entain project that displays a list of next 5 races to the user
 The project uses SwiftUI, Combine, XCTests and follows MVVM. Development was done on Xcode 15.4 with minimum deployment version set to 16.0.
 </p>
 
+<strong>App Screenshots & Videos</strong>
+| Next 5 Races | Filter Applied (Harness) | Filter Applied (Harness & Greyhounr) | Negative counter upto -60s |
+| --- | --- | --- | --- |
+| ![Simulator Screenshot - iPhone 15 Pro - 2024-12-16 at 14 09 45](https://github.com/user-attachments/assets/fd8e1792-b01f-4474-893f-5fa7764f034c) | ![Simulator Screenshot - iPhone 15 Pro - 2024-12-16 at 14 09 49](https://github.com/user-attachments/assets/41da2a0c-c986-4600-ab65-12aa277daa3f) | ![Simulator Screenshot - iPhone 15 Pro - 2024-12-16 at 14 09 52](https://github.com/user-attachments/assets/5ba1c87d-9a6b-4c7b-8e24-cc63f39272f2) | ![Simulator Screenshot - iPhone 15 Pro - 2024-12-16 at 14 10 03](https://github.com/user-attachments/assets/6040ed0e-aea2-4c32-89fd-39b3e8e51cc5)
+
+<strong>Refresh when a race time reaches beyond a minute from advertised start</strong>
+
+https://github.com/user-attachments/assets/4e18da84-88e3-4e11-b9e2-97b935bc8ea7
+
+<strong>Refresh when a race time reaches beyond a minute from advertised start - With Filters Applied</strong>
+
+https://github.com/user-attachments/assets/c2974375-e81a-4822-9528-45b2b7358e64
+
+
+
 # Getting started
 <p>
 1. Make sure you have the Xcode version 14.0 or above installed on your computer.<br>
@@ -58,6 +73,7 @@ You should see the app running on the simulator/device of your choice and render
 # Running the tests
 <p>This project is tested using the built-in framework ```XCTest```.<br>
 To start testing the project, use Command+U which runs all the tests in the project. For the functionality specific testing, please open the files either `NextRaceViewModelTests`, `RaceListItemViewModelTests` or `AppUtilsTests` and run the tests individually or all the tests in that file</p>
+An UI Test is also added to verify that the race list is visible along with it's UI labels.
 
 # Dependencies
 Swift Package Manager is used as a dependency manager.

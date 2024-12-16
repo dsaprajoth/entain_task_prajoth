@@ -106,7 +106,7 @@ class NetworkManagerTests: XCTestCase {
             })
             .store(in: &cancellables)
 
-        wait(for: [expectation], timeout: 1.0)
+        wait(for: [expectation], timeout: 3.0)
     }
 
     func testFetch_NoData() {

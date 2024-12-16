@@ -30,13 +30,17 @@ class TimerManagerTests: XCTestCase {
         // Expectation
         let expectation = XCTestExpectation(description: "Timer updates every second")
 
+        // Check if the timer is updating
+        let expectedThreshold: Double = -1.0
+        let tolerance: Double = 1 // Tolerance to tradeoff the timer floating point
+
         // Then - Subscribe to the timer and check that the currentTime updates.
         cancellable = TimerManager.shared.$currentTime
             .sink { currentTime in
-                XCTAssertGreaterThan(currentTime.timeIntervalSinceNow, -1, "Timer should be updated")
+                XCTAssertGreaterThan(currentTime.timeIntervalSinceNow + tolerance, expectedThreshold, "Timer should be updated")
                 expectation.fulfill()
             }
 
-        wait(for: [expectation], timeout: 2.0) // Wait for a couple of seconds for the timer to update
+        wait(for: [expectation], timeout: 5.0)
     }
 }

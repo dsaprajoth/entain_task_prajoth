@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+/// Model that helps decode the races response from API
 struct NextRacesResponse: Codable, Equatable {
     let status: Int?
     let data: RaceData?
@@ -53,21 +53,45 @@ struct RaceSummary: Codable, Equatable {
 }
 
 extension RaceSummary {
+    // util to extract the advertisedStartValue
     var advertisedStartValue: Int {
         self.advertisedStart?.seconds ?? 0
     }
+
+    // Converting epoch seconds to human readable string
     var advertisedStartForDisplay: String {
         AppUtils.convertEpochToDate(epochTime: TimeInterval(self.advertisedStartValue))
     }
+
+    // Custom accessibility label for every race list tile
     var raceTitleAccessibility: String? {
         if let meetingName = self.meetingName, let raceNumber = self.raceNumber {
+            let advertisedDate = Date(timeIntervalSince1970: TimeInterval(advertisedStartValue))
+            let timeInterval = advertisedDate.timeIntervalSince(Date.now)
+
+            let days = Int(timeInterval) / 86400
+            let hours = (Int(timeInterval) % 86400) / 3600
+            let minutes = (Int(timeInterval) % 3600) / 60
+            let seconds = Int(timeInterval) % 60
+
+            // Construct the components only if they are non-zero
+            var daysString = ""
+            var hoursString = ""
+            var minString = ""
+            var secString = ""
+            if days > 0 { daysString = "\(days)days" }
+            if hours > 0 { hoursString = "\(hours)hours" }
+            if minutes > 0 { minString = "\(minutes)minutes" }
+            secString = "\(seconds)seconds"
+
             let meetingStr = "Meeting \(meetingName)"
             let raceStr = "Race \(raceNumber)"
-            let timeStr = "Starting in \(AppUtils.formatTime(TimeInterval(self.advertisedStartValue)))"
+            let timeStr = "Starting in \(daysString) \(hoursString) \(minString) \(secString)"
             return "\(meetingStr) \(raceStr) \(timeStr)"
         }
         return ""
     }
+
     var icon: String {
         switch self.categoryID {
         case RaceType.horseRacing.categoryId:

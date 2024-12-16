@@ -28,16 +28,16 @@ class RaceListItemViewModel: ObservableObject, Identifiable {
         let timeInterval = advertisedDate.timeIntervalSince(currentTime)
 
         if timeInterval < -60 {
+            // Need to trigger a refresh as the race's start time has passed over a minute
             isTimerFinished = true
         } else {
             timeRemainingString = AppUtils.formatTime(timeInterval)
-            debugPrint("timeRemainingString --> \(timeRemainingString)")
         }
     }
 }
 
+// Extension that holds computed properties for the view to display
 extension RaceListItemViewModel {
-    // Extension that holds computed properties for the view to display
     var meetingName: String {
         race.meetingName ?? ""
     }

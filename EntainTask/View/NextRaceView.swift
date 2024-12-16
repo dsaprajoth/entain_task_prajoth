@@ -63,24 +63,19 @@ struct NextRaceView: View {
                                     .padding()
                             }
                         } else {
+                            // List of next 5 races
                             List(viewModel.races) { raceViewModel in
                                 RaceListItemView(viewModel: raceViewModel)
+                                    .accessibilityElement(children: .ignore)
+                                    .if(let: raceViewModel.race.raceTitleAccessibility) { view, accessibility in
+                                        view.accessibilityLabel(Text(accessibility))
+                                    }
                             }
-
-//                            List(viewModel.nextRaceList, id: \.raceID) { race in
-//                                RaceListItemView(race: race)
-////                                    .onAppear {
-////                                        viewModel.subscribeToTimerFinished(for: race)
-////                                    }
-//                                    .accessibilityElement(children: .ignore)
-//                                    .if(let: race.raceTitleAccessibility) { view, accessibility in
-//                                        view.accessibilityLabel(Text(accessibility))
-//                                    }
-//                            }
                             .listStyle(.inset)
                             .listRowSeparator(.hidden)
                         }
                     }
+                    .accessibilityIdentifier(AccessibilityIdentifiers.raceList)
                 }
                 Spacer()
             }

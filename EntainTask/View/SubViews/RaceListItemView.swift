@@ -29,14 +29,17 @@ struct RaceListItemView: View {
                         .foregroundColor(.themeOrangeLight)
                     Text(viewModel.meetingName)
                         .font(.appFontMediumMedium)
+                        .accessibilityIdentifier(AccessibilityIdentifiers.meetingNameLabel)
                 }
                 Text(viewModel.venue)
                     .font(.caption)
                     .foregroundColor(.secondary)
 
+                // epoch seconds converted to human readable format in a computed property
                 Text(viewModel.advertisedStartForDisplay)
                     .font(.caption)
                     .foregroundColor(.secondary)
+                    .accessibilityIdentifier(AccessibilityIdentifiers.countdownLabel)
             }
             Spacer()
             Text(viewModel.timeRemainingString)

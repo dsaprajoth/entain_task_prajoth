@@ -14,3 +14,9 @@ struct AccessibilityConstants {
     static let loading = String(localized: "Loading...")
     static let title = String(localized: "Next to Go Racing")
 }
+
+struct AccessibilityIdentifiers {
+    static let raceList = "raceList"
+    static let meetingNameLabel = "raceMeetingNameLabel"
+    static let countdownLabel = "countdownLabel"
+}
