@@ -24,7 +24,6 @@ class RaceListItemViewModel: ObservableObject, Identifiable {
 
     /// Updates the time remaining based on the global timer
     func updateTimeRemaining(currentTime: Date) {
-        debugPrint(currentTime)
         let timeInterval = advertisedDate.timeIntervalSince(currentTime)
 
         if timeInterval < -60 {

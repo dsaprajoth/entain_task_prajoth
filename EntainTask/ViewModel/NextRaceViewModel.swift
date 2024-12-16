@@ -72,7 +72,7 @@ class NextRaceViewModel: ObservableObject {
                 case .finished:
                     debugPrint("Data fetched successfully. Fallthrough to `receiveValue`")
                 case .failure(let error):
-                    debugPrint("Failed to fetch data: \(error.localizedDescription)")
+                    // Failed to fetch data
                     self?.errorMessage = error.localizedDescription
                 }
             }, receiveValue: { [weak self] data in
