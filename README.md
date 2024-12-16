@@ -51,20 +51,35 @@ You should see the app running on the simulator/device of your choice and render
 * As this app involves a single screen, there are no navigations but can definitely be added with less effort.
   
 # Folder Structure 
-* "Network": Contains the <strong>NetworkManager</strong> class conforming to NetworkService protocol which helps in injecting the URLSession to help mocking and testing the network layer
-* "View": This folder has the SwiftUI file NextRaceView which is the landing page of the app.
-* "View/Subviews": This folder has the SwiftUI files that are components of the parent screen NextRaceView which are split for readability and reusability. <strong>ChipFilterView</strong> is used to build the filter chips above the list and <strong>RaceListItemView</strong> is used to build each item in the race list.
-* "ViewModel": This folder houses the view models responsible for handling the state changes and making the view react to it. <strong>NextRaceViewModel</strong> handles data fetching and processing for the parent screen <strong>NextRaceView</strong> and <strong>RaceListItemViewModel</strong> handles <strong>RaceListItemView</strong> to display each race tile in the list with tasks such as maintaining the countdown timer and displaying race details.
-* "Model": This folder has the Codable models which help us decode the json response from the server into meaningful model objects. It also contains an extension to the <strong>RaceSummary</strong> type with computed properties for easy display purposes.
-* "Utils": This consists of
-  - AppUtils which has utility methods to convert epoch time to human readable date, utility to format the countdown time to a desirable format and to fetch a mock json response for tests.
-  - RaceUtils which contain race related utilities like categoryId constants, RaceType enum for identifying race types across the app.
-  - View+Extensions which has a modifier helper that helps apply a modifier post unwrapping an optional value. I have used this to unwrap strings and apply accessibility.
-* "Constants": This folder hosts all the static strings, endpoint, asset names and other constants.
-* "Assets": This folder consists of string catalog, assets catalog file which hosts all icons, images and colors. It also has a <strong>mock.json</strong> file which is used in tests.
+* `Network/`
+  - `NetworkManager.swift`: Class conforming to NetworkService protocol which helps in injecting the URLSession to help mocking and testing the network layer
+* `View/`
+  - `NextRaceView.swift`: NextRaceView is the landing/parent view of the app
+* `View/Subviews/`: This folder has the SwiftUI files that are components of the parent screen NextRaceView which are split for readability and reusability
+  - `ChipFilterView.swift`: <strong>`ChipFilterView`</strong> is used to build the filter chips above the list 
+  - `RaceListItemView.swift`: <strong>`RaceListItemView`</strong> is used to build each item in the race list
+* `ViewModel/`: This folder houses the view models responsible for handling the state changes and making the view react to it.
+  - `NextRaceViewModel.swift`: <strong>`NextRaceViewModel`</strong> handles data fetching and processing for the parent screen <strong>NextRaceView</strong>
+  - `RaceListItemViewModel.swift`: <strong>`RaceListItemViewModel`</strong> handles <strong>RaceListItemView</strong> to display each race tile in the list with tasks such as maintaining the countdown timer and displaying race details.
+  - `TimerManager.swift`: <strong>`TimerManager`</strong> manages the Singleton `TimerManager` instance to ensure all countdowns and data reloads are in sync.
+* `Model/`: This folder has the Codable models which help us decode the json response from the server into meaningful model objects.
+  - `NextRaceModel.swift`: `NextRaceModel` is the main model that decodes the API response. It also contains an extension to the <strong>RaceSummary</strong> type with computed properties for easy display purposes.
+* `Utils/`: 
+  - `AppUtils.swift`: `AppUtils` which has utility methods to convert epoch time to human readable date, utility to format the countdown time to a desirable format and to fetch a mock json response for tests.
+  - `RaceUtils.swift`: `RaceUtils` which contain race related utilities like categoryId constants, RaceType enum for identifying race types across the app.
+  - `View+Extensions.swift`: `View+Extensions` which has a modifier helper that helps apply a modifier post unwrapping an optional value. I have used this to unwrap strings and apply accessibility.
+* `Constants/`:
+  - `APIConstants.swift`: `APIConstants` `struct` has the endpoint
+  - `FontConstants.swift`: `Font` extension to manages custom fonts
+  - `StringConstants.swift`: String constants
+  - `AssetConstants.swift`: Asset name references
+  - `AccessibilityConstants.swift`: Accessibility identifiers and labels
+  - `ColorConstants.swift`: Color name references from the asset catalog.
+* `Assets/`: This folder consists of string catalog, assets catalog file which hosts all icons, images and colors. It also has a <strong>mock.json</strong> file which is used in tests.
 
 # Tests Folder Structure 
 * "Utils": Contains an utility class for tests for functions like fetching a mock json response for tests.
+* `TimerManagerTests` folder contains the tests related to `TimeManager` `ObservableObject`. 
 * "NetworkLayerTests": This folder contains tests related to `NetworkManager`. It has a `MockURLProtocol` which helps in intercepting and mocking.
 * "AppUtilTests": This folder contains app utility tests
 * "NextRaceViewModelTests": This folder contains a file to test the `NextRaceViewModel` on various scenarios. It makes use of `MockNetworkManager` to mock the response in order to manipulate data and check for view model correctness.
