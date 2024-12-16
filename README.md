@@ -87,11 +87,10 @@ If you come across any issues while using this project/app, please report them b
    - Filters out the races that are one minute past the advertised start
    - Sorts the races list by advertised start ascending
    - Triggers the view to display the relevant list of 5 races on screen
-4. Right before publishing the change to the view, the `NextRaceViewModel` also starts observing the child view models for each race `RaceListItemViewModel` in order to observe for the timer to notify of a race which has gone beyond a minute.
+4. A global timer is started and keeps notifying both view models of the time interval. `RaceListItemViewModel` listens to the timer and updates the countdown string displayed. `NextRaceViewModel` listens to the timer and checks if any of the timer has about to go beyond a minute.
 5. As it is notified, it calls the API again to fetch the new set of races as we have irrelavant list of races (race which is one minute past the advertised start)
 6. The `NextRaceViewModel` process the new list again as in Step 3 and the flow continues.
   
-
 # Accessibility
 1. App is made accessible by making the layouts responding to font scale changes and custom voice over text to the user to get accurate information of the UI on screen.
 
@@ -99,6 +98,7 @@ If you come across any issues while using this project/app, please report them b
 1. New modules and features can be easily added to this app
 2. NetworkManager is capable of handling any API calls to fetch data with also the flexibility to mock the responses specific to the feature.
 3. Strings are maintained in a String catalog for easy localisation as and when the need arises to support multiple languages.
+4. A shared TimerManager instance is used rather than each race having its own timer. This saves resources and helps keeping countdowns and related logic in sync.
 
 # Code Coverage
 - Currently the code coverage is <strong>93%</strong>
