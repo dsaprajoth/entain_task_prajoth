@@ -81,17 +81,29 @@ You should see the app running on the simulator/device of your choice and render
   - `mock.json`: Mock response for testing purposes
 
 # Tests Folder Structure 
-* "Utils": Contains an utility class for tests for functions like fetching a mock json response for tests.
-* `TimerManagerTests` folder contains the tests related to `TimeManager` `ObservableObject`. 
-* "NetworkLayerTests": This folder contains tests related to `NetworkManager`. It has a `MockURLProtocol` which helps in intercepting and mocking.
-* "AppUtilTests": This folder contains app utility tests
-* "NextRaceViewModelTests": This folder contains a file to test the `NextRaceViewModel` on various scenarios. It makes use of `MockNetworkManager` to mock the response in order to manipulate data and check for view model correctness.
-* "RaceListItemTests": This folder contains a file to test the `RaceListItemViewModel` on various scenarios. It makes use of `RaceMockData` to mock the race object within the test to check for view model correctness.
+* `TimerManagerTests/`
+  - `TimerManagerTests.swift`: Tests related to `TimeManager` to ensure timer correctness.  
+* `Utils/`
+  - `TestUtils.swift`: Contains an util to fetch mock json and map it to model
+* `NetworkLayerTests/`
+  - `MockURLSessionProtocol.swift`: To intercept and mock request
+  - `MockRaceModel.swift`: A mock model to simulate race object
+  - `NetworkManagerTests.swift`: `NetworkManager` related tests reside here
+* `AppUtilTests/`
+  - `AppUtilTests.swift`: Testing util methods mainly epoch conversion related
+* `NextRaceViewModelTests/`
+  - `MockNetworkManager.swift`: To mock the response in order to manipulate data and check for view model correctness
+  - `NextRaceViewModelTests.swift`: Tests to check the main view model correctness
+* `RaceListItemTests/`
+  - `RaceListItemViewModelTests.swift`: Testing the list item view model
+  - `RaceMockData.swift`: to mock the race object within the test to check for view model correctness.
+* `EntainTaskUITests/`
+  - `RaceistViewUITests.swift`: Contains UI Test for the main screen which checks for the list availability and also checks for list item elements.
 
 # Running the tests
-<p>This project is tested using the built-in framework ```XCTest```.<br>
+<p>This project is tested using the built-in framework `XCTest`.<br>
 To start testing the project, use Command+U which runs all the tests in the project. For the functionality specific testing, please open the files either `NextRaceViewModelTests`, `RaceListItemViewModelTests` or `AppUtilsTests` and run the tests individually or all the tests in that file</p>
-An UI Test is also added to verify that the race list is visible along with it's UI labels.
+An UI Test is also added to verify that the race list is visible along with it's UI labels. Please refer `RaceistViewUITests.swift`.
 
 # Dependencies
 Swift Package Manager is used as a dependency manager.
