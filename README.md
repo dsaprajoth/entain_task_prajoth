@@ -143,9 +143,10 @@ If you come across any issues while using this project/app, please report them b
 
 # Scalability
 1. New modules and features can be easily added to this app
-2. NetworkManager is capable of handling any API calls to fetch data with also the flexibility to mock the responses specific to the feature.
-3. Strings are maintained in a String catalog for easy localisation as and when the need arises to support multiple languages.
-4. A shared TimerManager instance is used rather than each race having its own timer. This saves resources and helps keeping countdowns and related logic in sync.
+2. `NetworkManager` is capable of handling any API calls to fetch data with also the flexibility to mock the responses specific to the feature.
+3. We can alternatively add another level of Repository/Service pattern for module specific requests and call `NetworkManager`'s `fetch()` request from there.
+4. Strings are maintained in a String catalog for easy localisation as and when the need arises to support multiple languages.
+5. A shared `TimerManager` instance is used rather than each race having its own timer. This saves resources and helps keeping countdowns and related logic in sync.
 
 # Code Coverage
 - Currently the code coverage is <strong>93%</strong>
