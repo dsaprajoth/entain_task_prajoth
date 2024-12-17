@@ -32,7 +32,6 @@ https://github.com/user-attachments/assets/4e18da84-88e3-4e11-b9e2-97b935bc8ea7
 https://github.com/user-attachments/assets/c2974375-e81a-4822-9528-45b2b7358e64
 
 
-
 # Getting started
 <p>
 1. Make sure you have the Xcode version 14.0 or above installed on your computer.<br>
@@ -44,6 +43,8 @@ You should see the app running on the simulator/device of your choice and render
 </p>
 
 # Architecture
+![diag](https://github.com/user-attachments/assets/4b55ec27-aca4-4fd8-8b11-daeb6cb99b50)
+
 * This project is implemented using the <strong>Model-View-ViewModel (MVVM)</strong> architecture pattern.
 * Model has data models required to map the API response into custom objects.
 * View is responsible for displaying the fetched data on screen with additional functionalities like filter.
